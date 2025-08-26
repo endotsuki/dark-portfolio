@@ -43,7 +43,7 @@ export default function Hero() {
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 sm:px-6 md:px-8 lg:px-10 pt-28 sm:pt-0">
-      {/* Animated Backgroun */}
+      {/* Animated Background */}
       <div className="absolute inset-0 bg-black">
         <div className="absolute inset-0 mesh-gradient-bg opacity-30"></div>
         <div className="absolute inset-0 grid-bg"></div>
