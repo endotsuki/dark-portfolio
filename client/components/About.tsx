@@ -14,7 +14,6 @@ import {
   Sprout,
   Camera,
   MessageCircle,
-  Terminal,
   User,
 } from "lucide-react";
 
@@ -43,17 +42,19 @@ const personalInfos = [
 
 const education = [
   {
-    degree: "Bachelor of Computer Science",
-    school: "Stanford University",
-    field: "Software Engineering & AI",
-    years: "2021 - 2022",
-  },
-  {
-    degree: "AWS Certified Solutions Architect",
-    school: "Amazon Web Services",
-    field: "Cloud Architecture",
+    degree: "Associate Degree in Web Development",
+    school: "Passerelles Numériques Cambodia (PNC)",
+    logo: "/pnc.png",
+    field: "Web Development",
     years: "2022 - 2024",
   },
+  {
+    degree: "Baccalaureate (Bac II)",
+    school: "Kampong Thom High School",
+    logo: "kpt-school.png",
+    field: "General Education",
+    years: "2021 - 2022",
+  }
 ];
 
 const interests = [
@@ -241,11 +242,15 @@ export default function About() {
                 </p>
               </div>
             </div>
-
-            {/* Education & Experience */}
+            {/* Education & Interest */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Education */}
-              <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/10 shadow-xl" data-aos='fade-up' data-aos-duration='600' data-aos-delay='200' >
+              <div
+                className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-5 border border-white/10 shadow-xl"
+                data-aos="fade-up"
+                data-aos-duration="600"
+                data-aos-delay="200"
+              >
                 <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
                   <GraduationCap className="w-6 h-6" />
                   Education
@@ -254,20 +259,20 @@ export default function About() {
                   {education.map((edu, index) => (
                     <div
                       key={index}
-                      className="flex items-center relative pl-8 pb-6 last:pb-0"
-                    >
-                      <div className="absolute left-0 transform -translate-x-1/2 w-px bg-stone-50 h-full top-0" />
-                      <div className="absolute left-0 transform -translate-x-1/2 w-4 h-4 rounded-full bg-stone-50 top-1" />
-                      {/* Education Content (Text on the right) */}
-                      <div className="">
+                      className="flex items-start gap-5 pb-6 last:pb-0">
+                      <img
+                        src={edu.logo}
+                        alt={`${edu.school} Logo`}
+                        className="w-14 h-14 rounded-full object-cover border border-white/20 bg-white"
+                      />
+                      {/* Education Content */}
+                      <div>
                         <h4 className="text-lg sm:text-xl md:text-xl text-gray-200 leading-relaxed">
                           {edu.degree}
                         </h4>
                         <p className="text-gray-400 mb-1">{edu.school}</p>
                         <p className="text-sm text-gray-500">{edu.field}</p>
-                        <p className="text-sm text-stone-50 mt-5">
-                          {edu.years}
-                        </p>
+                        <p className="text-sm text-stone-50 mt-2">{edu.years}</p>
                       </div>
                     </div>
                   ))}
@@ -276,7 +281,7 @@ export default function About() {
 
               {/* Interests */}
               <div
-                className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/10 shadow-xl" data-aos='fade-up' data-aos-duration='600' data-aos-delay='400'
+                className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-5 border border-white/10 shadow-xl" data-aos='fade-up' data-aos-duration='600' data-aos-delay='400'
               >
                 <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
                   <Camera className="w-6 h-6" />

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { motion } from "framer-motion";
-import { BriefcaseBusiness, Code2, Download, Home, Mail, Menu, User2Icon, X } from 'lucide-react';
+import { motion, AnimatePresence } from "framer-motion";
+import { BriefcaseBusiness, Code2, Home, Mail, Menu, User2Icon, X } from 'lucide-react';
 
 export function NavBar() {
   const [activeSection, setActiveSection] = useState('hero');
@@ -9,20 +9,15 @@ export function NavBar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
       const sections = ['hero', 'about', 'skills', 'experience', 'contact'];
-      const scrollPosition = window.scrollY + 100;
+      const scrollPosition = window.scrollY + 150; // Increased offset
 
       for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetHeight = element.offsetHeight;
-
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
-          }
+        const el = document.getElementById(section);
+        if (el && scrollPosition >= el.offsetTop && scrollPosition < el.offsetTop + el.offsetHeight) {
+          setActiveSection(section);
+          break;
         }
       }
     };
@@ -32,12 +27,21 @@ export function NavBar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const scrollTo = (id: string) => {
     setIsMobileMenuOpen(false);
+
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest'
+        });
+      } else {
+        console.warn(`Element with id "${id}" not found`);
+      }
+    }, 100);
   };
 
   const navItems = [
@@ -48,126 +52,135 @@ export function NavBar() {
     { id: 'contact', label: 'Contact', icon: Mail },
   ];
 
+  const containerClass = `transition-all duration-500 ${isScrolled || isMobileMenuOpen
+    ? 'bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl shadow-black/25'
+    : 'bg-black/20 backdrop-blur-md border border-white/5 rounded-3xl'
+    }`;
+
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? 'bg-black/10 backdrop-blur-md border-b border-slate-500 shadow-2xl'
-        : 'bg-transparent'
-        }`}>
-        <div className="mx-auto px-4 sm:px-6 lg:px-32">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo - Left Side */}
-            <div className="flex-1 flex items-center">
-              <button
-                onClick={() => scrollToSection('hero')}
-                className="flex items-center space-x-3 text-white font-bold text-xl hover:text-cyan-300 transition-all duration-300 group">
-                <div className="relative w-36 h-20">
-                  <img
-                    src="/logo.png"
-                    alt="Logo"
-                    width={32}
-                    height={32}
-                    className="w-full h-full object-contain transform transition-transform duration-300 group-hover:scale-110"
-                  />
-                </div>
-              </button>
-            </div>
-
-            {/* Desktop Navigation - Right Side */}
-            <div className="flex-1 flex justify-end">
-              <div className="flex-1 flex justify-end">
-                <div className="hidden lg:flex items-center gap-4">
+      <motion.nav
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'pt-5' : 'pt-3'}`}
+      >
+        <div className="mx-auto px-4 max-w-7xl">
+          {/* Desktop */}
+          <div className="hidden lg:flex">
+            <div className={`w-full mx-auto ${containerClass} ${isScrolled ? 'max-w-7xl' : 'max-w-5xl'}`}>
+              <div className="flex items-center justify-between px-6 py-3">
+                <motion.button
+                  onClick={() => scrollTo('hero')}
+                  className="text-white font-bold text-xl hover:text-blue-300 transition-all duration-300 group"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <img src="/logo.png" alt="Logo" className="w-32 h-12 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-lg" />
+                </motion.button>
+                <div className="flex items-center bg-white/5 rounded-xl p-1 gap-3 backdrop-blur-sm border border-white/10">
                   {navItems.map((item) => (
-                    <button
+                    <motion.button
                       key={item.id}
-                      onClick={() => scrollToSection(item.id)}
-                      className={`relative px-4 py-2.5 text-sm font-medium transition-all duration-300 rounded-2xl group flex items-center ${activeSection === item.id
-                        ? 'text-white bg-gray-800'
-                        : 'text-gray-300 hover:text-white hover:bg-white/10'
+                      onClick={() => scrollTo(item.id)}
+                      className={`relative px-4 py-3 text-sm font-medium rounded-lg flex items-center gap-2 transition-all duration-300 ${activeSection === item.id
+                        ? 'text-white bg-white/10 shadow-lg'
+                        : 'text-gray-300 hover:text-white hover:bg-white/5'
                         }`}
+                      whileHover={{ scale: 1.05 }}
                     >
-                      {item.icon && <item.icon className="h-4 w-4 mr-2" />}
+                      <item.icon className="h-4 w-4" />
                       {item.label}
                       {activeSection === item.id && (
                         <motion.div
-                          layoutId="active-pill"
-                          className="absolute inset-0 bg-gray-800 rounded-2xl -z-10 border border-gray-700"
+                          layoutId="activeDesktop"
+                          className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg border border-blue-400/30"
                           transition={{ type: "spring", stiffness: 400, damping: 25 }}
                         />
                       )}
-                    </button>
+                    </motion.button>
                   ))}
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Mobile Menu Button - Right Side */}
+          {/* Mobile */}
+          <div className="lg:hidden">
+            <div className={`${containerClass} relative z-50`}>
+              <div className="flex items-center justify-between px-6 py-3">
+                <motion.button
+                  onClick={() => scrollTo('hero')}
+                  className="text-white font-bold hover:text-blue-300 transition-all duration-300 group"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <img src="/logo.png" alt="Logo" className="w-28 h-10 object-contain group-hover:scale-110 transition-transform duration-300" />
+                </motion.button>
 
-            <div className="lg:hidden flex-1 flex justify-end">
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-white hover:text-slate-300 transition-colors p-2"
-              >
-                {isMobileMenuOpen ? (
+                <motion.button
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  className="p-2 text-white hover:text-blue-300 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <AnimatePresence mode="wait">
+                    {isMobileMenuOpen ? (
+                      <motion.div key="close" initial={{ rotate: -90 }} animate={{ rotate: 0 }} transition={{ duration: 0.2 }}>
+                        <X className="h-5 w-5" />
+                      </motion.div>
+                    ) : (
+                      <motion.div key="menu" initial={{ rotate: 90 }} animate={{ rotate: 0 }} transition={{ duration: 0.2 }}>
+                        <Menu className="h-5 w-5" />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.button>
+              </div>
+
+              <AnimatePresence>
+                {isMobileMenuOpen && (
                   <motion.div
-                    key="close"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
+                    className="border-t border-white/10"
                   >
-                    <X className="h-6 w-6" />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="menu"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <Menu className="h-6 w-6" />
+                    <div className="px-4 py-4 space-y-2">
+                      {navItems.map((item) => (
+                        <motion.button
+                          key={item.id}
+                          onClick={() => scrollTo(item.id)}
+                          className={`flex items-center w-full px-4 py-3 text-base font-medium rounded-xl transition-all duration-300 ${activeSection === item.id
+                            ? 'text-white bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30'
+                            : 'text-gray-300 hover:text-white hover:bg-white/5 border border-transparent'
+                            }`}
+                          whileHover={{ scale: 1.02 }}
+                        >
+                          <span className="flex items-center justify-center w-8 h-8 mr-3 rounded-lg bg-white/5">
+                            <item.icon className="h-4 w-4" />
+                          </span>
+                          {item.label}
+                        </motion.button>
+                      ))}
+                    </div>
                   </motion.div>
                 )}
-              </button>
+              </AnimatePresence>
             </div>
           </div>
         </div>
+      </motion.nav>
 
-        {/* Mobile Menu */}
-        <div className={`lg:hidden transition-all duration-300 overflow-hidden ${isMobileMenuOpen
-          ? 'max-h-[360px] bg-black/95 backdrop-blur-lg border-b border-white/10' // Fixed height
-          : 'max-h-0'
-          }`}>
-          <div className="px-4 py-4 space-y-2">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`flex items-center w-full text-left px-4 py-2.5 text-base font-medium transition-all duration-300 rounded-lg ${activeSection === item.id
-                  ? 'text-white bg-white/10 backdrop-blur-sm'
-                  : 'text-gray-300 hover:text-white hover:bg-white/5'
-                  }`}
-              >
-                {item.icon && (
-                  <span className="inline-flex mr-3">
-                    <item.icon className="h-5 w-5" />
-                  </span>
-                )}
-                {item.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </nav>
-
-      {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
-          onClick={() => setIsMobileMenuOpen(false)}
-        />
-      )}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-30 lg:hidden"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 }
