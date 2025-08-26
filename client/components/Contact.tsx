@@ -105,16 +105,7 @@ ${data.message}
   };
 
   return (
-    <section id="contact" className="overflow-hidden pt-16 px-2 relative">
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="absolute inset-0 opacity-10">
-          <div className="h-full w-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 2px, transparent 0)', backgroundSize: '50px 50px' }}></div>
-        </div>
-        <div className="absolute top-20 left-20 w-80 h-80 border border-white/10 rounded-full"></div>
-        <div className="absolute bottom-32 right-16 w-96 h-96 border border-white/5 rounded-full"></div>
-        <div className="absolute top-1/2 left-1/3 w-64 h-64 border border-white/5 rounded-full"></div>
-      </div>
-
+    <section id="contact" className="overflow-hidden bg-slate-950 pt-16 px-2 relative">
       <div className="relative z-10 py-20">
         <div className="max-w-7xl mx-auto">
           {/* Header */}

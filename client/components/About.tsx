@@ -16,6 +16,7 @@ import {
   MessageCircle,
   User,
 } from "lucide-react";
+import { PointerHighlight } from "@/components/ui/pointer-highlight";
 
 const journey = `I'm a passionate full-stack developer and designer with over 5 years of experience creating digital experiences that matter. My journey began with curiosity about how things work on the web, and it has evolved into a deep expertise in modern technologies.`;
 
@@ -93,7 +94,7 @@ const socials = [
 
 export default function About() {
   return (
-    <section id="about" className="overflow-hidden pt-28 px-2 relative">
+    <section id="about" className="overflow-hidden bg-slate-950 pt-28 px-2 relative">
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header Section */}
         <div className="text-center mb-12">
@@ -132,9 +133,12 @@ export default function About() {
                     />
                   </Avatar>
                 </div>
-                <h3 className="text-2xl font-bold text-center mb-1">
-                  SOCHEATH EK MAO
-                </h3>
+                <PointerHighlight
+                  rectangleClassName="bg-slate-700 border-neutral-400">
+                  <h3 className="text-2xl font-bold relative z-10 text-center mb-1">
+                    SOCHEATH EK MAO
+                  </h3>
+                </PointerHighlight>
                 <p className="text-gray-400 mb-6">Fullstack Developer</p>
 
                 {/* Quick Stats */}

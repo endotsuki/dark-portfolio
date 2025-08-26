@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion'
 import { Github, BriefcaseBusiness, Building2, MapPin, Dot, TvMinimalPlay, User, Clock, Box, MousePointerClick, User2, School } from 'lucide-react';
 import { Bootstrap5, Canva, CSS3, Figma, GitHubLight, HTML5, JavaScript, Laravel, MySQL, NextJs, PHP, Python, ReactQuery, ShadcnUI, TailwindCSS, TypeScript, VisualStudioCode, ViteJS, VueJs, WordPress } from 'developer-icons';
 
@@ -220,6 +219,7 @@ export default function Projects() {
               ))}
             </div>
 
+
             <div className={`flex gap-2 transition-all duration-500 ease-in-out ${hoveredProject === project.originalIndex || window.innerWidth < 640 ? 'max-h-16 opacity-100' : 'max-h-0 opacity-0'}`}>
               <a
                 href={project.github}
@@ -247,7 +247,7 @@ export default function Projects() {
   };
 
   return (
-    <section id="experience" className="overflow-hidden pt-28 px-2 relative">
+    <section id="experience" className="overflow-hidden bg-slate-950 pt-28 px-2 relative">
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16">

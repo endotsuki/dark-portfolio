@@ -53,8 +53,8 @@ export function NavBar() {
   ];
 
   const containerClass = `transition-all duration-500 ${isScrolled || isMobileMenuOpen
-    ? 'bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl shadow-black/25'
-    : 'bg-black/20 backdrop-blur-md border border-white/5 rounded-3xl'
+    ? 'bg-sky-900/20 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl shadow-black/25'
+    : 'bg-sky-900/20 backdrop-blur-xs border border-white/5 rounded-3xl'
     }`;
 
   return (
@@ -69,7 +69,7 @@ export function NavBar() {
           {/* Desktop */}
           <div className="hidden lg:flex">
             <div className={`w-full mx-auto ${containerClass} ${isScrolled ? 'max-w-7xl' : 'max-w-5xl'}`}>
-              <div className="flex items-center justify-between px-6 py-3">
+              <div className="flex items-center justify-between px-4 py-3">
                 <motion.button
                   onClick={() => scrollTo('hero')}
                   className="text-white font-bold text-xl hover:text-blue-300 transition-all duration-300 group"
@@ -77,12 +77,12 @@ export function NavBar() {
                 >
                   <img src="/logo.png" alt="Logo" className="w-32 h-12 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-lg" />
                 </motion.button>
-                <div className="flex items-center bg-white/5 rounded-xl p-1 gap-3 backdrop-blur-sm border border-white/10">
+                <div className="flex items-center bg-white/5 rounded-xl p-2 gap-3 backdrop-blur-sm border border-white/10">
                   {navItems.map((item) => (
                     <motion.button
                       key={item.id}
                       onClick={() => scrollTo(item.id)}
-                      className={`relative px-4 py-3 text-sm font-medium rounded-lg flex items-center gap-2 transition-all duration-300 ${activeSection === item.id
+                      className={`relative px-4 py-2.5 text-sm font-medium rounded-lg flex items-center gap-2 transition-all duration-300 ${activeSection === item.id
                         ? 'text-white bg-white/10 shadow-lg'
                         : 'text-gray-300 hover:text-white hover:bg-white/5'
                         }`}

@@ -12,6 +12,20 @@ export default {
         "2xl": "1400px",
       },
     },
+    animation: {
+      "meteor-effect": "meteor 5s linear infinite",
+    },
+    keyframes: {
+      meteor: {
+        "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
+        "70%": { opacity: "1" },
+        "100%": {
+          transform: "rotate(215deg) translateX(-500px)",
+          opacity: "0",
+        },
+      },
+    },
+    
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -69,26 +83,27 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        'cyber': ['Orbitron', 'monospace'],
-        'tech': ['Inter', 'sans-serif'],
+        cyber: ["Orbitron", "monospace"],
+        tech: ["Inter", "sans-serif"],
       },
       boxShadow: {
-        'glow': '0 0 20px rgba(255, 255, 255, 0.3)',
-        'glow-lg': '0 0 40px rgba(255, 255, 255, 0.4)',
-        'glow-xl': '0 0 60px rgba(255, 255, 255, 0.5)',
-        'neon-blue': '0 0 30px rgba(0, 255, 255, 0.5)',
-        'neon-purple': '0 0 30px rgba(147, 51, 234, 0.5)',
-        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
-        'inner-glow': 'inset 0 0 20px rgba(255, 255, 255, 0.1)',
-        'cyber': '0 0 30px rgba(0, 255, 255, 0.5), inset 0 0 30px rgba(0, 255, 255, 0.1)',
+        glow: "0 0 20px rgba(255, 255, 255, 0.3)",
+        "glow-lg": "0 0 40px rgba(255, 255, 255, 0.4)",
+        "glow-xl": "0 0 60px rgba(255, 255, 255, 0.5)",
+        "neon-blue": "0 0 30px rgba(0, 255, 255, 0.5)",
+        "neon-purple": "0 0 30px rgba(147, 51, 234, 0.5)",
+        glass: "0 8px 32px 0 rgba(31, 38, 135, 0.37)",
+        "inner-glow": "inset 0 0 20px rgba(255, 255, 255, 0.1)",
+        cyber:
+          "0 0 30px rgba(0, 255, 255, 0.5), inset 0 0 30px rgba(0, 255, 255, 0.1)",
       },
       backdropBlur: {
-        'xs': '2px',
+        xs: "2px",
       },
       spacing: {
-        '18': '4.5rem',
-        '88': '22rem',
-        '128': '32rem',
+        "18": "4.5rem",
+        "88": "22rem",
+        "128": "32rem",
       },
       // keyframes: {
       //   "accordion-down": {
@@ -140,11 +155,11 @@ export default {
       //     "100%": { transform: "translateY(100vh)" }
       //   },
       //   "cyber-pulse": {
-      //     "0%, 100%": { 
+      //     "0%, 100%": {
       //       boxShadow: "0 0 20px rgba(0, 255, 255, 0.3), inset 0 0 20px rgba(0, 255, 255, 0.1)",
       //       borderColor: "rgba(0, 255, 255, 0.3)"
       //     },
-      //     "50%": { 
+      //     "50%": {
       //       boxShadow: "0 0 40px rgba(0, 255, 255, 0.8), inset 0 0 40px rgba(0, 255, 255, 0.3)",
       //       borderColor: "rgba(0, 255, 255, 0.8)"
       //     }
@@ -198,26 +213,33 @@ export default {
       // },
       keyframes: {
         shine: {
-          '0%': { 'background-position': '100%' },
-          '100%': { 'background-position': '-100%' },
+          "0%": { "background-position": "100%" },
+          "100%": { "background-position": "-100%" },
         },
       },
       animation: {
-        shine: 'shine 5s linear infinite',
+        shine: "shine 5s linear infinite",
       },
       backgroundImage: {
-        "grid-pattern": "linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)",
-        "hero-gradient": "radial-gradient(ellipse at center, rgba(255,255,255,0.15) 0%, transparent 50%), linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #000000 50%, #0a0a0a 75%, #000000 100%)",
-        "cyber-grid": "linear-gradient(to right, rgba(0,255,255,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,255,255,0.1) 1px, transparent 1px)",
-        "glass-gradient": "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)",
-        "text-shimmer": "linear-gradient(90deg, transparent 30%, rgba(255,255,255,0.8) 50%, transparent 70%)",
-        "card-glow": "radial-gradient(600px circle at var(--x) var(--y), rgba(255,255,255,0.1), transparent 40%)",
-        "mesh-gradient": "radial-gradient(at 40% 20%, hsla(0,0%,100%,0.1) 0px, transparent 50%), radial-gradient(at 80% 0%, hsla(0,0%,100%,0.1) 0px, transparent 50%), radial-gradient(at 0% 50%, hsla(0,0%,100%,0.1) 0px, transparent 50%)",
+        "grid-pattern":
+          "linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)",
+        "hero-gradient":
+          "radial-gradient(ellipse at center, rgba(255,255,255,0.15) 0%, transparent 50%), linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #000000 50%, #0a0a0a 75%, #000000 100%)",
+        "cyber-grid":
+          "linear-gradient(to right, rgba(0,255,255,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,255,255,0.1) 1px, transparent 1px)",
+        "glass-gradient":
+          "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)",
+        "text-shimmer":
+          "linear-gradient(90deg, transparent 30%, rgba(255,255,255,0.8) 50%, transparent 70%)",
+        "card-glow":
+          "radial-gradient(600px circle at var(--x) var(--y), rgba(255,255,255,0.1), transparent 40%)",
+        "mesh-gradient":
+          "radial-gradient(at 40% 20%, hsla(0,0%,100%,0.1) 0px, transparent 50%), radial-gradient(at 80% 0%, hsla(0,0%,100%,0.1) 0px, transparent 50%), radial-gradient(at 0% 50%, hsla(0,0%,100%,0.1) 0px, transparent 50%)",
       },
       backgroundSize: {
-        "grid": "60px 60px",
+        grid: "60px 60px",
         "cyber-grid": "40px 40px",
-        "shimmer": "200% 100%",
+        shimmer: "200% 100%",
       },
     },
   },

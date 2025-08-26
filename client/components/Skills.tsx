@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { TypeScript, Python, React, Figma, GitHubLight, WordPress, JavaScript, HTML5, CSS3, Bootstrap5, TailwindCSS, VueJs, VisualStudioCode, Canva, Laravel, PHP, Jira, Photoshop } from "developer-icons";
 import { Terminal } from "lucide-react";
+import { Meteors } from "../components/ui/meteors";
 
 export default function Skills() {
   const skills = [
@@ -29,7 +30,7 @@ export default function Skills() {
   const groups = ["Programming Languages", "Frameworks & Libraries", "Tools & Platforms"];
 
   return (
-    <section id="skills" className="overflow-hidden pt-28 px-2 relative">
+    <section id="skills" className="overflow-hidden bg-slate-950 pt-28 px-2 relative">
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
@@ -78,38 +79,43 @@ export default function Skills() {
                       data-aos="fade-up"
                       data-aos-delay={delay}
                       data-aos-duration="600"
-                      className="group relative rounded-2xl p-5 bg-gradient-to-br from-gray-950 to-gray-900 border border-gray-800 transition-colors shadow-inner shadow-black/40 hover:shadow-lg hover:shadow-white/10 duration-300"
-                    >
-                      {/* Hover glow ring */}
-                      <div className="absolute inset-0 rounded-2xl pointer-events-none group-hover:ring-1 group-hover:ring-white/10 transition-all" />
-                      {/* Header Row */}
-                      <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-black/40">
-                          <Icon size={24} className="text-white" />
-                        </div>
-                        <div>
-                          {/* <h4 className="text-base font-semibold text-white leading-tight">{skill.name}</h4> */}
-                          <h4 className="text-lg sm:text-xl md:text-xl text-gray-200 leading-relaxed">{skill.name}</h4>
-                          <p className="text-base font-normal text-slate-400 leading-tight">
-                            {groupName === "Programming Languages"
-                              ? "Language"
-                              : groupName === "Tools & Platforms"
-                                ? "Tool / Platform"
-                                : "Framework / Library"}
-                          </p>
-                        </div>
+                      className="group relative rounded-2xl p-5 bg-gradient-to-br from-gray-950 to-gray-900 border border-gray-800 transition-colors shadow-inner shadow-black/40 hover:shadow-lg hover:shadow-white/10 duration-300 overflow-hidden">
+                      {/* Meteors inside card, behind content */}
+                      <div className="absolute inset-0 pointer-events-none z-0">
+                        <Meteors number={20} />
                       </div>
-                      {/* Proficiency Bar */}
-                      <div className="mt-4">
-                        <div className="flex justify-between text-sm font-normal text-slate-400 leading-tight mb-1">
-                          <span>Proficiency</span>
-                          <span className="text-white font-medium">{skill.level}%</span>
+                      {/* Card content above meteors */}
+                      <div className="relative z-10">
+                        {/* Hover glow ring */}
+                        <div className="absolute inset-0 rounded-2xl pointer-events-none transition-all" />
+                        {/* Header Row */}
+                        <div className="flex items-center gap-4">
+                          <div className="w-10 h-10 flex items-center justify-center rounded-full bg-black/40">
+                            <Icon size={24} className="text-white" />
+                          </div>
+                          <div>
+                            <h4 className="text-lg sm:text-xl md:text-xl text-gray-200 leading-relaxed">{skill.name}</h4>
+                            <p className="text-base font-normal text-slate-400 leading-tight">
+                              {groupName === "Programming Languages"
+                                ? "Language"
+                                : groupName === "Tools & Platforms"
+                                  ? "Tool / Platform"
+                                  : "Framework / Library"}
+                            </p>
+                          </div>
                         </div>
-                        <div className="relative w-full h-2 bg-gray-800 rounded-full overflow-hidden">
-                          <div
-                            className="absolute top-0 left-0 h-full bg-white rounded-full transition-[width] duration-[1200ms] ease-out"
-                            style={{ width: `${skill.level}%` }}
-                          />
+                        {/* Proficiency Bar */}
+                        <div className="mt-4">
+                          <div className="flex justify-between text-sm font-normal text-slate-400 leading-tight mb-1">
+                            <span>Proficiency</span>
+                            <span className="text-white font-medium">{skill.level}%</span>
+                          </div>
+                          <div className="relative w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+                            <div
+                              className="absolute top-0 left-0 h-full bg-white rounded-full transition-[width] duration-[1200ms] ease-out"
+                              style={{ width: `${skill.level}%` }}
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
