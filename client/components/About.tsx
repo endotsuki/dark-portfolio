@@ -92,7 +92,7 @@ export default function About() {
           </h2>
           <div className="w-24 h-px bg-white mx-auto mb-8"></div>
           <p className="text-lg sm:text-xl md:text-xl max-w-2xl mx-auto text-gray-200 leading-relaxed">
-            My toolkit for building scalable, beautiful experiences. Notffixed
+            My toolkit for building scalable, beautiful experiences.
           </p>
         </div>
 

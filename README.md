@@ -1,17 +1,15 @@
 # Fusion Starter
-
 A production-ready full-stack React application template with integrated Express server, featuring React Router 6 SPA mode, TypeScript, Vitest, Zod and modern tooling.
 
 While the starter comes with a express server, only create endpoint when strictly neccesary, for example to encapsulate logic that must leave in the server, such as private keys handling, or certain DB operations, db...
 
 ## Tech Stack
-
 - **Frontend**: React 18 + React Router 6 (spa) + TypeScript + Vite + TailwindCSS 3
 - **Backend**: Express server integrated with Vite dev server
 - **Testing**: Vitest
 - **UI**: [Radix UI](https://www.radix-ui.com) + [TailwindCSS 3](https://tailwindcss.com/) + [Tabler React icons](https://tabler.io/icons) + [Aceternity UI](https://ui.aceternity.com/components) + [React Bits](https://reactbits.dev/)
-## Project Structure
 
+## Project Structure
 ```
 client/                   # React SPA frontend
 ├── pages/                # Route components (Index.tsx = home)
@@ -29,7 +27,6 @@ shared/                   # Types used by both client & server
 ## SPA Routing System
 
 The routing system is powered by React Router 6:
-
 - `client/pages/Index.tsx` represents the home page.
 - Routes are defined in `client/App.tsx` using the `react-router-dom` import
 - Route files are located in the `client/pages/` directory
