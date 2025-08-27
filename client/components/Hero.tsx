@@ -45,18 +45,17 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 sm:px-6 md:px-8 lg:px-10 pt-28 sm:pt-0"
-    >
+      className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 sm:px-6 md:px-8 lg:px-10 pt-28 sm:pt-0">
       {/* Content Layer */}
       <div className="relative z-10 text-center max-w-6xl mx-auto">
         <div className="mb-8 space-y-4">
           <h2 className="text-6xl sm:text-6xl md:text-8xl font-black tracking-tight mb-10">
-            <span className="block text-gray-400/80 text-2xl sm:text-xl md:text-3xl font-bold tracking-tight mb-4">
-              {greetingText} <span className="font-light text-gray-300">I'm</span>
+            <span className="block text-neutral-400 text-2xl sm:text-xl md:text-4xl font-semibold tracking-tight mb-4">
+              {greetingText}
             </span>
             <span className="relative inline-block">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 via-white to-gray-300">
-                SOCHEATH
+              <span className='font-semibold text-6xl text-cyan-500'>I'm</span> SOCHEATH
               </span>
             </span>
           </h2>

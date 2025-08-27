@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { IconBox, IconBrandGithub, IconBriefcase, IconBuilding, IconBuildings, IconClock, IconDeviceDesktop, IconHandClick, IconMap, IconPoint, IconUser } from '@tabler/icons-react';
 import { Bootstrap5, Canva, CSS3, Figma, GitHubLight, HTML5, JavaScript, Laravel, MySQL, NextJs, PHP, Python, ReactQuery, ShadcnUI, TailwindCSS, TypeScript, VisualStudioCode, ViteJS, VueJs, WordPress } from 'developer-icons';
 
+
 const techIcons: Record<string, React.ReactNode> = {
   React: <ReactQuery className="w-6 h-6" />,
   Python: <Python className="w-6 h-6" />,

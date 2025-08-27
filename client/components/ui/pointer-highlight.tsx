@@ -90,7 +90,7 @@ export function PointerHighlight({
             }}
           >
             <Pointer
-              className={cn("h-5 w-5 text-blue-500", pointerClassName)}
+              className={cn("h-5 w-5 text-cyan-500", pointerClassName)}
             />
           </motion.div>
         </motion.div>
@@ -103,7 +103,7 @@ const Pointer = ({ ...props }: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       stroke="currentColor"
-      fill="none"
+      fill=""
       strokeWidth="1"
       strokeLinecap="round"
       strokeLinejoin="round"

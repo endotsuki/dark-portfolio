@@ -28,8 +28,8 @@ export default function Contact() {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const BOT_TOKEN = '7762199917:AAFvdAJQZRrZm_ouEoHHDGxPPMr4lUT6';
-  const CHAT_ID = '5058920890';
+  const BOT_TOKEN = '7762199917:AAFvdAJQZRrZm_ouEoHHDGxPPMr4lUT6T4Y';
+  const CHAT_ID = '5058242890';
 
   const sendToTelegram = async (data: typeof formData) => {
     const message = `🔔 *New Contact Form Submission*
