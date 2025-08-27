@@ -12,21 +12,27 @@ export default {
         "2xl": "1400px",
       },
     },
-    animation: {
-      "meteor-effect": "meteor 5s linear infinite",
-    },
-    keyframes: {
-      meteor: {
-        "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
-        "70%": { opacity: "1" },
-        "100%": {
-          transform: "rotate(215deg) translateX(-500px)",
-          opacity: "0",
-        },
-      },
-    },
-    
     extend: {
+      animation: {
+        "meteor-effect": "meteor 5s linear infinite",
+        shine: "shine 5s linear infinite",
+        // ...other custom animations
+      },
+      keyframes: {
+        meteor: {
+          "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
+          "70%": { opacity: "1" },
+          "100%": {
+            transform: "rotate(215deg) translateX(-500px)",
+            opacity: "0",
+          },
+        },
+        shine: {
+          "0%": { "background-position": "100%" },
+          "100%": { "background-position": "-100%" },
+        },
+        // ...other custom keyframes
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -211,15 +217,6 @@ export default {
       //   "fade-in-up": "fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
       //   "bounce-in": "bounce-in 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)",
       // },
-      keyframes: {
-        shine: {
-          "0%": { "background-position": "100%" },
-          "100%": { "background-position": "-100%" },
-        },
-      },
-      animation: {
-        shine: "shine 5s linear infinite",
-      },
       backgroundImage: {
         "grid-pattern":
           "linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)",

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Github, BriefcaseBusiness, Building2, MapPin, Dot, TvMinimalPlay, User, Clock, Box, MousePointerClick, User2, School } from 'lucide-react';
+import { IconBox, IconBrandGithub, IconBriefcase, IconBuilding, IconBuildings, IconClock, IconDeviceDesktop, IconHandClick, IconMap, IconPoint, IconUser } from '@tabler/icons-react';
 import { Bootstrap5, Canva, CSS3, Figma, GitHubLight, HTML5, JavaScript, Laravel, MySQL, NextJs, PHP, Python, ReactQuery, ShadcnUI, TailwindCSS, TypeScript, VisualStudioCode, ViteJS, VueJs, WordPress } from 'developer-icons';
 
 const techIcons: Record<string, React.ReactNode> = {
@@ -26,9 +26,9 @@ const techIcons: Record<string, React.ReactNode> = {
 };
 
 const categoryIcons = {
-  Company: Building2,
-  Personal: User2,
-  Academy: School,
+  Company: IconBuilding,
+  Personal: IconUser,
+  Academy: IconBuildings,
 };
 
 export default function Projects() {
@@ -150,7 +150,7 @@ export default function Projects() {
         className="group relative rounded-xl sm:rounded-2xl bg-gradient-to-br from-gray-950 to-gray-900 border border-gray-800 shadow-inner shadow-black/40 hover:shadow-lg hover:shadow-white/10 transition-all duration-300"
       >
         <div className="sm:hidden absolute bottom-3 right-3 flex items-center gap-1 text-xs text-gray-400 animate-pulse">
-          <MousePointerClick className="w-4 h-4" />
+          <IconHandClick className="w-4 h-4" />
           <span>Tap to see more</span>
         </div>
 
@@ -170,12 +170,12 @@ export default function Projects() {
               </h2>
               <div className="flex flex-wrap items-center gap-2 text-base font-normal text-slate-400 leading-tight">
                 <span className="flex items-center gap-1">
-                  <Building2 className="w-4 h-4 sm:w-4 sm:h-4" />
+                  <IconBuilding className="w-4 h-4 sm:w-4 sm:h-4" />
                   {project.companyName}
                 </span>
-                <Dot className="w-2 h-2" />
+                <IconPoint className="w-2 h-2" />
                 <span className="flex items-center gap-1">
-                  <MapPin className="w-4 h-4 sm:w-4 sm:h-4" />
+                  <IconMap className="w-4 h-4 sm:w-4 sm:h-4" />
                   {project.companyLocation}
                 </span>
               </div>
@@ -183,16 +183,16 @@ export default function Projects() {
 
             <div className="flex flex-wrap gap-2 items-center text-base font-normal text-slate-400 leading-tight">
               <span className="flex items-center gap-1 bg-gray-800 px-2 py-1 rounded-md">
-                <User className="w-4 h-4" />
+                <IconUser className="w-4 h-4" />
                 {project.role}
               </span>
               <span className="flex items-center gap-1">
-                <Clock className="w-4 h-4" />
+                <IconClock className="w-4 h-4" />
                 {project.duration}
               </span>
               <span>•</span>
               <span className="flex items-center gap-1 ">
-                <Box className="w-4 h-4" />
+                <IconBox className="w-4 h-4" />
                 {project.projectType}
               </span>
             </div>
@@ -227,7 +227,7 @@ export default function Projects() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 px-3 py-1.5 border border-gray-700 text-gray-300 hover:border-white hover:text-white transition-all hover:-translate-y-0.5 text-md rounded-md"
               >
-                <Github className="w-4 h-4" />
+                <IconBrandGithub className="w-4 h-4" />
                 <span>Code</span>
               </a>
               <a
@@ -236,7 +236,7 @@ export default function Projects() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 px-3 py-1.5 bg-white text-black hover:bg-gray-200 transition-all hover:-translate-y-0.5 text-md rounded-md"
               >
-                <TvMinimalPlay className="w-4 h-4" />
+                <IconDeviceDesktop className="w-4 h-4" />
                 <span>Live</span>
               </a>
             </div>
@@ -252,7 +252,7 @@ export default function Projects() {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/20 mb-4">
-            <BriefcaseBusiness className="w-5 h-5" />
+            <IconBriefcase className="w-5 h-5" />
             <span className="text-sm text-white font-medium tracking-wide">EXPERIENCE</span>
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-2 tracking-tight">

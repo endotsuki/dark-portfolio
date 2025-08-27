@@ -1,40 +1,27 @@
 import { motion } from "framer-motion";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Facebook, GitHubLight, LinkedIn, Telegram } from "developer-icons";
-import {
-  Download,
-  GraduationCap,
-  MapPin,
-  Mail,
-  Phone,
-  Coffee,
-  Lightbulb,
-  Plane,
-  BookOpen,
-  Sprout,
-  Camera,
-  MessageCircle,
-  User,
-} from "lucide-react";
+import { IconUserSquare, IconDownload, IconSchool, IconWalk, IconMap, IconMail, IconDeviceMobile, IconMessage } from "@tabler/icons-react";
 import { PointerHighlight } from "@/components/ui/pointer-highlight";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const journey = `I'm a passionate full-stack developer and designer with over 5 years of experience creating digital experiences that matter. My journey began with curiosity about how things work on the web, and it has evolved into a deep expertise in modern technologies.`;
 
 const personalInfos = [
   {
-    icon: MapPin,
+    icon: IconMap,
     handle: "San Francisco, CA",
     platform: "Location",
     link: "https://www.google.com/maps?q=San+Francisco,CA",
   },
   {
-    icon: Mail,
+    icon: IconMail,
     handle: "maosocheathek@gmail.com",
     platform: "Email",
     link: "mailto:maosocheathek@gmail.com",
   },
   {
-    icon: Phone,
+    icon: IconDeviceMobile,
     handle: "+1 (555) 123-4567",
     platform: "Phone",
     link: "tel:+15551234567",
@@ -56,13 +43,6 @@ const education = [
     field: "General Education",
     years: "2021 - 2022",
   }
-];
-
-const interests = [
-  { icon: Coffee, title: "Coffee", subtitle: "Enthusiast" },
-  { icon: Lightbulb, title: "Tech", subtitle: "Innovation" },
-  { icon: Plane, title: "Travel &", subtitle: "Culture" },
-  { icon: BookOpen, title: "Continuous", subtitle: "Learning" },
 ];
 
 const socials = [
@@ -99,7 +79,7 @@ export default function About() {
         {/* Header Section */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/20 mb-4">
-            <User className="w-5 h-5" />
+            <IconUserSquare className="w-5 h-5" />
             <span className="text-sm text-white font-medium tracking-wide">
               SKILLS
             </span>
@@ -121,7 +101,8 @@ export default function About() {
           {/* Left Column - Profile & Contact */}
           <div className="lg:col-span-4 space-y-8">
             {/* Profile Card */}
-            <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/10 shadow-xl" data-aos='fade-right' data-aos-duration='600'>
+            <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/10 shadow-xl relative" data-aos='fade-right' data-aos-duration='600'>
+              <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
               <div className="flex flex-col items-center">
                 <div className="relative mb-6">
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 blur-md opacity-60 animate-spin-slow" />
@@ -178,8 +159,8 @@ export default function About() {
                   >
                     <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700" />
                     <div className="relative h-5 w-5 overflow-hidden">
-                      <Download className="absolute top-0 left-0 w-5 h-5 text-white transition-transform duration-300 group-hover:translate-y-full" />
-                      <Download className="absolute top-0 left-0 w-5 h-5 text-white transition-transform duration-300 transform -translate-y-full group-hover:translate-y-0" />
+                      <IconDownload size={20} className="absolute top-0 left-0 text-white transition-transform duration-300 group-hover:translate-y-full" />
+                      <IconDownload size={20} className="absolute top-0 left-0 text-white transition-transform duration-300 transform -translate-y-full group-hover:translate-y-0" />
                     </div>
                     <span className="font-medium tracking-wide text-white">
                       Download CV
@@ -188,46 +169,15 @@ export default function About() {
                 </motion.div>
               </div>
             </div>
-
-            {/* Contact Information */}
-            <div
-              data-aos='fade-up' data-aos-duration='600'
-              className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/10 shadow-xl"
-            >
-              <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
-                <MessageCircle className="w-5 h-5" />
-                Contact Information
-              </h3>
-              <div className="space-y-4">
-                {personalInfos.map((info, index) => (
-                  <motion.a
-                    whileHover={{ y: -5 }}
-                    key={index}
-                    href={info.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative flex items-start gap-4 p-2 rounded-lg bg-gray-800/50 border border-white/5 overflow-hidden group transition-colors duration-300"
-                  >
-                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700" />
-                    <div className="p-2 rounded-lg bg-gray-800/50 border border-white/5 transition-colors">
-                      <info.icon className="w-5 h-5 text-gray-300 transition-colors" />
-                    </div>
-                    <div>
-                      <p className="text-gray-400 text-sm">{info.platform}</p>
-                      <p className="text-white font-medium">{info.handle}</p>
-                    </div>
-                  </motion.a>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* Right Column - Main Content */}
           <div className="lg:col-span-8 space-y-8">
             {/* My Journey */}
-            <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/10 shadow-xl" data-aos='fade-left' data-aos-duration='600' data-aos-delay='400'>
+            <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/10 shadow-xl relative" data-aos='fade-left' data-aos-duration='600' data-aos-delay='400'>
+              <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
               <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <Sprout className="w-6 h-6" />
+                <IconWalk className="w-6 h-6" />
                 My Professional Journey
               </h3>
               <div className="text-lg sm:text-xl md:text-xl text-gray-200 leading-relaxed max-w-none">
@@ -248,6 +198,36 @@ export default function About() {
             </div>
             {/* Education & Interest */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Contact Information */}
+              <div data-aos='fade-up' data-aos-duration='600'
+                className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/10 shadow-xl relative">
+                <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
+                <h3 className="text-2xl font-semibold mb-6 flex items-center gap-3">
+                  <IconMessage className="w-5 h-5" />
+                  Contact Information
+                </h3>
+                <div className="space-y-4">
+                  {personalInfos.map((info, index) => (
+                    <motion.a
+                      whileHover={{ y: -5 }}
+                      key={index}
+                      href={info.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative flex items-start gap-4 p-2 rounded-lg bg-gray-800/50 border border-white/5 overflow-hidden group transition-colors duration-300"
+                    >
+                      <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700" />
+                      <div className="p-2 rounded-lg bg-gray-800/50 border border-white/5 transition-colors">
+                        <info.icon className="w-5 h-5 text-gray-300 transition-colors" />
+                      </div>
+                      <div>
+                        <p className="text-gray-400 text-sm">{info.platform}</p>
+                        <p className="text-white font-medium">{info.handle}</p>
+                      </div>
+                    </motion.a>
+                  ))}
+                </div>
+              </div>
               {/* Education */}
               <div
                 className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-5 border border-white/10 shadow-xl"
@@ -255,8 +235,9 @@ export default function About() {
                 data-aos-duration="600"
                 data-aos-delay="200"
               >
-                <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                  <GraduationCap className="w-6 h-6" />
+                <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
+                <h3 className="text-2xl font-semibold mb-6 flex items-center gap-3">
+                  <IconSchool className="w-6 h-6" />
                   Education
                 </h3>
                 <div className="space-y-6">
@@ -279,35 +260,6 @@ export default function About() {
                         <p className="text-sm text-stone-50 mt-2">{edu.years}</p>
                       </div>
                     </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Interests */}
-              <div
-                className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-5 border border-white/10 shadow-xl" data-aos='fade-up' data-aos-duration='600' data-aos-delay='400'
-              >
-                <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                  <Camera className="w-6 h-6" />
-                  Interests & Hobbies
-                </h3>
-                <div className="grid grid-cols-2 gap-4 cursor-default">
-                  {interests.map((interest, index) => (
-                    <motion.div
-                      whileHover={{ y: -5 }}
-                      key={index}
-                      className="group relative flex flex-col items-center p-4 rounded-xl bg-gray-800/50 border border-white/5 overflow-hidden"
-                    >
-                      {/* Hover Sweep Effect */}
-                      <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700 pointer-events-none" />
-                      <interest.icon className="w-8 h-8 text-stone-50 mb-2 relative z-10" />
-                      <h4 className="text-white font-medium text-center relative z-10">
-                        {interest.title}
-                      </h4>
-                      <p className="text-gray-400 text-sm text-center relative z-10">
-                        {interest.subtitle}
-                      </p>
-                    </motion.div>
                   ))}
                 </div>
               </div>

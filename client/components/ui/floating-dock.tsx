@@ -5,7 +5,6 @@
  **/
 
 import { cn } from "@/lib/utils";
-import { ChevronUp } from "lucide-react";
 import {
   AnimatePresence,
   MotionValue,
@@ -13,7 +12,7 @@ import {
   useMotionValue,
   useSpring,
   useTransform,
-} from "framer-motion";
+} from "motion/react";
 
 import { useRef, useState } from "react";
 

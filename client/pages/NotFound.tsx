@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft } from 'lucide-react';
+import { IconArrowLeft } from '@tabler/icons-react';
 
 export default function NotFound() {
   const [text, setText] = useState('');
@@ -82,7 +82,7 @@ Don't worry, we can help you find your way back!`;
                   className="bg-green-600 hover:bg-green-700 text-black font-mono"
                 >
                   <Link to="/">
-                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    <IconArrowLeft className="mr-2 h-4 w-4" />
                     cd /home
                   </Link>
                 </Button>

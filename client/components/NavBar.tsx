@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
-import { BriefcaseBusiness, Code2, Home, Mail, Menu, User2Icon, X } from 'lucide-react';
+import { IconBriefcase, IconCode, IconHome, IconMail, IconMenu4, IconUserSquareRounded, IconX } from '@tabler/icons-react';
 
 export function NavBar() {
   const [activeSection, setActiveSection] = useState('hero');
@@ -45,11 +45,11 @@ export function NavBar() {
   };
 
   const navItems = [
-    { id: 'hero', label: 'Home', icon: Home },
-    { id: 'about', label: 'About', icon: User2Icon },
-    { id: 'skills', label: 'Skills', icon: Code2 },
-    { id: 'experience', label: 'Experience', icon: BriefcaseBusiness },
-    { id: 'contact', label: 'Contact', icon: Mail },
+    { id: 'hero', label: 'Home', icon: IconHome },
+    { id: 'about', label: 'About', icon: IconUserSquareRounded },
+    { id: 'skills', label: 'Skills', icon: IconCode },
+    { id: 'experience', label: 'Experience', icon: IconBriefcase },
+    { id: 'contact', label: 'Contact', icon: IconMail },
   ];
 
   const containerClass = `transition-all duration-500 ${isScrolled || isMobileMenuOpen
@@ -63,7 +63,7 @@ export function NavBar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'pt-5' : 'pt-3'}`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'pt-3' : 'pt-6'}`}
       >
         <div className="mx-auto px-4 max-w-7xl">
           {/* Desktop */}
@@ -124,11 +124,11 @@ export function NavBar() {
                   <AnimatePresence mode="wait">
                     {isMobileMenuOpen ? (
                       <motion.div key="close" initial={{ rotate: -90 }} animate={{ rotate: 0 }} transition={{ duration: 0.2 }}>
-                        <X className="h-5 w-5" />
+                        <IconX className="h-5 w-5" />
                       </motion.div>
                     ) : (
                       <motion.div key="menu" initial={{ rotate: 90 }} animate={{ rotate: 0 }} transition={{ duration: 0.2 }}>
-                        <Menu className="h-5 w-5" />
+                        <IconMenu4 className="h-5 w-5" />
                       </motion.div>
                     )}
                   </AnimatePresence>

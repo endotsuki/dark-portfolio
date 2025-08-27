@@ -3,9 +3,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2, Phone, Mail, Map, Send, SquareArrowOutUpRight, SendHorizonal, CheckCircle2, CircleX, Info } from 'lucide-react';
+import { IconBrandTelegram, IconBrowserShare, IconCircleCheck, IconCircleX, IconPhone, IconInfoCircle, IconLoader2, IconMail, IconMap2, IconSend2 } from '@tabler/icons-react';
 
-// Move Field component outside to prevent re-creation on every render
 const Field = ({ label, name, type = "text", ...props }: any) => (
   <div className="space-y-3">
     <label className="block text-white font-semibold text-sm uppercase tracking-wide">{label}</label>
@@ -20,17 +19,17 @@ export default function Contact() {
 
   // Contact data
   const contactInfo = [
-    { icon: Phone, label: 'Phone', value: '+855 86 397 836', href: 'tel:+85586397836', description: 'Call me directly' },
-    { icon: Send, label: 'Telegram', value: '@cheatzx', href: 'https://t.me/cheatzx', description: 'Quick chat on Telegram' },
-    { icon: Mail, label: 'Email', value: 'alex@example.com', href: 'mailto:alex@example.com', description: 'Professional inquiries' },
-    { icon: Map, label: 'Location', value: 'Sangkat Toeuk Thla, Khan Sen Sok, Phnom Penh, Cambodia.', href: '#', description: 'Available for meetings' }
+    { icon: IconPhone, label: 'Phone', value: '+855 86 397 836', href: 'tel:+85586397836', description: 'Call me directly' },
+    { icon: IconBrandTelegram, label: 'Telegram', value: '@cheatzx', href: 'https://t.me/cheatzx', description: 'Quick chat on Telegram' },
+    { icon: IconMail, label: 'Email', value: 'alex@example.com', href: 'mailto:alex@example.com', description: 'Professional inquiries' },
+    { icon: IconMap2, label: 'Location', value: 'Sangkat Toeuk Thla, Khan Sen Sok, Phnom Penh, Cambodia.', href: '#', description: 'Available for meetings' }
   ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const BOT_TOKEN = '7762199917:'; // Replace with your bot token
-  const CHAT_ID = '505824'; // Replace with your chat ID
+  const BOT_TOKEN = '7762199917:AAFvdAJQZRrZm_ouEoHHDGxPPMr4lUT6';
+  const CHAT_ID = '5058920890';
 
   const sendToTelegram = async (data: typeof formData) => {
     const message = `🔔 *New Contact Form Submission*
@@ -61,17 +60,17 @@ ${data.message}
     const options = {
       success: {
         title: "Success!",
-        icon: <CheckCircle2 className="w-5 h-5 text-green-500" />,
+        icon: <IconCircleCheck size={30} className=" text-green-500" />,
         text: "Your message was sent."
       },
       error: {
         title: "Error!",
-        icon: <CircleX className="w-5 h-5 text-red-500" />,
+        icon: <IconCircleX size={30} className="text-red-500" />,
         text: "Something went wrong. Please try again or contact me directly via Telegram."
       },
       connection: {
         title: "Connection Error!",
-        icon: <Info className="w-5 h-5 text-yellow-500" />,
+        icon: <IconInfoCircle size={30} className="text-yellow-500" />,
         text: "Unable to connect to server. Please check your internet connection and try again."
       }
     };
@@ -111,7 +110,7 @@ ${data.message}
           {/* Header */}
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/20 mb-4">
-              <Mail className="w-5 h-5" />
+              <IconMail className="w-5 h-5" />
               <span className="text-sm text-white font-medium tracking-wide">CONTACT</span>
             </div>
             <h2 className="text-5xl md:text-7xl font-black text-white mb-2 tracking-tight">
@@ -161,7 +160,7 @@ ${data.message}
                     <div className="flex-1">
                       <div className="flex items-center justify-between mb-2">
                         <h3 className="text-white font-bold text-lg">{c.label}</h3>
-                        <SquareArrowOutUpRight className="w-4 h-4 text-gray-400 group-hover:text-gray-300 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                        <IconBrowserShare size={20} className="text-gray-400 group-hover:text-gray-300 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
                       </div>
                       <p className="text-white font-medium mb-1">{c.value}</p>
                       <p className="text-gray-400 text-sm">{c.description}</p>
@@ -210,13 +209,13 @@ ${data.message}
                       <div className="relative z-10 flex items-center justify-center">
                         {isSubmitting ? (
                           <>
-                            <Loader2 className="h-6 w-6 animate-spin mr-3" />
+                            <IconLoader2 className="h-6 w-6 animate-spin mr-3" />
                             <span>Sending Message...</span>
                           </>
                         ) : (
                           <>
                             <span>Send Message</span>
-                            <SendHorizonal className="h-6 w-6 ml-3 transition-transform duration-300 group-hover:translate-x-1 relative top-[1.5px]" />
+                            <IconSend2 className="h-6 w-6 ml-3 transition-transform duration-300 group-hover:translate-x-1 relative top-[1.5px]" />
                           </>
                         )}
                       </div>
