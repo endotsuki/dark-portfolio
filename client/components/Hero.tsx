@@ -4,33 +4,27 @@ import { React, ShadcnUI, TailwindCSS, ViteJS } from 'developer-icons';
 import { IconBriefcase, IconChevronsRight, IconMail } from "@tabler/icons-react";
 import RotatingText from './Reactbits/RotatingText'
 import ShinyText from './Reactbits/ShinyText';
-import { BackgroundBeams } from "../components/ui/background-beams";
+import { ShootingStars } from "@/components/ui/shooting-stars";
+import { StarsBackground } from "@/components/ui/stars-background";
 
 export default function Hero() {
-
-  const items = [
-    { icon: <React />, color: 'blue', label: 'Files' },
-    { icon: <ShadcnUI />, color: 'purple', label: 'Books' },
-    { icon: <TailwindCSS />, color: 'red', label: 'Health' },
-    { icon: <ViteJS />, color: 'red', label: 'Health' },
-  ]
 
   const getGreeting = () => {
     const hour = new Date().getHours();
     if (hour >= 5 && hour < 12) {
-      return { text: 'Good morning' };
+      return { text: 'Good Morning' };
     } else if (hour >= 12 && hour < 18) {
-      return { text: 'Good afternoon' };
+      return { text: 'Good Afternoon' };
     } else {
-      return { text: 'Good evening' };
+      return { text: 'Good Evening' };
     }
   };
 
   const techStack = [
-    { icon: <React className="h-10 w-10" />, label: 'React' },
-    { icon: <ViteJS className="h-10 w-10" />, label: 'Vite' },
-    { icon: <TailwindCSS className="h-10 w-10" />, label: 'Tailwind CSS' },
-    { icon: <ShadcnUI className="h-10 w-10" />, label: 'Shadcn' },
+    { icon: <React size={45} />, label: 'React' },
+    { icon: <ViteJS size={45} />, label: 'Vite' },
+    { icon: <TailwindCSS size={45} />, label: 'Tailwind CSS' },
+    { icon: <ShadcnUI size={45} />, label: 'Shadcn' },
   ];
 
   const { text: greetingText } = getGreeting();
@@ -55,7 +49,7 @@ export default function Hero() {
             </span>
             <span className="relative inline-block">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 via-white to-gray-300">
-              <span className='font-semibold text-6xl text-cyan-500'>I'm</span> SOCHEATH
+                I'm <span className="text-blue-400">Alex Doe</span>
               </span>
             </span>
           </h2>
@@ -107,9 +101,9 @@ export default function Hero() {
             className="group relative overflow-hidden px-8 py-4 bg-white/10 text-white border border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-white/20 text-lg font-semibold transition-all duration-300"
           >
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700 pointer-events-none" />
-            <IconBriefcase size={24} className="mr-2 group-hover:rotate-12 transition-transform relative z-10" />
+            <IconBriefcase size={23} className="mr-2 group-hover:rotate-12 transition-transform relative z-10" />
             <span className="relative z-10">View My Work</span>
-            <IconChevronsRight size={20} className="ml-2 group-hover:translate-x-2 transition-transform relative z-10" />
+            <IconChevronsRight size={23} className="ml-2 group-hover:translate-x-2 transition-transform relative z-10" />
           </Button>
 
           <Button
@@ -121,7 +115,7 @@ export default function Hero() {
             <span className="absolute inset-0 overflow-hidden rounded">
               <span className="absolute inset-0 rounded bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
             </span>
-            <IconMail className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform z-10" />
+            <IconMail size={23} className="mr-2 group-hover:rotate-12 transition-transform z-10" />
             <span className="z-10">Let's Connect</span>
             <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
           </Button>
@@ -137,7 +131,7 @@ export default function Hero() {
               <motion.div
                 key={index}
                 className="flex items-center gap-2 p-3 bg-slate-800 backdrop-blur-xs border border-white/10 rounded-lg hover:bg-slate-700 transition-colors duration-300"
-                whileHover={{ scale: 1.05, rotate: -3 }}
+                whileHover={{ translate: 1.05, rotate: -3 }}
               >
                 {tech.icon}
                 <span className="text-sm text-gray-300">{tech.label}</span>
@@ -146,7 +140,8 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <BackgroundBeams className='bg-slate-900' />
+      <ShootingStars />
+      <StarsBackground />
     </section>
 
   );

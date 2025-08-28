@@ -77,8 +77,8 @@ export function PointerHighlight({
             initial={{ opacity: 0 }}
             whileInView={{
               opacity: 1,
-              x: dimensions.width + 0,
-              y: dimensions.height + 0,
+              x: dimensions.width - 1,
+              y: dimensions.height -1,
             }}
             style={{
               rotate: -90,

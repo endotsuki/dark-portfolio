@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { IconBox, IconBrandGithub, IconBriefcase, IconBuilding, IconBuildings, IconClock, IconDeviceDesktop, IconHandClick, IconMap, IconPoint, IconUser } from '@tabler/icons-react';
-import { Bootstrap5, Canva, CSS3, Figma, GitHubLight, HTML5, JavaScript, Laravel, MySQL, NextJs, PHP, Python, ReactQuery, ShadcnUI, TailwindCSS, TypeScript, VisualStudioCode, ViteJS, VueJs, WordPress } from 'developer-icons';
+import { Bootstrap5, Canva, CSS3, Figma, GitHubLight, HTML5, JavaScript, Laravel, MySQL, NextJs, PHP, Python, React, ShadcnUI, TailwindCSS, TypeScript, VisualStudioCode, ViteJS, VueJs, WordPress } from 'developer-icons';
 
 
 const techIcons: Record<string, React.ReactNode> = {
-  React: <ReactQuery className="w-6 h-6" />,
+  React: <React className="w-6 h-6" />,
   Python: <Python className="w-6 h-6" />,
   TypeScript: <TypeScript className="w-6 h-6" />,
   NextJs: <NextJs className="w-6 h-6" />,
@@ -70,7 +70,7 @@ export default function Projects() {
       role: 'UX/UI Designer',
       responsibility: 'Designed user-centric interfaces, implemented responsive layouts with Tailwind CSS, optimized performance for mobile devices, and integrated Shadcn UI components for a modern look.',
       duration: 'Jul 2025 - Present',
-      tech: ['NextJs', 'TailwindCSS', 'ViteJS', 'ShadcnUI'],
+      tech: ['NextJs', 'Tailwind', 'ViteJS', 'ShadcnUI'],
       category: 'Personal',
       github: 'https://github.com',
       live: 'https://aboutyoureadmore.online/',

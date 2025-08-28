@@ -5,7 +5,9 @@ import { IconUserSquare, IconDownload, IconSchool, IconWalk, IconMap, IconMail, 
 import { PointerHighlight } from "@/components/ui/pointer-highlight";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 
-const journey = `I'm a passionate full-stack developer and designer with over 5 years of experience creating digital experiences that matter. My journey began with curiosity about how things work on the web, and it has evolved into a deep expertise in modern technologies.`;
+const journey1 = `I'm a passionate full-stack developer and designer with over 5 years of experience creating digital experiences that matter. My journey began with curiosity about how things work on the web, and it has evolved into a deep expertise in modern technologies.`;
+const journey2 = `I specialize in React, Node.js, and cloud technologies, but what sets me apart is my ability to bridge the gap between design and development. I don't just build applications I craft experiences that users love and businesses depend on.`;
+const journey3 = `When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community through talks and mentoring.`;
 
 const personalInfos = [
   {
@@ -79,7 +81,7 @@ export default function About() {
         {/* Header Section */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/20 mb-4">
-            <IconUserSquare className="w-5 h-5" />
+            <IconUserSquare size={23} />
             <span className="text-sm text-white font-medium tracking-wide">
               SKILLS
             </span>
@@ -126,17 +128,16 @@ export default function About() {
                 <div className="grid grid-cols-2 gap-4 cursor-default w-full mb-6">
                   {socials.map((social, index) => (
                     <motion.a
-                      whileHover={{ y: -5 }}
+                      // whileHover={{ y: -5 }}
                       key={index}
                       href={social.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative flex items-center gap-3 p-3 rounded-lg bg-gray-800/50 border border-white/5 overflow-hidden group transition-colors duration-300"
-                    >
+                      className="relative flex items-center gap-3 p-3 rounded-lg bg-gray-800/50 border border-white/5 overflow-hidden group transition-colors duration-300">
                       {/* Sweep Effect */}
-                      <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700" />
-                      <social.icon className="w-5 h-5 text-gray-300 group-hover:text-cyan-400 transition-colors" />
-                      <div>
+                      {/* <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700" /> */}
+                      <social.icon size={30} className="group-hover:translate-x-14 transition-all text-gray-300 group-hover:text-cyan-400" />
+                      <div className="group-hover:translate-x-32 transition-all">
                         <p className="text-white font-medium text-sm">
                           {social.platform}
                         </p>
@@ -177,23 +178,13 @@ export default function About() {
             <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/10 shadow-xl relative" data-aos='fade-left' data-aos-duration='600' data-aos-delay='400'>
               <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
               <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <IconWalk className="w-6 h-6" />
+                <IconWalk size={23} />
                 My Professional Journey
               </h3>
               <div className="text-lg sm:text-xl md:text-xl text-gray-200 leading-relaxed max-w-none">
-                <p className="text-gray-300 mb-4">{journey}</p>
-                <p className="text-gray-300 mb-4">
-                  I specialize in React, Node.js, and cloud technologies, but
-                  what sets me apart is my ability to bridge the gap between
-                  design and development. I don't just build applications—I
-                  craft experiences that users love and businesses depend on.
-                </p>
-                <p className="text-gray-300">
-                  When I'm not coding, you'll find me exploring new
-                  technologies, contributing to open-source projects, or sharing
-                  knowledge with the developer community through talks and
-                  mentoring.
-                </p>
+                <p className="text-gray-300 mb-4">{journey1}</p>
+                <p className="text-gray-300 mb-4">{journey2}</p>
+                <p className="text-gray-300">{journey3}</p>
               </div>
             </div>
             {/* Education & Interest */}
@@ -203,7 +194,7 @@ export default function About() {
                 className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/10 shadow-xl relative">
                 <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
                 <h3 className="text-2xl font-semibold mb-6 flex items-center gap-3">
-                  <IconMessage className="w-5 h-5" />
+                  <IconMessage size={23}/>
                   Contact Information
                 </h3>
                 <div className="space-y-4">
@@ -218,7 +209,7 @@ export default function About() {
                     >
                       <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700" />
                       <div className="p-2 rounded-lg bg-gray-800/50 border border-white/5 transition-colors">
-                        <info.icon className="w-5 h-5 text-gray-300 transition-colors" />
+                        <info.icon size={23} className="text-gray-300 transition-colors" />
                       </div>
                       <div>
                         <p className="text-gray-400 text-sm">{info.platform}</p>
@@ -237,7 +228,7 @@ export default function About() {
               >
                 <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
                 <h3 className="text-2xl font-semibold mb-6 flex items-center gap-3">
-                  <IconSchool className="w-6 h-6" />
+                  <IconSchool size={23} />
                   Education
                 </h3>
                 <div className="space-y-6">
@@ -247,7 +238,6 @@ export default function About() {
                       className="flex items-start gap-5 pb-6 last:pb-0">
                       <img
                         src={edu.logo}
-                        alt={`${edu.school} Logo`}
                         className="w-14 h-14 rounded-full object-cover border border-white/20 bg-white"
                       />
                       {/* Education Content */}

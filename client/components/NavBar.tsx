@@ -72,10 +72,9 @@ export function NavBar() {
               <div className="flex items-center justify-between px-4 py-3">
                 <motion.button
                   onClick={() => scrollTo('hero')}
-                  className="text-white font-bold text-xl hover:text-blue-300 transition-all duration-300 group"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <img src="/logo.png" alt="Logo" className="w-32 h-12 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-lg" />
+                  className="text-white font-bold text-xl ml-3 hover:text-blue-300 transition-all duration-300 group"
+                  whileHover={{ scale: 1.05 }}>
+                  SOCHEATH
                 </motion.button>
                 <div className="flex items-center bg-white/5 rounded-xl p-2 gap-3 backdrop-blur-sm border border-white/10">
                   {navItems.map((item) => (
@@ -83,12 +82,11 @@ export function NavBar() {
                       key={item.id}
                       onClick={() => scrollTo(item.id)}
                       className={`relative px-4 py-2.5 text-sm font-medium rounded-lg flex items-center gap-2 transition-all duration-300 ${activeSection === item.id
-                        ? 'text-white bg-white/10 shadow-lg'
+                        ? 'text-white shadow-lg'
                         : 'text-gray-300 hover:text-white hover:bg-white/5'
                         }`}
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <item.icon className="h-4 w-4" />
+                      whileHover={{ scale: 1.05 }}>
+                      <item.icon size={20} />
                       {item.label}
                       {activeSection === item.id && (
                         <motion.div
@@ -113,7 +111,7 @@ export function NavBar() {
                   className="text-white font-bold hover:text-blue-300 transition-all duration-300 group"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <img src="/logo.png" alt="Logo" className="w-28 h-10 object-contain group-hover:scale-110 transition-transform duration-300" />
+                  SOCHEATH
                 </motion.button>
 
                 <motion.button
@@ -124,11 +122,11 @@ export function NavBar() {
                   <AnimatePresence mode="wait">
                     {isMobileMenuOpen ? (
                       <motion.div key="close" initial={{ rotate: -90 }} animate={{ rotate: 0 }} transition={{ duration: 0.2 }}>
-                        <IconX className="h-5 w-5" />
+                        <IconX size={23} />
                       </motion.div>
                     ) : (
                       <motion.div key="menu" initial={{ rotate: 90 }} animate={{ rotate: 0 }} transition={{ duration: 0.2 }}>
-                        <IconMenu4 className="h-5 w-5" />
+                        <IconMenu4 size={23} />
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -155,8 +153,8 @@ export function NavBar() {
                             }`}
                           whileHover={{ scale: 1.02 }}
                         >
-                          <span className="flex items-center justify-center w-8 h-8 mr-3 rounded-lg bg-white/5">
-                            <item.icon className="h-4 w-4" />
+                          <span className="flex items-center justify-center w-10 h-10 mr-3 rounded-lg bg-white/5">
+                            <item.icon size={20} />
                           </span>
                           {item.label}
                         </motion.button>

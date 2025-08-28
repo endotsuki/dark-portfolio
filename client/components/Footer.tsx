@@ -8,7 +8,7 @@ export function Footer() {
       icon: (
         <GitHubLight className="h-full w-full" />
       ),
-      href: "https://github.com/zukazaa",
+      href: "https://github.com/onimuxha",
     },
 
     {
