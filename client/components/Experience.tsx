@@ -1,44 +1,48 @@
 import { useState } from 'react';
-import { IconBox, IconBrandGithub, IconBriefcase, IconBuilding, IconBuildings, IconClock, IconDeviceDesktop, IconHandClick, IconMap, IconPoint, IconUser } from '@tabler/icons-react';
+import { IconBriefcase, IconBrandGithub, IconDeviceDesktop, IconMap, IconCategory, IconArrowRight } from '@tabler/icons-react';
 import { Bootstrap5, Canva, CSS3, Figma, GitHubLight, HTML5, JavaScript, Laravel, MySQL, NextJs, PHP, Python, React, ShadcnUI, TailwindCSS, TypeScript, VisualStudioCode, ViteJS, VueJs, WordPress } from 'developer-icons';
 
-
 const techIcons: Record<string, React.ReactNode> = {
-  React: <React className="w-6 h-6" />,
-  Python: <Python className="w-6 h-6" />,
-  TypeScript: <TypeScript className="w-6 h-6" />,
-  NextJs: <NextJs className="w-6 h-6" />,
-  Figma: <Figma className="w-6 h-6" />,
-  GitHub: <GitHubLight className="w-6 h-6" />,
-  WordPress: <WordPress className="w-6 h-6" />,
-  JavaScript: <JavaScript className="w-6 h-6" />,
-  HTML: <HTML5 className="w-6 h-6" />,
-  CSS: <CSS3 className="w-6 h-6" />,
-  Bootstrap: <Bootstrap5 className="w-6 h-6" />,
-  Tailwind: <TailwindCSS className="w-6 h-6" />,
-  VSCode: <VisualStudioCode className="w-6 h-6" />,
-  Canva: <Canva className="w-6 h-6" />,
-  Laravel: <Laravel className="w-6 h-6" />,
-  PHP: <PHP className="w-6 h-6" />,
-  VueJs: <VueJs className="w-6 h-6" />,
-  MySQL: <MySQL className="w-6 h-6" />,
-  ViteJS: <ViteJS className="w-6 h-6" />,
-  ShadcnUI: <ShadcnUI className="w-6 h-6" />,
+  React: <React className="w-4 h-4" />,
+  Python: <Python className="w-4 h-4" />,
+  TypeScript: <TypeScript className="w-4 h-4" />,
+  NextJs: <NextJs className="w-4 h-4" />,
+  Figma: <Figma className="w-4 h-4" />,
+  GitHub: <GitHubLight className="w-4 h-4" />,
+  WordPress: <WordPress className="w-4 h-4" />,
+  JavaScript: <JavaScript className="w-4 h-4" />,
+  HTML: <HTML5 className="w-4 h-4" />,
+  CSS: <CSS3 className="w-4 h-4" />,
+  Bootstrap: <Bootstrap5 className="w-4 h-4" />,
+  Tailwind: <TailwindCSS className="w-4 h-4" />,
+  VSCode: <VisualStudioCode className="w-4 h-4" />,
+  Canva: <Canva className="w-4 h-4" />,
+  Laravel: <Laravel className="w-4 h-4" />,
+  PHP: <PHP className="w-4 h-4" />,
+  VueJs: <VueJs className="w-4 h-4" />,
+  MySQL: <MySQL className="w-4 h-4" />,
+  ViteJS: <ViteJS className="w-4 h-4" />,
+  ShadcnUI: <ShadcnUI className="w-4 h-4" />,
 };
 
-const categoryIcons = {
-  Company: IconBuilding,
-  Personal: IconUser,
-  Academy: IconBuildings,
-};
+// Divider component for categories
+const CategoryDivider = ({ category }: { category: string }) => (
+  <div className="flex items-center my-10">
+    <div className="flex-grow border-t border-gray-300" />
+    <h3 className="mx-4 text-2xl font-semibold uppercase tracking-wider">
+      {category}
+    </h3>
+    <div className="flex-grow border-t border-gray-300" />
+  </div>
+);
 
 export default function Projects() {
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [savedProjects, setSavedProjects] = useState<Set<number>>(new Set());
 
   const projects = [
     {
       title: 'Jewelry Management System',
-      companyName: 'Chhorn Chenda Jewelry',
+      companyName: 'Chhorn Chenda',
       companyLocation: 'Phnom Penh, Cambodia',
       projectType: 'Point of Sale System',
       role: 'Fullstack Developer',
@@ -46,6 +50,7 @@ export default function Projects() {
       duration: 'Mar 2023 - Jan 2024',
       tech: ['VueJs', 'Laravel', 'Bootstrap', 'MySQL'],
       category: 'Company',
+      companyLogo: 'logo/ccd.png',
       github: 'https://github.com',
       live: 'https://example.com',
     },
@@ -59,6 +64,7 @@ export default function Projects() {
       duration: 'Jan 2022 - Nov 2022',
       tech: ['WordPress', 'PHP'],
       category: 'Company',
+      companyLogo: '/logo/durable.jpg',
       github: 'https://github.com',
       live: 'https://example.com',
     },
@@ -72,6 +78,7 @@ export default function Projects() {
       duration: 'Jul 2025 - Present',
       tech: ['NextJs', 'Tailwind', 'ViteJS', 'ShadcnUI'],
       category: 'Personal',
+      companyLogo: 'logo/peakslaok.png',
       github: 'https://github.com',
       live: 'https://aboutyoureadmore.online/',
     },
@@ -85,6 +92,7 @@ export default function Projects() {
       duration: 'Jan 2021 - Mar 2021',
       tech: ['HTML', 'CSS', 'JavaScript', 'React'],
       category: 'Academy',
+      companyLogo: '/pnc.png',
       github: 'https://github.com',
       live: 'https://example.com',
     },
@@ -98,6 +106,7 @@ export default function Projects() {
       duration: 'Jul 2021 - Jan 2022',
       tech: ['NextJs', 'Tailwind', 'MySQL'],
       category: 'Academy',
+      companyLogo: '/pnc.png',
       github: 'https://github.com',
       live: 'https://example.com',
     },
@@ -111,177 +120,157 @@ export default function Projects() {
       duration: 'Feb 2021 - Apr 2021',
       tech: ['VueJs', 'JavaScript', 'CSS'],
       category: 'Academy',
+      companyLogo: '/pnc.png',
       github: 'https://github.com',
       live: 'https://example.com',
     },
   ];
 
   // Group projects by category
-  const groupedProjects = projects.reduce((acc, project, index) => {
-    if (!acc[project.category]) {
-      acc[project.category] = [];
-    }
-    acc[project.category].push({ ...project, originalIndex: index });
+  const groupedProjects = projects.reduce((acc, project) => {
+    if (!acc[project.category]) acc[project.category] = [];
+    acc[project.category].push(project);
     return acc;
-  }, {} as Record<string, Array<typeof projects[0] & { originalIndex: number }>>);
+  }, {} as Record<string, typeof projects>);
 
-  const CategoryDivider = ({ category, count }: { category: string; count: number }) => {
-    const IconComponent = categoryIcons[category as keyof typeof categoryIcons];
-
-    return (
-      <div className="flex items-center gap-4 my-12">
-        <div className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-gray-900 to-gray-800 border border-gray-700 rounded-full">
-          <IconComponent className="w-5 h-5 text-gray-300" />
-          <span className="text-lg font-semibold text-white">{category}</span>
-          <span className="bg-gray-700 text-gray-300 px-2 py-1 rounded-full text-sm font-medium">
-            {count}
-          </span>
-        </div>
-        <div className="flex-1 h-px bg-gradient-to-r from-gray-700 to-transparent"></div>
-      </div>
-    );
-  };
-
-  const ProjectCard = ({ project, index }: { project: typeof projects[0] & { originalIndex: number }; index: number }) => {
-    const [hoveredProject, setHoveredProject] = useState<number | null>(null);
-    return (
-      <div
-        onMouseEnter={() => setHoveredProject(project.originalIndex)}
-        onMouseLeave={() => setHoveredProject(null)}
-        className="group relative rounded-xl sm:rounded-2xl bg-gradient-to-br from-gray-950 to-gray-900 border border-gray-800 shadow-inner shadow-black/40 hover:shadow-lg hover:shadow-white/10 transition-all duration-300"
-      >
-        <div className="sm:hidden absolute bottom-3 right-3 flex items-center gap-1 text-xs text-gray-400 animate-pulse">
-          <IconHandClick className="w-4 h-4" />
-          <span>Tap to see more</span>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-6 p-4 sm:p-6 sm:py-8">
-          {/* Project Number */}
-          <div className="sm:col-span-1 flex justify-center items-center">
-            <div className="text-2xl sm:text-4xl font-light text-gray-100 group-hover:text-gray-600 transition-colors select-none">
-              {String(index + 1).padStart(2, '0')}
-            </div>
-          </div>
-
-          {/* Project Info */}
-          <div className="sm:col-span-8 space-y-3 sm:space-y-4">
-            <div>
-              <h2 className="text-lg sm:text-2xl font-bold mb-1 group-hover:text-gray-300 transition-colors">
-                {project.title}
-              </h2>
-              <div className="flex flex-wrap items-center gap-2 text-base font-normal text-slate-400 leading-tight">
-                <span className="flex items-center gap-1">
-                  <IconBuilding className="w-4 h-4 sm:w-4 sm:h-4" />
-                  {project.companyName}
-                </span>
-                <IconPoint className="w-2 h-2" />
-                <span className="flex items-center gap-1">
-                  <IconMap className="w-4 h-4 sm:w-4 sm:h-4" />
-                  {project.companyLocation}
-                </span>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap gap-2 items-center text-base font-normal text-slate-400 leading-tight">
-              <span className="flex items-center gap-1 bg-gray-800 px-2 py-1 rounded-md">
-                <IconUser className="w-4 h-4" />
-                {project.role}
-              </span>
-              <span className="flex items-center gap-1">
-                <IconClock className="w-4 h-4" />
-                {project.duration}
-              </span>
-              <span>•</span>
-              <span className="flex items-center gap-1 ">
-                <IconBox className="w-4 h-4" />
-                {project.projectType}
-              </span>
-            </div>
-
-            {/* Smooth expanding description */}
-            <div className={`overflow-hidden transition-all duration-700 ease-in-out ${hoveredProject === project.originalIndex ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}>
-              <p className="text-md sm:text-md text-gray-300 leading-relaxed border-l-2 border-slate-600 pl-3">
-                {project.responsibility}
-              </p>
-            </div>
-          </div>
-
-          {/* Tech Stack & Actions */}
-          <div className="sm:col-span-3 flex flex-col justify-between gap-4">
-            <div className="flex flex-wrap gap-2 sm:justify-end cursor-default">
-              {project.tech.map((tech) => (
-                <div
-                  key={tech}
-                  className="flex items-center gap-1 p-1 sm:p-2 bg-gray-900 border border-gray-800 text-sm text-gray-400 hover:-translate-y-0.5 transition-all rounded-md"
-                >
-                  {techIcons[tech]}
-                  <span className="hidden sm:inline">{tech}</span>
-                </div>
-              ))}
-            </div>
-
-
-            <div className={`flex gap-2 transition-all duration-500 ease-in-out ${hoveredProject === project.originalIndex || window.innerWidth < 640 ? 'max-h-16 opacity-100' : 'max-h-0 opacity-0'}`}>
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 px-3 py-1.5 border border-gray-700 text-gray-300 hover:border-white hover:text-white transition-all hover:-translate-y-0.5 text-md rounded-md"
-              >
-                <IconBrandGithub className="w-4 h-4" />
-                <span>Code</span>
-              </a>
-              <a
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 px-3 py-1.5 bg-white text-black hover:bg-gray-200 transition-all hover:-translate-y-0.5 text-md rounded-md"
-              >
-                <IconDeviceDesktop className="w-4 h-4" />
-                <span>Live</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+  const getDaysAgo = (duration: string) => {
+    const hash = duration.split('').reduce((a, b) => {
+      a = ((a << 5) - a) + b.charCodeAt(0);
+      return a & a;
+    }, 0);
+    return Math.abs(hash % 10) + 1;
   };
 
   return (
-    <section id="experience" className="overflow-hidden bg-slate-950 pt-28 px-2 relative">
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/20 mb-4">
-            <IconBriefcase className="w-5 h-5" />
-            <span className="text-sm text-white font-medium tracking-wide">EXPERIENCE</span>
+    <section id="experience" className="overflow-hidden bg-slate-950 pt-16 px-2 relative">
+      <div className="relative z-10 py-20">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/20 mb-4">
+              <IconBriefcase className="w-5 h-5" />
+              <span className="text-sm text-white font-medium tracking-wide">MY EXPERIENCE</span>
+            </div>
+            <h2 className="text-5xl md:text-7xl font-black text-white mb-2 tracking-tight">
+              PROFESSIONAL
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-white">EXPERIENCE</span>
+            </h2>
+            <div className="w-24 h-px bg-white mx-auto mb-8"></div>
+            <p className="text-lg sm:text-xl md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
+              Discover my latest projects and professional experiences across different domains
+            </p>
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-2 tracking-tight">
-            PROFESSIONAL{' '}
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-white">
-              EXPERIENCE
-            </span>
-          </h2>
-          <div className="w-20 sm:w-24 h-px bg-white mx-auto mb-6"></div>
-          <p className="text-lg sm:text-xl md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
-            Grouped by source. Showcasing innovation, automation, and creative engineering.
-          </p>
-        </div>
 
-        {/* Projects grouped by category */}
-        <div className="space-y-8">
-          {Object.entries(groupedProjects).map(([category, categoryProjects]) => (
+          {/* Projects grouped by category */}
+          {Object.entries(groupedProjects).map(([category, projects]) => (
             <div key={category}>
-              <CategoryDivider category={category} count={categoryProjects.length} />
-              <div className="space-y-4 sm:space-y-6">
-                {categoryProjects.map((project, index) => (
+              <CategoryDivider category={category} />
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {projects.map((project, index) => (
                   <div
-                    key={project.originalIndex}
-                    data-aos="fade-up"
-                    data-aos-delay={index * 100} // delay increases by 100ms per item
-                    data-aos-duration="600"
-                  >
-                    <ProjectCard project={project} index={index} />
+                    key={index}
+                    className="bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-600 hover:shadow-lg">
+                    {/* Header with Logo and Save Button */}
+                    <div className="flex items-start justify-between mb-4 relative">
+                      {/* Logo with hover preview */}
+                      <div className="relative group">
+                        {/* Hover Preview */}
+                        <div className="relative group flex flex-col items-center">
+                          <img
+                            className="w-14 h-14 rounded-full border border-slate-500 object-cover cursor-pointer"
+                            src={project.companyLogo}
+                            alt={project.companyName} />
+                          {/* Hover Preview */}
+                          <div className="absolute left-1/2 -translate-x-4 -bottom-2 w-60 h-w-60 opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transition-all duration-300 z-50 pointer-events-none flex items-center justify-center">
+                            <img
+                              src={project.companyLogo}
+                              alt={`${project.companyName} preview`}
+                              className="w-40 h-40 rounded-full border border-slate-600 shadow-lg object-contain bg-slate-900"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      {/* Company name and duration */}
+                      <h3 className="text-lg font-semibold text-gray-200 flex-1 ml-3">
+                        {project.companyName}
+                      </h3>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs text-gray-200 bg-slate-700 px-2 py-1 rounded-full">
+                          {project.duration}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Company and Role */}
+                    <div className="mb-4">
+                      <h2 className="text-xl font-bold text-gray-200 mb-2">
+                        {project.title}
+                      </h2>
+                      <h3 className="text-lg font-semibold text-gray-200 mb-1">
+                        {project.role}
+                      </h3>
+                    </div>
+                    {/* Project Details */}
+                    <div className="mb-4">
+                      <p className="text-gray-200 text-sm mb-2 line-clamp-2">
+                        {project.responsibility}
+                      </p>
+                      <div className="flex items-center text-sm text-gray-300 gap-4">
+                        <span className="flex items-center gap-1">
+                          <IconMap className="w-4 h-4" />
+                          {project.companyLocation}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <IconCategory className="w-4 h-4" />
+                          {project.projectType.split(' - ')[0]}
+                        </span>
+                      </div>
+                    </div>
+                    {/* Tech Stack */}
+                    <div className="mb-6">
+                      <div className="flex flex-wrap gap-2">
+                        {project.tech.slice(0, 4).map((tech) => (
+                          <div
+                            key={tech}
+                            className="flex items-center gap-1 bg-slate-700 px-2 py-2 rounded-md text-xs text-gray-300">
+                            {techIcons[tech]}
+                            <span>{tech}</span>
+                          </div>
+                        ))}
+                        {project.tech.length > 4 && (
+                          <div className="bg-gray-50 border border-gray-200 px-2 py-1 rounded-md text-xs text-gray-600">
+                            +{project.tech.length - 4} more
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    {/* Bottom Section with Salary and Apply Button */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex gap-2">
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group relative overflow-hidden px-4 py-2 border border-gray-600 text-gray-300 hover:text-slate-800 rounded-xl hover:bg-gray-800 transition-colors text-sm font-medium flex items-center gap-1">
+                          <div className="flex items-center gap-1 group-hover:translate-x-24 translate-x-2.5 transition-all duration-300">
+                            <IconBrandGithub className="w-5 h-5" />
+                            Code
+                          </div>
+                          <IconArrowRight className="text-gray-50 w-5 h-5 group-hover:-translate-x-7 -translate-x-28 transition-all duration-300" />
+                        </a>
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group relative overflow-hidden px-5 py-2 bg-slate-700 text-white rounded-xl hover:bg-gray-800 transition-colors text-sm font-medium flex items-center gap-1">
+                          <div className="flex items-center gap-1 group-hover:translate-x-32 translate-x-2.5 transition-all duration-300">
+                            <IconDeviceDesktop className="w-5 h-5" />
+                            View Live
+                          </div>
+                          <IconArrowRight className="text-gray-50 w-5 h-5 group-hover:-translate-x-11 -translate-x-32 transition-all duration-300" />
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
