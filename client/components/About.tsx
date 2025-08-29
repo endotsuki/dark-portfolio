@@ -194,7 +194,7 @@ export default function About() {
                 className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/10 shadow-xl relative">
                 <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
                 <h3 className="text-2xl font-semibold mb-6 flex items-center gap-3">
-                  <IconMessage size={23}/>
+                  <IconMessage size={23} />
                   Contact Information
                 </h3>
                 <div className="space-y-4">
