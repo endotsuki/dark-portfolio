@@ -110,7 +110,7 @@ export default function About() {
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 blur-md opacity-60 animate-spin-slow" />
                   <Avatar className="w-70 h-70 border-4 border-white/10 relative">
                     <AvatarImage
-                      src="/profile.jpg"
+                      src="/profile2.jpg"
                       alt="Profile"
                       className="object-cover"
                     />

@@ -134,7 +134,7 @@ export default function ExperienceTimeline() {
       projectType: 'Point of Sale System',
       role: 'Fullstack Developer',
       responsibility: 'Designed Node.js services, integrated ML pipelines for inventory prediction, built real-time sales dashboard, and deployed scalable architecture to AWS with automated CI/CD pipelines.',
-      duration: 'Mar 2025 - Jan 2025',
+      duration: 'Mar 2023 - Jan 2024',
       tech: ['VueJs', 'Laravel', 'Bootstrap', 'MySQL'],
       category: 'Company',
       companyLogo: '/logo/ccd.png',
@@ -151,7 +151,7 @@ export default function ExperienceTimeline() {
       duration: 'Jan 2022 - Nov 2022',
       tech: ['WordPress', 'PHP'],
       category: 'Company',
-      companyLogo: 'https://via.placeholder.com/48/10b981/ffffff?text=DT',
+      companyLogo: '/logo/durable.jpg',
       github: 'https://github.com',
       live: 'https://example.com',
     },
@@ -166,7 +166,7 @@ export default function ExperienceTimeline() {
       duration: 'Jul 2025 - Present',
       tech: ['NextJs', 'Tailwind', 'ViteJS', 'ShadcnUI'],
       category: 'Personal',
-      companyLogo: 'https://via.placeholder.com/48/f59e0b/ffffff?text=PS',
+      companyLogo: 'logo/peakslaok.png',
       github: 'https://github.com',
       live: 'https://aboutyoureadmore.online/',
     },
@@ -181,7 +181,7 @@ export default function ExperienceTimeline() {
       duration: 'Jan 2021 - Mar 2021',
       tech: ['HTML', 'CSS', 'JavaScript', 'React', 'Figma'],
       category: 'Academy',
-      companyLogo: 'https://via.placeholder.com/48/8b5cf6/ffffff?text=CS',
+      companyLogo: '/pnc.png',
       github: 'https://github.com',
       live: 'https://example.com',
     },
@@ -195,7 +195,7 @@ export default function ExperienceTimeline() {
       duration: 'Jul 2021 - Jan 2022',
       tech: ['NextJs', 'Tailwind', 'MySQL'],
       category: 'Academy',
-      companyLogo: 'https://via.placeholder.com/48/8b5cf6/ffffff?text=CS',
+      companyLogo: '/pnc.png',
       github: 'https://github.com',
       live: 'https://example.com',
     },
@@ -209,40 +209,49 @@ export default function ExperienceTimeline() {
       duration: 'Feb 2021 - Apr 2021',
       tech: ['VueJs', 'JavaScript', 'CSS', 'Figma', 'Canva'],
       category: 'Academy',
-      companyLogo: 'https://via.placeholder.com/48/8b5cf6/ffffff?text=CS',
+      companyLogo: '/pnc.png',
       github: 'https://github.com',
       live: 'https://example.com',
     },
   ];
 
-  // Group projects by year and create timeline data
+  // Group projects by category and create timeline data
   const createTimelineData = () => {
-    const groupedByYear: Record<string, typeof projects> = {};
+    const categoryOrder = ['Company', 'Personal', 'Academy'];
+    const groupedByCategory: Record<string, typeof projects> = {};
+
     projects.forEach(project => {
-      const endYear = project.duration.split(' - ')[1].split(' ')[1] || '2025';
-      if (!groupedByYear[endYear]) {
-        groupedByYear[endYear] = [];
+      if (!groupedByCategory[project.category]) {
+        groupedByCategory[project.category] = [];
       }
-      groupedByYear[endYear].push(project);
+      groupedByCategory[project.category].push(project);
     });
 
-    // Sort years in descending order
-    return Object.keys(groupedByYear)
-      .sort((a, b) => parseInt(b) - parseInt(a))
-      .map(year => ({
-        title: year,
+    // Sort projects within each category by duration (most recent first)
+    Object.keys(groupedByCategory).forEach(category => {
+      groupedByCategory[category].sort((a, b) => {
+        const aYear = parseInt(a.duration.split(' - ')[1].split(' ')[1] || '2025');
+        const bYear = parseInt(b.duration.split(' - ')[1].split(' ')[1] || '2025');
+        return bYear - aYear;
+      });
+    });
+
+    return categoryOrder
+      .filter(category => groupedByCategory[category])
+      .map(category => ({
+        title: category,
         content: (
           <div className="space-y-6">
-            <div className="mb-6">
+            {/* <div className="mb-6">
               <h3 className="text-2xl font-bold text-white mb-2">
-                Professional Growth with {year}
+                {category} Experience
               </h3>
               <p className="text-gray-400 text-sm">
-                {groupedByYear[year].length} project{groupedByYear[year].length > 1 ? 's' : ''} completed this year
+                {groupedByCategory[category].length} project{groupedByCategory[category].length > 1 ? 's' : ''} in this category
               </p>
-            </div>
+            </div> */}
 
-            {groupedByYear[year].map((project, index) => (
+            {groupedByCategory[category].map((project, index) => (
               <ProjectCard key={index} project={project} />
             ))}
           </div>
@@ -253,26 +262,24 @@ export default function ExperienceTimeline() {
   const timelineData = createTimelineData();
 
   return (
-    <section className="min-h-screen bg-slate-950 pt-16 px-2 relative">
-      <div className="relative z-10 py-20">
+    <section id="experience" className=" bg-slate-950 pt-28 px-2 relative">
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="max-w-7xl mx-auto px-2">
           {/* Header */}
           <div className="text-center mb-16">
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/20 mb-4">
-                <IconBriefcase className="w-5 h-5" />
-                <span className="text-sm text-white font-medium tracking-wide">MY EXPERIENCE</span>
-              </div>
-              <h2 className="text-5xl md:text-7xl font-black text-white mb-2 tracking-tight">
-                PROFESSIONAL
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-white">EXPERIENCE</span>
-              </h2>
-              <div className="w-24 h-px bg-white mx-auto mb-8"></div>
-              <p className="text-lg sm:text-xl md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
-                Explore my professional journey through various projects, from academic work to enterprise solutions.
-                Each experience has shaped my expertise in modern web development and user experience design.
-              </p>
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/20 mb-4">
+              <IconBriefcase className="w-5 h-5" />
+              <span className="text-sm text-white font-medium tracking-wide">MY EXPERIENCE</span>
             </div>
+            <h2 className="text-5xl md:text-7xl font-black text-white mb-2 tracking-tight">
+              PROFESSIONAL
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-white">EXPERIENCE</span>
+            </h2>
+            <div className="w-24 h-px bg-white mx-auto mb-8"></div>
+            <p className="text-lg sm:text-xl md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
+              Explore my professional journey through various projects, from academic work to enterprise solutions.
+              Each experience has shaped my expertise in modern web development and user experience design.
+            </p>
           </div>
           {/* Timeline */}
           <div className="relative">
