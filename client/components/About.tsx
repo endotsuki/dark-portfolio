@@ -128,7 +128,6 @@ export default function About() {
                 <div className="grid grid-cols-2 gap-4 cursor-default w-full mb-6">
                   {socials.map((social, index) => (
                     <motion.a
-                      // whileHover={{ y: -5 }}
                       key={index}
                       href={social.link}
                       target="_blank"
@@ -137,7 +136,7 @@ export default function About() {
                       {/* Sweep Effect */}
                       {/* <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700" /> */}
                       <social.icon size={30} className="group-hover:translate-x-12 transition-all text-gray-300 group-hover:text-cyan-400 duration-500" />
-                      <div className="group-hover:translate-x-32 transition-all duration-300">
+                      <div className="group-hover:translate-x-32 transition-all duration-500">
                         <p className="text-white font-medium text-sm">
                           {social.platform}
                         </p>
