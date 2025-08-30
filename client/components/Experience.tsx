@@ -37,7 +37,6 @@ const CategoryDivider = ({ category }: { category: string }) => (
 );
 
 export default function Projects() {
-  const [savedProjects, setSavedProjects] = useState<Set<number>>(new Set());
 
   const projects = [
     {
@@ -90,7 +89,7 @@ export default function Projects() {
       role: 'Frontend Developer',
       responsibility: 'Created responsive design with modern CSS techniques, implemented smooth animations and transitions, optimized performance for fast loading times, and ensured cross-browser compatibility.',
       duration: 'Jan 2021 - Mar 2021',
-      tech: ['HTML', 'CSS', 'JavaScript', 'React'],
+      tech: ['HTML', 'CSS', 'JavaScript', 'React', 'Figma'],
       category: 'Academy',
       companyLogo: '/pnc.png',
       github: 'https://github.com',
@@ -118,7 +117,7 @@ export default function Projects() {
       role: 'Frontend Developer',
       responsibility: 'Created interactive data visualizations with Chart.js, implemented scheduled post integrations, enhanced dashboard UX with intuitive navigation, and optimized real-time data updates with Redis.',
       duration: 'Feb 2021 - Apr 2021',
-      tech: ['VueJs', 'JavaScript', 'CSS'],
+      tech: ['VueJs', 'JavaScript', 'CSS', 'Figma', 'Canva'],
       category: 'Academy',
       companyLogo: '/pnc.png',
       github: 'https://github.com',
@@ -132,14 +131,6 @@ export default function Projects() {
     acc[project.category].push(project);
     return acc;
   }, {} as Record<string, typeof projects>);
-
-  const getDaysAgo = (duration: string) => {
-    const hash = duration.split('').reduce((a, b) => {
-      a = ((a << 5) - a) + b.charCodeAt(0);
-      return a & a;
-    }, 0);
-    return Math.abs(hash % 10) + 1;
-  };
 
   return (
     <section id="experience" className="overflow-hidden bg-slate-950 pt-16 px-2 relative">
@@ -229,7 +220,7 @@ export default function Projects() {
                     {/* Tech Stack */}
                     <div className="mb-6">
                       <div className="flex flex-wrap gap-2">
-                        {project.tech.slice(0, 4).map((tech) => (
+                        {project.tech.map((tech) => (
                           <div
                             key={tech}
                             className="flex items-center gap-1 bg-slate-700 px-2 py-2 rounded-md text-xs text-gray-300">
@@ -237,11 +228,6 @@ export default function Projects() {
                             <span>{tech}</span>
                           </div>
                         ))}
-                        {project.tech.length > 4 && (
-                          <div className="bg-gray-50 border border-gray-200 px-2 py-1 rounded-md text-xs text-gray-600">
-                            +{project.tech.length - 4} more
-                          </div>
-                        )}
                       </div>
                     </div>
                     {/* Bottom Section with Salary and Apply Button */}
@@ -252,22 +238,22 @@ export default function Projects() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="group relative overflow-hidden px-4 py-2 border border-gray-600 text-gray-300 hover:text-slate-800 rounded-xl hover:bg-gray-800 transition-colors text-sm font-medium flex items-center gap-1">
-                          <div className="flex items-center gap-1 group-hover:translate-x-24 translate-x-2.5 transition-all duration-300">
+                          <div className="flex items-center gap-1 group-hover:translate-x-24 translate-x-2.5 transition-all duration-500">
                             <IconBrandGithub className="w-5 h-5" />
                             Code
                           </div>
-                          <IconArrowRight className="text-gray-50 w-5 h-5 group-hover:-translate-x-7 -translate-x-28 transition-all duration-300" />
+                          <IconArrowRight className="text-gray-50 w-5 h-5 group-hover:-translate-x-7 -translate-x-28 transition-all duration-500" />
                         </a>
                         <a
                           href={project.live}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="group relative overflow-hidden px-5 py-2 bg-slate-700 text-white rounded-xl hover:bg-gray-800 transition-colors text-sm font-medium flex items-center gap-1">
-                          <div className="flex items-center gap-1 group-hover:translate-x-32 translate-x-2.5 transition-all duration-300">
+                          <div className="flex items-center gap-1 group-hover:translate-x-32 translate-x-2.5 transition-all duration-500">
                             <IconDeviceDesktop className="w-5 h-5" />
                             View Live
                           </div>
-                          <IconArrowRight className="text-gray-50 w-5 h-5 group-hover:-translate-x-11 -translate-x-32 transition-all duration-300" />
+                          <IconArrowRight className="text-gray-50 w-5 h-5 group-hover:-translate-x-11 -translate-x-32 transition-all duration-500" />
                         </a>
                       </div>
                     </div>
