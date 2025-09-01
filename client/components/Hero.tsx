@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { React, ShadcnUI, TailwindCSS, ViteJS } from 'developer-icons';
-import { IconBriefcase, IconChevronsRight, IconMail } from "@tabler/icons-react";
+import { IconArrowRight, IconBriefcase, IconChevronsRight, IconMail } from "@tabler/icons-react";
 import RotatingText from './Reactbits/RotatingText'
 import ShinyText from './Reactbits/ShinyText';
 import { ShootingStars } from "@/components/ui/shooting-stars";
@@ -100,25 +100,28 @@ export default function Hero() {
             onClick={() => scrollToSection("experience")}
             className="group relative overflow-hidden px-8 py-4 bg-white/10 text-white border border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-white/20 text-lg font-semibold transition-all duration-300"
           >
-            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700 pointer-events-none" />
-            <IconBriefcase size={23} className="mr-2 group-hover:rotate-12 transition-transform relative z-10" />
-            <span className="relative z-10">View My Work</span>
-            <IconChevronsRight size={23} className="ml-2 group-hover:translate-x-2 transition-transform relative z-10" />
-          </Button>
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700" />
+              <IconBriefcase size={23} className="relative z-10" />
+              View My Work
+            <div className="relative ml-2 h-5 w-5 overflow-hidden">
+              <IconChevronsRight size={20} className="absolute top-0 left-0 text-white transition-transform duration-300 group-hover:translate-x-full" />
+              <IconChevronsRight size={20} className="absolute top-0 left-0 text-white transition-transform duration-300 transform -translate-x-full group-hover:translate-x-0" />
+            </div>
 
+          </Button>
           <Button
             size="lg"
             variant="outline"
-            className="group relative px-8 py-4 border-white/30 bg-transparent text-white text-lg font-semibold overflow-hidden"
             onClick={() => scrollToSection("contact")}
-          >
-            <span className="absolute inset-0 overflow-hidden rounded">
-              <span className="absolute inset-0 rounded bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-            </span>
-            <IconMail size={23} className="mr-2 group-hover:rotate-12 transition-transform z-10" />
-            <span className="z-10">Let's Connect</span>
+            className="group relative px-8 py-4 border-white/30 bg-transparent text-white text-lg font-semibold overflow-hidden">
+            <IconArrowRight size={22} className="hidden md:block transition-all group-hover:translate-x-20 -translate-x-14 duration-500" />
+            <div className="flex items-center gap-3 z-10 transition-all group-hover:translate-x-44 -translate-x-3 duration-500">
+              <IconMail size={22} />
+              <span>Let's Connect</span>
+            </div>
             <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
           </Button>
+
         </div>
 
         {/* Tech Stack Showcase */}

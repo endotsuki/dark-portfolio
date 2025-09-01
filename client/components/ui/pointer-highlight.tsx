@@ -77,11 +77,11 @@ export function PointerHighlight({
             initial={{ opacity: 0 }}
             whileInView={{
               opacity: 1,
-              x: dimensions.width - 1,
-              y: dimensions.height -1,
+              x: dimensions.width - 5,
+              y: dimensions.height + 3,
             }}
             style={{
-              rotate: -90,
+              rotate: -65,
             }}
             transition={{
               opacity: { duration: 0.1, ease: "easeInOut" },

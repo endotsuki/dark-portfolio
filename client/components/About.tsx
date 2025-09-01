@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Facebook, GitHubLight, LinkedIn, Telegram } from "developer-icons";
-import { IconUserSquare, IconDownload, IconSchool, IconWalk, IconMap, IconMail, IconDeviceMobile, IconMessage } from "@tabler/icons-react";
+import { IconUserSquare, IconDownload, IconSchool, IconWalk, IconMapPin2, IconMail, IconDeviceMobile, IconMessage } from "@tabler/icons-react";
 import { PointerHighlight } from "@/components/ui/pointer-highlight";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 
@@ -11,7 +11,7 @@ const journey3 = `When I'm not coding, you'll find me exploring new technologies
 
 const personalInfos = [
   {
-    icon: IconMap,
+    icon: IconMapPin2,
     handle: "San Francisco, CA",
     platform: "Location",
     link: "https://www.google.com/maps?q=San+Francisco,CA",

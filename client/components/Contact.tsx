@@ -146,17 +146,17 @@ ${data.message}
                   data-aos="fade-right"
                   data-aos-delay={i * 400}
                   data-aos-duration="600"
-                  className="group relative overflow-hidden block p-6 rounded-2xl bg-gradient-to-br from-gray-950 to-gray-900 border border-gray-800 hover:border-gray-700 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-white/5"
+                  className="group relative overflow-hidden block p-6 rounded-2xl bg-gradient-to-br from-gray-950 to-gray-900 border border-gray-800 hover:border-gray-700 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-white/5"
                   style={{ animationDelay: `${i * 100}ms` }}>
                   {/* Dark holographic sweep effect */}
                   <div className="absolute inset-0 overflow-hidden rounded-2xl">
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-700/50 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700" />
                   </div>
                   <div className="relative z-10 flex items-start gap-5">
-                    <div className="w-14 h-14 rounded-xl border border-gray-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 group-hover:-translate-x-40">
+                    <div className="w-14 h-14 rounded-xl border border-gray-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 group-hover:-translate-x-40">
                       <c.icon size={23} className="text-white" />
                     </div>
-                    <div className="flex-1 transition-transform duration-300 group-hover:-translate-x-16">
+                    <div className="flex-1 transition-transform duration-500 group-hover:-translate-x-16">
                       <div className="flex items-center justify-between mb-1">
                         <h3 className="text-white font-semibold text-lg">{c.label}</h3>
                         <IconBrowserShare size={20} className="text-gray-400 group-hover:text-gray-300 group-hover:translate-x-16 translate-x-20 transition-all" />
@@ -197,7 +197,7 @@ ${data.message}
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full h-14 group relative overflow-hidden bg-transparent hover:bg-transparent text-white border border-white/20 hover:border-white/60 rounded-xl font-medium text-lg tracking-wide transition-all duration-300" >
+                      className="w-full h-14 group relative overflow-hidden bg-transparent hover:bg-transparent text-white border border-white/20 hover:border-white/60 rounded-xl font-medium text-lg tracking-wide transition-all duration-500" >
                       {/* Border sweep effect - now more visible */}
                       {/* <div className="absolute inset-0 overflow-hidden rounded-xl group-hover:border-white/20">
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-0 group-hover:opacity-100 -translate-x-[150%] group-hover:translate-x-[150%] transition-all duration-1000" />
@@ -211,8 +211,8 @@ ${data.message}
                           </>
                         ) : (
                           <>
-                            <IconSend2 size={23} className="group-hover:translate-x-16 -translate-x-96 transition-all" />
-                            <span className='group-hover:translate-x-96 transition-all'>Send Message</span>
+                            <IconSend2 size={23} className="group-hover:translate-x-16 -translate-x-96 transition-all duration-500" />
+                            <span className='group-hover:translate-x-96 transition-all duration-500'>Send Message</span>
                           </>
                         )}
                       </div>
