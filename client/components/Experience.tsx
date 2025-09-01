@@ -1,6 +1,6 @@
 import { Timeline } from '@/components/ui/timeline';
 import { Bootstrap5, Canva, CSS3, Figma, GitHubLight, HTML5, JavaScript, Laravel, MySQL, NextJs, PHP, Python, React, ShadcnUI, TailwindCSS, TypeScript, VisualStudioCode, ViteJS, VueJs, WordPress } from 'developer-icons';
-import { IconBriefcase, IconBrandGithub, IconDeviceDesktop, IconMap, IconCategory, IconArrowRight } from '@tabler/icons-react';
+import { IconBriefcase, IconBrandGithub, IconDeviceDesktop, IconMapPin2, IconCategory, IconArrowRight } from '@tabler/icons-react';
 
 const techIcons: Record<string, React.ReactNode> = {
   React: <React size={23} />,
@@ -50,7 +50,7 @@ const ProjectCard = ({ project }: { project: any }) => (
         <div>
           <h3 className="text-lg font-bold text-white">{project.companyName}</h3>
           <div className="flex items-center gap-2 text-sm text-gray-400">
-            <IconMap className="w-4 h-4" />
+            <IconMapPin2 className="w-4 h-4" />
             {project.companyLocation}
           </div>
         </div>
@@ -131,7 +131,7 @@ export default function ExperienceTimeline() {
     {
       title: 'Jewelry Management System',
       companyName: 'Chhorn Chenda',
-      companyLocation: 'Phnom Penh, Cambodia',
+      companyLocation: 'Phnom Penh',
       projectType: 'Point of Sale System',
       role: 'Fullstack Developer',
       responsibility: 'Designed Node.js services, integrated ML pipelines for inventory prediction, built real-time sales dashboard, and deployed scalable architecture to AWS with automated CI/CD pipelines.',
@@ -175,7 +175,7 @@ export default function ExperienceTimeline() {
     {
       title: 'Portfolio Website',
       companyName: 'CSTAD Academy',
-      companyLocation: 'Phnom Penh, Cambodia',
+      companyLocation: 'Phnom Penh',
       projectType: 'Academic Project',
       role: 'Frontend Developer',
       responsibility: 'Created responsive design with modern CSS techniques, implemented smooth animations and transitions, optimized performance for fast loading times, and ensured cross-browser compatibility.',
@@ -189,7 +189,7 @@ export default function ExperienceTimeline() {
     {
       title: 'E-Commerce Platform',
       companyName: 'CSTAD Academy',
-      companyLocation: 'Phnom Penh, Cambodia',
+      companyLocation: 'Phnom Penh',
       projectType: 'Capstone Project',
       role: 'Product Engineer',
       responsibility: 'Integrated Stripe payment processing, configured Tailwind CSS themes for consistent design, implemented comprehensive inventory management system, and built admin dashboard with analytics.',
@@ -203,7 +203,7 @@ export default function ExperienceTimeline() {
     {
       title: 'Social Media Dashboard',
       companyName: 'CSTAD Academy',
-      companyLocation: 'Phnom Penh, Cambodia',
+      companyLocation: 'Phnom Penh',
       projectType: 'Group Project',
       role: 'Frontend Developer',
       responsibility: 'Created interactive data visualizations with Chart.js, implemented scheduled post integrations, enhanced dashboard UX with intuitive navigation, and optimized real-time data updates with Redis.',
@@ -243,15 +243,6 @@ export default function ExperienceTimeline() {
         title: category,
         content: (
           <div className="space-y-6">
-            {/* <div className="mb-6">
-              <h3 className="text-2xl font-bold text-white mb-2">
-                {category} Experience
-              </h3>
-              <p className="text-gray-400 text-sm">
-                {groupedByCategory[category].length} project{groupedByCategory[category].length > 1 ? 's' : ''} in this category
-              </p>
-            </div> */}
-
             {groupedByCategory[category].map((project, index) => (
               <ProjectCard key={index} project={project} />
             ))}
