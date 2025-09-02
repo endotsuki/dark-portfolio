@@ -2,10 +2,11 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { React, ShadcnUI, TailwindCSS, ViteJS } from 'developer-icons';
 import { IconArrowRight, IconBriefcase, IconChevronsRight, IconMail } from "@tabler/icons-react";
-import RotatingText from './Reactbits/RotatingText'
+import TextType from './Reactbits/TextType'
 import ShinyText from './Reactbits/ShinyText';
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
+import TrueFocus from './Reactbits/TrueFocus';
 
 export default function Hero() {
 
@@ -49,36 +50,23 @@ export default function Hero() {
             </span>
             <span className="relative inline-block">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 via-white to-gray-300">
-                I'm <span className="text-blue-400">Alex Doe</span>
+                I'm <span className="text-blue-400">SOCHEATH</span>
               </span>
             </span>
           </h2>
 
-          <div className="text-2xl sm:text-2xl md:text-3xl text-neutral-400 mb-6 h-16 flex items-center justify-center">
+          <div className="text-2xl sm:text-2xl md:text-3xl text-neutral-400 h-16 flex items-center justify-center">
             <div className="flex flex-col items-center cursor-default">
               <span className="relative">
                 I'm a{" "}
-                <span className="relative inline-block">
-                  <motion.div
-                    initial={{ y: "100%" }}
-                    animate={{ y: 0 }}
-                    exit={{ y: "-110%" }}
-                    transition={{ type: "spring", damping: 20, stiffness: 200 }}
-                  >
-                    <RotatingText
-                      texts={[
-                        "Full Stack Developer",
-                        "UI/UX Designer",
-                        "Tech Innovator",
-                        "Digital Artist",
-                      ]}
-                      mainClassName="font-semibold px-2 sm:px-2 md:px-3 bg-white/10 border border-white/10 rounded-lg text-white overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
-                      staggerFrom={"last"}
-                      staggerDuration={0.025}
-                      splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
-                      rotationInterval={4000}
-                    />
-                  </motion.div>
+                <span className="relative font-semibold inline-block">
+                  <TextType
+                    text={["Full Stack Developer", "UI/UX Designer", "Tech Innovator", "Digital Artist",]}
+                    typingSpeed={75}
+                    pauseDuration={1500}
+                    showCursor={true}
+                    cursorCharacter="_"
+                  />
                 </span>
               </span>
             </div>
@@ -101,8 +89,8 @@ export default function Hero() {
             className="group relative overflow-hidden px-8 py-4 bg-white/10 text-white border border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-white/20 text-lg font-semibold transition-all duration-300"
           >
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700" />
-              <IconBriefcase size={23} className="relative z-10" />
-              View My Work
+            <IconBriefcase size={23} className="relative z-10" />
+            View My Work
             <div className="relative ml-2 h-5 w-5 overflow-hidden">
               <IconChevronsRight size={20} className="absolute top-0 left-0 text-white transition-transform duration-300 group-hover:translate-x-full" />
               <IconChevronsRight size={20} className="absolute top-0 left-0 text-white transition-transform duration-300 transform -translate-x-full group-hover:translate-x-0" />

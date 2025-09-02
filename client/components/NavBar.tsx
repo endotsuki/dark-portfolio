@@ -53,8 +53,8 @@ export function NavBar() {
   ];
 
   const containerClass = `transition-all duration-500 ${isScrolled || isMobileMenuOpen
-    ? 'bg-sky-900/20 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl shadow-black/25'
-    : 'bg-sky-900/20 backdrop-blur-xs border border-white/5 rounded-3xl'
+    ? 'bg-slate-900/20 backdrop-blur-sm border border-white/25 rounded-2xl shadow-2xl shadow-black/25'
+    : 'bg-slate-900/20 backdrop-blur-xs border border-white/40 rounded-3xl'
     }`;
 
   return (
@@ -63,7 +63,7 @@ export function NavBar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'pt-3' : 'pt-6'}`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'pt-5' : 'pt-2'}`}
       >
         <div className="mx-auto px-4 max-w-7xl">
           {/* Desktop */}
@@ -72,10 +72,12 @@ export function NavBar() {
               <div className="flex items-center justify-between px-4 py-3">
                 <motion.button
                   onClick={() => scrollTo('hero')}
-                  className="text-white font-bold text-xl ml-3 hover:text-blue-300 transition-all duration-300 group"
-                  whileHover={{ scale: 1.05 }}>
-                  SOCHEATH
+                  className="text-white font-bold text-xl hover:text-blue-300 transition-all duration-300 group"
+                  whileHover={{ translateX: 12 }}
+                >
+                  <img src="/text-white.png" alt="" className="w-12 h-1w-12 object-contain" />
                 </motion.button>
+
                 <div className="flex items-center bg-white/5 rounded-xl p-2 gap-3 backdrop-blur-sm border border-white/10">
                   {navItems.map((item) => (
                     <motion.button
@@ -108,10 +110,10 @@ export function NavBar() {
               <div className="flex items-center justify-between px-6 py-3">
                 <motion.button
                   onClick={() => scrollTo('hero')}
-                  className="text-white font-bold hover:text-blue-300 transition-all duration-300 group"
-                  whileHover={{ scale: 1.05 }}
+                  className="text-white font-bold text-xl hover:text-blue-300 transition-all duration-300 group"
+                  whileHover={{ translateX: 12 }}
                 >
-                  SOCHEATH
+                  <img src="/text-white.png" alt="" className="w-12 h-1w-12 object-contain" />
                 </motion.button>
 
                 <motion.button
