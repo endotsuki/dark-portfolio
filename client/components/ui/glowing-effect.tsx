@@ -16,6 +16,7 @@ interface GlowingEffectProps {
   movementDuration?: number;
   borderWidth?: number;
 }
+
 const GlowingEffect = memo(
   ({
     blur = 0,
@@ -25,71 +26,69 @@ const GlowingEffect = memo(
     variant = "default",
     glow = false,
     className,
-    movementDuration = 2,
+    movementDuration = 0.3, // ⬅️ much faster
     borderWidth = 1,
-    disabled = true,
+    disabled = false, // ⬅️ default false
   }: GlowingEffectProps) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const lastPosition = useRef({ x: 0, y: 0 });
-    const animationFrameRef = useRef<number>(0);
+    const ticking = useRef(false); // ⬅️ throttle updates
 
     const handleMove = useCallback(
-      (e?: MouseEvent | { x: number; y: number }) => {
-        if (!containerRef.current) return;
+      (e: MouseEvent | { x: number; y: number }) => {
+        if (!containerRef.current || ticking.current) return;
 
-        if (animationFrameRef.current) {
-          cancelAnimationFrame(animationFrameRef.current);
-        }
+        ticking.current = true;
+        requestAnimationFrame(() => {
+          const element = containerRef.current!;
+          const rect = element.getBoundingClientRect();
 
-        animationFrameRef.current = requestAnimationFrame(() => {
-          const element = containerRef.current;
-          if (!element) return;
+          const mouseX = e.x ?? lastPosition.current.x;
+          const mouseY = e.y ?? lastPosition.current.y;
+          lastPosition.current = { x: mouseX, y: mouseY };
 
-          const { left, top, width, height } = element.getBoundingClientRect();
-          const mouseX = e?.x ?? lastPosition.current.x;
-          const mouseY = e?.y ?? lastPosition.current.y;
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
 
-          if (e) {
-            lastPosition.current = { x: mouseX, y: mouseY };
-          }
-
-          const center = [left + width * 0.5, top + height * 0.5];
           const distanceFromCenter = Math.hypot(
-            mouseX - center[0],
-            mouseY - center[1]
+            mouseX - centerX,
+            mouseY - centerY
           );
-          const inactiveRadius = 0.5 * Math.min(width, height) * inactiveZone;
+          const inactiveRadius =
+            0.5 * Math.min(rect.width, rect.height) * inactiveZone;
 
           if (distanceFromCenter < inactiveRadius) {
             element.style.setProperty("--active", "0");
+            ticking.current = false;
             return;
           }
 
           const isActive =
-            mouseX > left - proximity &&
-            mouseX < left + width + proximity &&
-            mouseY > top - proximity &&
-            mouseY < top + height + proximity;
+            mouseX > rect.left - proximity &&
+            mouseX < rect.right + proximity &&
+            mouseY > rect.top - proximity &&
+            mouseY < rect.bottom + proximity;
 
           element.style.setProperty("--active", isActive ? "1" : "0");
-
-          if (!isActive) return;
+          if (!isActive) {
+            ticking.current = false;
+            return;
+          }
 
           const currentAngle =
             parseFloat(element.style.getPropertyValue("--start")) || 0;
-          let targetAngle =
-            (180 * Math.atan2(mouseY - center[1], mouseX - center[0])) /
-              Math.PI +
+          const targetAngle =
+            (180 * Math.atan2(mouseY - centerY, mouseX - centerX)) / Math.PI +
             90;
 
-          const angleDiff = ((targetAngle - currentAngle + 180) % 360) - 180;
-          const newAngle = currentAngle + angleDiff;
-
-          animate(currentAngle, newAngle, {
+          animate(currentAngle, targetAngle, {
             duration: movementDuration,
             ease: [0.16, 1, 0.3, 1],
             onUpdate: (value) => {
               element.style.setProperty("--start", String(value));
+            },
+            onComplete: () => {
+              ticking.current = false;
             },
           });
         });
@@ -100,33 +99,29 @@ const GlowingEffect = memo(
     useEffect(() => {
       if (disabled) return;
 
-      const handleScroll = () => handleMove();
       const handlePointerMove = (e: PointerEvent) => handleMove(e);
 
-      window.addEventListener("scroll", handleScroll, { passive: true });
       document.body.addEventListener("pointermove", handlePointerMove, {
         passive: true,
       });
 
       return () => {
-        if (animationFrameRef.current) {
-          cancelAnimationFrame(animationFrameRef.current);
-        }
-        window.removeEventListener("scroll", handleScroll);
         document.body.removeEventListener("pointermove", handlePointerMove);
       };
     }, [handleMove, disabled]);
 
     return (
       <>
+        {/* border outline */}
         <div
           className={cn(
-            "pointer-events-none absolute -inset-px hidden rounded-[inherit] border opacity-0 transition-opacity",
+            "pointer-events-none absolute -inset-px rounded-[inherit] border opacity-0 transition-opacity",
             glow && "opacity-100",
             variant === "white" && "border-white",
-            disabled && "!block"
+            disabled && "hidden"
           )}
         />
+        {/* glowing background */}
         <div
           ref={containerRef}
           style={
@@ -140,30 +135,30 @@ const GlowingEffect = memo(
               "--gradient":
                 variant === "white"
                   ? `repeating-conic-gradient(
-                  from 236.84deg at 50% 50%,
-                  var(--black),
-                  var(--black) calc(25% / var(--repeating-conic-gradient-times))
-                )`
+                      from 236.84deg at 50% 50%,
+                      var(--black),
+                      var(--black) calc(25% / var(--repeating-conic-gradient-times))
+                    )`
                   : `radial-gradient(circle, #dd7bbb 10%, #dd7bbb00 20%),
-                radial-gradient(circle at 40% 40%, #d79f1e 5%, #d79f1e00 15%),
-                radial-gradient(circle at 60% 60%, #5a922c 10%, #5a922c00 20%), 
-                radial-gradient(circle at 40% 60%, #4c7894 10%, #4c789400 20%),
-                repeating-conic-gradient(
-                  from 236.84deg at 50% 50%,
-                  #dd7bbb 0%,
-                  #d79f1e calc(25% / var(--repeating-conic-gradient-times)),
-                  #5a922c calc(50% / var(--repeating-conic-gradient-times)), 
-                  #4c7894 calc(75% / var(--repeating-conic-gradient-times)),
-                  #dd7bbb calc(100% / var(--repeating-conic-gradient-times))
-                )`,
+                     radial-gradient(circle at 40% 40%, #d79f1e 5%, #d79f1e00 15%),
+                     radial-gradient(circle at 60% 60%, #5a922c 10%, #5a922c00 20%),
+                     radial-gradient(circle at 40% 60%, #4c7894 10%, #4c789400 20%),
+                     repeating-conic-gradient(
+                       from 236.84deg at 50% 50%,
+                       #dd7bbb 0%,
+                       #d79f1e calc(25% / var(--repeating-conic-gradient-times)),
+                       #5a922c calc(50% / var(--repeating-conic-gradient-times)),
+                       #4c7894 calc(75% / var(--repeating-conic-gradient-times)),
+                       #dd7bbb calc(100% / var(--repeating-conic-gradient-times))
+                     )`,
             } as React.CSSProperties
           }
           className={cn(
-            "pointer-events-none absolute inset-0 rounded-[inherit] opacity-100 transition-opacity",
+            "pointer-events-none absolute inset-0 rounded-[inherit] opacity-100 transition-opacity will-change-transform",
             glow && "opacity-100",
-            blur > 0 && "blur-[var(--blur)] ",
+            blur > 0 && "blur-[var(--blur)]",
             className,
-            disabled && "!hidden"
+            disabled && "hidden"
           )}
         >
           <div
@@ -186,5 +181,4 @@ const GlowingEffect = memo(
 );
 
 GlowingEffect.displayName = "GlowingEffect";
-
 export { GlowingEffect };
