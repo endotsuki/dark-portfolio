@@ -7,7 +7,7 @@ import { IconTerminal2 } from "@tabler/icons-react"
 const CircularProgress = ({ percentage, icon: Icon, name, category, delay = 0 }) => {
   const [animatedPercentage, setAnimatedPercentage] = useState(0);
   const [displayPercentage, setDisplayPercentage] = useState(0);
-  const size = 120, strokeWidth = 5, radius = (size - strokeWidth) / 2;
+  const size = 120, strokeWidth = 6, radius = (size - strokeWidth) / 2;
   const circumference = radius * 2 * Math.PI;
   const offset = circumference - (animatedPercentage / 100) * circumference;
 
@@ -46,13 +46,13 @@ const CircularProgress = ({ percentage, icon: Icon, name, category, delay = 0 })
           <circle cx={size / 2} cy={size / 2} r={radius} stroke="rgba(255,255,255,0.06)" strokeWidth={strokeWidth} fill="transparent" />
           <circle cx={size / 2} cy={size / 2} r={radius} stroke="rgba(255,255,255,0.85)" strokeWidth={strokeWidth} fill="transparent"
             strokeDasharray={circumference} strokeDashoffset={offset} strokeLinecap="round"
-            className="transition-all duration-[2500ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
+            className="transition-all custom-transition"
             style={{ filter: 'drop-shadow(0 0 6px rgba(255,255,255,0.2))' }} />
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <div className="relative mb-2 group-hover:scale-105 transition-all duration-500 ease-out">
             <div className="w-10 h-10 flex items-center justify-center rounded-lg border border-white/8 bg-white/3 backdrop-blur-sm transition-all duration-300 group-hover:border-white/15 group-hover:bg-white/5">
-              <Icon size={20} className="text-white/90 transition-all duration-300 group-hover:text-white" />
+              <Icon size={23} className="text-white/90 transition-all duration-300 group-hover:text-white" />
             </div>
           </div>
           <div className="text-lg font-medium text-white tabular-nums transition-all duration-300">

@@ -31,8 +31,13 @@ export default {
           "0%": { "background-position": "100%" },
           "100%": { "background-position": "-100%" },
         },
-        // ...other custom keyframes
       },
+      // transitionDuration: {
+      //   '2500': '2500ms',
+      // },
+      // transitionTimingFunction: {
+      //   'custom': 'cubic-bezier(0.25,0.46,0.45,0.94)',
+      // },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
