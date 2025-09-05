@@ -144,8 +144,8 @@ ${data.message}
                   key={c.label}
                   href={c.href}
                   data-aos="fade-right"
-                  data-aos-delay={i * 400}
-                  data-aos-duration="600"
+                  data-aos-delay={i * 300}
+                  data-aos-duration="500"
                   className="group relative overflow-hidden block p-6 rounded-2xl bg-gradient-to-br from-gray-950 to-gray-900 border border-gray-800 hover:border-gray-700 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-white/5"
                   style={{ animationDelay: `${i * 100}ms` }}>
                   {/* Dark holographic sweep effect */}
@@ -199,9 +199,6 @@ ${data.message}
                       disabled={isSubmitting}
                       className="w-full h-14 group relative overflow-hidden bg-transparent hover:bg-transparent text-white border border-white/20 hover:border-white/60 rounded-xl font-medium text-lg tracking-wide transition-all duration-500" >
                       {/* Border sweep effect - now more visible */}
-                      {/* <div className="absolute inset-0 overflow-hidden rounded-xl group-hover:border-white/20">
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-0 group-hover:opacity-100 -translate-x-[150%] group-hover:translate-x-[150%] transition-all duration-1000" />
-                      </div> */}
                       {/* Content */}
                       <div className="relative z-10 flex items-center justify-center">
                         {isSubmitting ? (
