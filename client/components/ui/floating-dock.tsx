@@ -14,7 +14,7 @@ import {
   useTransform,
 } from "motion/react";
 
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
 export const FloatingDock = ({
   items,
@@ -58,7 +58,12 @@ const FloatingDockMobile = ({
               target="_blank"
               className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-600"
             >
-              <div className="h-5 w-5">{item.icon}</div>
+              <div className="h-10 w-10 flex items-center justify-center">
+                {React.cloneElement(item.icon as React.ReactElement, {
+                  className: "h-full w-full block",
+                })}
+              </div>
+
             </a>
           </motion.div>
         ))}

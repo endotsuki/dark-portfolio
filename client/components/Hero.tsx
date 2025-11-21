@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { React, ShadcnUI, TailwindCSS, TypeScript, ViteJS } from 'developer-icons';
-import { IconArrowRight, IconBriefcase, IconChevronsRight, IconMail } from "@tabler/icons-react";
+import { Icon } from 'iconza'
 import TextType from './Reactbits/TextType'
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
@@ -21,11 +19,11 @@ export default function Hero() {
   };
 
   const techStack = [
-    { icon: <React size={45} />, label: 'React' },
-    { icon: <TypeScript size={45} />, label: 'TypeScript' },
-    { icon: <ViteJS size={45} />, label: 'Vite' },
-    { icon: <TailwindCSS size={45} />, label: 'Tailwind CSS' },
-    { icon: <ShadcnUI size={45} />, label: 'Shadcn' },
+    { icon: <Icon name="ReactJS" size={35} />, label: 'React' },
+    { icon: <Icon name="TypeScript" size={35} />, label: 'TypeScript' },
+    { icon: <Icon name="ViteJS" size={35} />, label: 'Vite' },
+    { icon: <Icon name="TailwindCSS" size={35} />, label: 'Tailwind CSS' },
+    { icon: <Icon name="Shadcn Light" size={30} />, label: 'Shadcn' },
   ];
 
   const { text: greetingText } = getGreeting();

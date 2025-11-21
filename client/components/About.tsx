@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { Facebook, GitHubLight, LinkedIn, Telegram } from "developer-icons";
 import { IconUserSquare, IconDownload, IconSchool, IconWalk, IconMapPin2, IconMail, IconDeviceMobile, IconMessage } from "@tabler/icons-react";
 import { PointerHighlight } from "@/components/ui/pointer-highlight";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { Icon } from "iconza";
+import React from "react";
 
 const journey1 = `I'm a passionate full-stack developer and designer with over 5 years of experience creating digital experiences that matter. My journey began with curiosity about how things work on the web, and it has evolved into a deep expertise in modern technologies.`;
 const journey2 = `I specialize in React, Node.js, and cloud technologies, but what sets me apart is my ability to bridge the gap between design and development. I don't just build applications I craft experiences that users love and businesses depend on.`;
@@ -49,25 +50,25 @@ const education = [
 
 const socials = [
   {
-    icon: GitHubLight,
+    icon: <Icon name="GitHub Light" size={23} />,
     handle: "@johndoe",
     platform: "GitHub",
     link: "https://github.com/johndoe",
   },
   {
-    icon: LinkedIn,
+    icon: <Icon name="LinkedIn" size={23} />,
     handle: "/in/johndoe",
     platform: "LinkedIn",
     link: "https://linkedin.com/in/johndoe",
   },
   {
-    icon: Telegram,
+    icon: <Icon name="Telegram" size={23} />,
     handle: "@johndoe",
     platform: "Telegram",
     link: "https://t.me/johndoe",
   },
   {
-    icon: Facebook,
+    icon: <Icon name="FacebookRound" size={23} />,
     handle: "@cheatzx",
     platform: "Facebook",
     link: "https://facebook.com/cheatzx",
@@ -133,9 +134,11 @@ export default function About() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="relative flex items-center gap-3 p-3 rounded-lg bg-gray-800/50 border border-white/5 overflow-hidden group transition-colors duration-300">
-                      {/* Sweep Effect */}
-                      {/* <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700" /> */}
-                      <social.icon size={30} className="group-hover:translate-x-12 transition-all text-gray-300 group-hover:text-cyan-400 duration-500" />
+                      {React.cloneElement(social.icon as React.ReactElement, {
+                        size: 30,
+                        className:
+                          "group-hover:translate-x-12 transition-all text-gray-300 group-hover:text-cyan-400 duration-500",
+                      })}
                       <div className="group-hover:translate-x-32 transition-all duration-500">
                         <p className="text-white font-medium text-sm">
                           {social.platform}

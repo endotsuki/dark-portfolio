@@ -1,12 +1,12 @@
 import { FloatingDock } from "@/components/ui/floating-dock";
-import { GitHubLight, LinkedIn, Gmail, Telegram, Facebook } from "developer-icons";
+import { Icon } from 'iconza'
 
 export function Footer() {
   const links = [
     {
       title: "GitHub",
       icon: (
-        <GitHubLight className="h-full w-full" />
+        <Icon name="GitHub Light" className="h-full w-full" />
       ),
       href: "https://github.com/onimuxha",
     },
@@ -14,21 +14,21 @@ export function Footer() {
     {
       title: "LinkedIn",
       icon: (
-        <LinkedIn className="h-full w-full" />
+        <Icon name="LinkedIn" className="h-full w-full" />
       ),
       href: "https://www.linkedin.com/in/socheathek-mao",
     },
     {
       title: "Gmail",
       icon: (
-        <Gmail className="h-full w-full" />
+        <Icon name="Gmail" className="h-full w-full" />
       ),
       href: "mailto:maosocheathek@gmail.com",
     },
     {
       title: "Telegram",
       icon: (
-        <Telegram className="h-full w-full" />
+        <Icon name="Telegram" className="h-full w-full" />
       ),
       href: "https://t.me/cheatzx",
     },
@@ -36,7 +36,7 @@ export function Footer() {
     {
       title: "Facebook",
       icon: (
-        <Facebook className="h-full w-full" />
+        <Icon name="FacebookRound" className="h-full w-full" />
       ),
       href: "https://www.facebook.com/cheathzx",
     },

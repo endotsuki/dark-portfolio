@@ -1,10 +1,16 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { TypeScript, Python, React, Figma, GitHubLight, WordPress, JavaScript, HTML5, CSS3, Bootstrap5, TailwindCSS, VueJs, VisualStudioCode, Canva, Laravel, PHP, Jira, Photoshop } from "developer-icons";
 import { Meteors } from "../components/ui/meteors";
 import { IconTerminal2 } from "@tabler/icons-react"
+import { Icon } from "iconza";
 
-const CircularProgress = ({ percentage, icon: Icon, name, category, delay = 0 }) => {
+const CircularProgress = ({ percentage, icon, name, category, delay = 0 }: {
+  percentage: number;
+  icon: string;
+  name: string;
+  category: string;
+  delay?: number;
+}) => {
   const [animatedPercentage, setAnimatedPercentage] = useState(0);
   const [displayPercentage, setDisplayPercentage] = useState(0);
   const size = 120, strokeWidth = 6, radius = (size - strokeWidth) / 2;
@@ -52,7 +58,11 @@ const CircularProgress = ({ percentage, icon: Icon, name, category, delay = 0 })
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <div className="relative mb-2 group-hover:scale-105 transition-all duration-500 ease-out">
             <div className="w-10 h-10 flex items-center justify-center rounded-lg border border-white/8 bg-white/3 backdrop-blur-sm transition-all duration-300 group-hover:border-white/15 group-hover:bg-white/5">
-              <Icon size={23} className="text-white/90 transition-all duration-300 group-hover:text-white" />
+              <Icon
+                name={icon}
+                size={23}
+                className="text-white/90 transition-all duration-300 group-hover:text-white"
+              />
             </div>
           </div>
           <div className="text-lg font-medium text-white tabular-nums transition-all duration-300">
@@ -75,24 +85,25 @@ const CircularProgress = ({ percentage, icon: Icon, name, category, delay = 0 })
 
 export default function Skills() {
   const skills = [
-    { name: "TypeScript", level: 95, icon: TypeScript, group: "Programming Languages" },
-    { name: "Python", level: 88, icon: Python, group: "Programming Languages" },
-    { name: "JavaScript", level: 90, icon: JavaScript, group: "Programming Languages" },
-    { name: "HTML", level: 100, icon: HTML5, group: "Programming Languages" },
-    { name: "CSS", level: 100, icon: CSS3, group: "Programming Languages" },
-    { name: "PHP", level: 80, icon: PHP, group: "Programming Languages" },
-    { name: "React.js", level: 98, icon: React, group: "Frameworks & Libraries" },
-    { name: "Vue.js", level: 70, icon: VueJs, group: "Frameworks & Libraries" },
-    { name: "Bootstrap", level: 85, icon: Bootstrap5, group: "Frameworks & Libraries" },
-    { name: "Tailwind CSS", level: 95, icon: TailwindCSS, group: "Frameworks & Libraries" },
-    { name: "WordPress", level: 90, icon: WordPress, group: "Frameworks & Libraries" },
-    { name: "Laravel", level: 87, icon: Laravel, group: "Frameworks & Libraries" },
-    { name: "GitHub", level: 93, icon: GitHubLight, group: "Tools & Platforms" },
-    { name: "Figma", level: 87, icon: Figma, group: "Tools & Platforms" },
-    { name: "VS Code", level: 80, icon: VisualStudioCode, group: "Tools & Platforms" },
-    { name: "Canva", level: 80, icon: Canva, group: "Tools & Platforms" },
-    { name: "Jira", level: 75, icon: Jira, group: "Tools & Platforms" },
-    { name: "PhotoShop", level: 25, icon: Photoshop, group: "Tools & Platforms" },
+    { name: "TypeScript", level: 95, icon: "TypeScript", group: "Programming Languages" },
+    { name: "Python", level: 88, icon: "Python", group: "Programming Languages" },
+    { name: "JavaScript", level: 90, icon: "JavaScript", group: "Programming Languages" },
+    { name: "HTML", level: 100, icon: "HTML5", group: "Programming Languages" },
+    { name: "CSS", level: 100, icon: "CSS3", group: "Programming Languages" },
+
+    { name: "React.js", level: 98, icon: "ReactJS", group: "Frameworks & Libraries" },
+    { name: "Vue.js", level: 70, icon: "VueJS", group: "Frameworks & Libraries" },
+    { name: "Bootstrap", level: 85, icon: "Bootstrap5", group: "Frameworks & Libraries" },
+    { name: "Tailwind CSS", level: 95, icon: "TailwindCSS", group: "Frameworks & Libraries" },
+    { name: "WordPress", level: 90, icon: "WordPress", group: "Frameworks & Libraries" },
+    { name: "Laravel", level: 87, icon: "Laravel", group: "Frameworks & Libraries" },
+
+    { name: "GitHub", level: 93, icon: "GitHub Light", group: "Tools & Platforms" },
+    { name: "Figma", level: 87, icon: "Figma", group: "Tools & Platforms" },
+    { name: "VS Code", level: 80, icon: "VSCode", group: "Tools & Platforms" },
+    { name: "Canva", level: 80, icon: "Canva", group: "Tools & Platforms" },
+    { name: "Jira", level: 75, icon: "Jira", group: "Tools & Platforms" },
+    { name: "PhotoShop", level: 25, icon: "AdobePhotoshop", group: "Tools & Platforms" },
   ];
 
   const groups = ["Programming Languages", "Frameworks & Libraries", "Tools & Platforms"];
