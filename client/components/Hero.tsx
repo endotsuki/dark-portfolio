@@ -1,12 +1,10 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { React, ShadcnUI, TailwindCSS, ViteJS } from 'developer-icons';
+import { React, ShadcnUI, TailwindCSS, TypeScript, ViteJS } from 'developer-icons';
 import { IconArrowRight, IconBriefcase, IconChevronsRight, IconMail } from "@tabler/icons-react";
 import TextType from './Reactbits/TextType'
-import ShinyText from './Reactbits/ShinyText';
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
-import TrueFocus from './Reactbits/TrueFocus';
 import SlideArrowButton from '../components/ui/SlideArrowButton';
 
 export default function Hero() {
@@ -14,16 +12,17 @@ export default function Hero() {
   const getGreeting = () => {
     const hour = new Date().getHours();
     if (hour >= 5 && hour < 12) {
-      return { text: 'Good Morning' };
+      return { text: 'GOOD MORNING' };
     } else if (hour >= 12 && hour < 18) {
-      return { text: 'Good Afternoon' };
+      return { text: 'GOOD AFTERNOON' };
     } else {
-      return { text: 'Good Evening' };
+      return { text: 'GOOD EVENING' };
     }
   };
 
   const techStack = [
     { icon: <React size={45} />, label: 'React' },
+    { icon: <TypeScript size={45} />, label: 'TypeScript' },
     { icon: <ViteJS size={45} />, label: 'Vite' },
     { icon: <TailwindCSS size={45} />, label: 'Tailwind CSS' },
     { icon: <ShadcnUI size={45} />, label: 'Shadcn' },
@@ -45,7 +44,7 @@ export default function Hero() {
       {/* Content Layer */}
       <div className="relative z-10 text-center max-w-6xl mx-auto">
         <div className="mb-8 space-y-4">
-          <h2 className="text-6xl sm:text-6xl md:text-8xl font-black tracking-tight mb-10">
+          <h2 className="text-6xl sm:text-6xl md:text-8xl font-extrabold tracking-tight mb-10">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 via-white to-gray-300">
               {greetingText}, I'm <span className="text-blue-400">SOCHEATH</span>
             </span>
@@ -68,16 +67,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* <div className="text-base sm:text-lg md:text-xl text-gray-200 mb-12 max-w-3xl mx-auto leading-relaxed px-2">
-          <ShinyText
-            text="Crafting extraordinary digital experiences through innovative design, cutting-edge technology, and a passion for pushing the boundaries of what's possible."
-            disabled={false}
-            speed={4}
-            className="custom-class"
-          />
-        </div> */}
-
-        <p className='text-md mx-auto mb-12 max-w-2xl text-center leading-relaxed text-gray-400 md:text-xl'>
+        <p className='mx-auto mb-12 max-w-2xl text-center leading-relaxed text-gray-300 md:text-xl'>
           Crafting <span className='hilight'>scalable solutions</span> with clean code and intuitive
           design. Full-stack developer specializing in{' '}
           <a className="font-medium text-sky-500 after:content-['_↗']" target='_blank' href='https://react.dev/'>
@@ -96,19 +86,6 @@ export default function Hero() {
             primaryColor="#2563EB"
             text="View My Work"
           />
-          <Button
-            size="lg"
-            variant="outline"
-            onClick={() => scrollToSection("contact")}
-            className="group rounded-full relative px-8 py-4 border-white/30 bg-transparent text-white text-xl overflow-hidden">
-            <IconArrowRight size={22} className="hidden md:block transition-all group-hover:translate-x-20 -translate-x-14 duration-500" />
-            <div className="flex items-center gap-3 z-10 transition-all group-hover:translate-x-44 -translate-x-3 duration-500">
-              <IconMail size={22} />
-              <span>Let's Connect</span>
-            </div>
-            <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
-          </Button>
-
         </div>
 
         {/* Tech Stack Showcase */}
