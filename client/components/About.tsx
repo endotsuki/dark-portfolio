@@ -130,7 +130,7 @@ export default function About() {
               />
               <div className="flex flex-col items-center">
                 <div className="relative mb-6">
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 blur-md opacity-60 animate-spin-slow" />
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 blur-md opacity-60 animate-spin" />
                   <Avatar className="w-70 h-70 border-4 border-white/10 relative">
                     <AvatarImage
                       src="/profile.jpg"

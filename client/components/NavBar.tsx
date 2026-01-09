@@ -1,30 +1,42 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { IconBriefcase, IconCode, IconHome, IconMail, IconMenu4, IconUserSquareRounded, IconX } from '@tabler/icons-react';
+import {
+  IconBriefcase,
+  IconCode,
+  IconHome,
+  IconMail,
+  IconMenu4,
+  IconUserSquareRounded,
+  IconX,
+} from "@tabler/icons-react";
 
 export function NavBar() {
-  const [activeSection, setActiveSection] = useState('hero');
+  const [activeSection, setActiveSection] = useState("hero");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-      const sections = ['hero', 'about', 'skills', 'experience', 'contact'];
+      const sections = ["hero", "about", "skills", "experience", "contact"];
       const scrollPosition = window.scrollY + 150; // Increased offset
 
       for (const section of sections) {
         const el = document.getElementById(section);
-        if (el && scrollPosition >= el.offsetTop && scrollPosition < el.offsetTop + el.offsetHeight) {
+        if (
+          el &&
+          scrollPosition >= el.offsetTop &&
+          scrollPosition < el.offsetTop + el.offsetHeight
+        ) {
           setActiveSection(section);
           break;
         }
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollTo = (id: string) => {
@@ -34,9 +46,9 @@ export function NavBar() {
       const element = document.getElementById(id);
       if (element) {
         element.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-          inline: 'nearest'
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
         });
       } else {
         console.warn(`Element with id "${id}" not found`);
@@ -45,17 +57,18 @@ export function NavBar() {
   };
 
   const navItems = [
-    { id: 'hero', label: 'Home', icon: IconHome },
-    { id: 'about', label: 'About', icon: IconUserSquareRounded },
-    { id: 'skills', label: 'Skills', icon: IconCode },
-    { id: 'experience', label: 'Experience', icon: IconBriefcase },
-    { id: 'contact', label: 'Contact', icon: IconMail },
+    { id: "hero", label: "Home", icon: IconHome },
+    { id: "about", label: "About", icon: IconUserSquareRounded },
+    { id: "skills", label: "Skills", icon: IconCode },
+    { id: "experience", label: "Experience", icon: IconBriefcase },
+    { id: "contact", label: "Contact", icon: IconMail },
   ];
 
-  const containerClass = `transition-all duration-500 ${isScrolled || isMobileMenuOpen
-    ? 'bg-slate-900/20 backdrop-blur-sm border border-white/25 rounded-2xl shadow-2xl shadow-black/25'
-    : 'bg-slate-900/20 backdrop-blur-xs border border-white/40 rounded-3xl'
-    }`;
+  const containerClass = `transition-all duration-500 ${
+    isScrolled || isMobileMenuOpen
+      ? "bg-slate-900/20 backdrop-blur-sm border border-white/25 rounded-2xl shadow-2xl shadow-black/25"
+      : "bg-slate-900/20 backdrop-blur-xs border-none rounded-3xl"
+  }`;
 
   return (
     <>
@@ -63,19 +76,25 @@ export function NavBar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'pt-5' : 'pt-2'}`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? "pt-5" : "pt-2"}`}
       >
         <div className="mx-auto px-4 max-w-7xl">
           {/* Desktop */}
           <div className="hidden lg:flex">
-            <div className={`w-full mx-auto ${containerClass} ${isScrolled ? 'max-w-7xl' : 'max-w-5xl'}`}>
+            <div
+              className={`w-full mx-auto ${containerClass} ${isScrolled ? "max-w-7xl" : "max-w-6xl"}`}
+            >
               <div className="flex items-center justify-between px-4 py-3">
                 <motion.button
-                  onClick={() => scrollTo('hero')}
+                  onClick={() => scrollTo("hero")}
                   className="text-white font-bold text-xl hover:text-blue-300 transition-all duration-300 group"
                   whileHover={{ translateX: 12 }}
                 >
-                  <img src="/text-white.png" alt="" className="w-12 h-1w-12 object-contain" />
+                  <img
+                    src="/text-white.png"
+                    alt=""
+                    className="w-12 h-1w-12 object-contain"
+                  />
                 </motion.button>
 
                 <div className="flex items-center bg-white/5 rounded-xl p-2 gap-3 backdrop-blur-sm border border-white/10">
@@ -83,18 +102,24 @@ export function NavBar() {
                     <motion.button
                       key={item.id}
                       onClick={() => scrollTo(item.id)}
-                      className={`relative px-4 py-2.5 text-sm font-medium rounded-lg flex items-center gap-2 transition-all duration-300 ${activeSection === item.id
-                        ? 'text-white shadow-lg'
-                        : 'text-gray-300 hover:text-white hover:bg-white/5'
-                        }`}
-                      whileHover={{ scale: 1.05 }}>
+                      className={`relative px-4 py-2.5 text-sm font-medium rounded-lg flex items-center gap-2 transition-all duration-300 ${
+                        activeSection === item.id
+                          ? "text-white shadow-lg"
+                          : "text-gray-300 hover:text-white hover:bg-white/5"
+                      }`}
+                      whileHover={{ scale: 1.05 }}
+                    >
                       <item.icon size={20} />
                       {item.label}
                       {activeSection === item.id && (
                         <motion.div
                           layoutId="activeDesktop"
                           className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg border border-blue-400/30"
-                          transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 25,
+                          }}
                         />
                       )}
                     </motion.button>
@@ -109,11 +134,15 @@ export function NavBar() {
             <div className={`${containerClass} relative z-50`}>
               <div className="flex items-center justify-between px-6 py-3">
                 <motion.button
-                  onClick={() => scrollTo('hero')}
+                  onClick={() => scrollTo("hero")}
                   className="text-white font-bold text-xl hover:text-blue-300 transition-all duration-300 group"
                   whileHover={{ translateX: 12 }}
                 >
-                  <img src="/text-white.png" alt="" className="w-12 h-1w-12 object-contain" />
+                  <img
+                    src="/text-white.png"
+                    alt=""
+                    className="w-12 h-1w-12 object-contain"
+                  />
                 </motion.button>
 
                 <motion.button
@@ -123,11 +152,21 @@ export function NavBar() {
                 >
                   <AnimatePresence mode="wait">
                     {isMobileMenuOpen ? (
-                      <motion.div key="close" initial={{ rotate: -90 }} animate={{ rotate: 0 }} transition={{ duration: 0.2 }}>
+                      <motion.div
+                        key="close"
+                        initial={{ rotate: -90 }}
+                        animate={{ rotate: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
                         <IconX size={23} />
                       </motion.div>
                     ) : (
-                      <motion.div key="menu" initial={{ rotate: 90 }} animate={{ rotate: 0 }} transition={{ duration: 0.2 }}>
+                      <motion.div
+                        key="menu"
+                        initial={{ rotate: 90 }}
+                        animate={{ rotate: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
                         <IconMenu4 size={23} />
                       </motion.div>
                     )}
@@ -139,7 +178,7 @@ export function NavBar() {
                 {isMobileMenuOpen && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
+                    animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                     className="border-t border-white/10"
@@ -149,10 +188,11 @@ export function NavBar() {
                         <motion.button
                           key={item.id}
                           onClick={() => scrollTo(item.id)}
-                          className={`flex items-center w-full px-4 py-3 text-base font-medium rounded-xl transition-all duration-300 ${activeSection === item.id
-                            ? 'text-white bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30'
-                            : 'text-gray-300 hover:text-white hover:bg-white/5 border border-transparent'
-                            }`}
+                          className={`flex items-center w-full px-4 py-3 text-base font-medium rounded-xl transition-all duration-300 ${
+                            activeSection === item.id
+                              ? "text-white bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30"
+                              : "text-gray-300 hover:text-white hover:bg-white/5 border border-transparent"
+                          }`}
                           whileHover={{ scale: 1.02 }}
                         >
                           <span className="flex items-center justify-center w-10 h-10 mr-3 rounded-lg bg-white/5">
