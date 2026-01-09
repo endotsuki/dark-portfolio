@@ -1,6 +1,15 @@
 import { motion } from "framer-motion";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { IconUserSquare, IconDownload, IconSchool, IconWalk, IconMapPin2, IconMail, IconDeviceMobile, IconMessage } from "@tabler/icons-react";
+import {
+  IconUserSquare,
+  IconDownload,
+  IconSchool,
+  IconWalk,
+  IconMapPin2,
+  IconMail,
+  IconDeviceMobile,
+  IconMessage,
+} from "@tabler/icons-react";
 import { PointerHighlight } from "@/components/ui/pointer-highlight";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Icon } from "iconza";
@@ -45,7 +54,7 @@ const education = [
     logo: "kpt-school.png",
     field: "General Education",
     years: "2021 - 2022",
-  }
+  },
 ];
 
 const socials = [
@@ -77,7 +86,10 @@ const socials = [
 
 export default function About() {
   return (
-    <section id="about" className="overflow-hidden bg-slate-950 pt-28 px-2 relative">
+    <section
+      id="about"
+      className="overflow-hidden bg-slate-950 pt-28 px-2 relative"
+    >
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header Section */}
         <div className="text-center mb-12">
@@ -104,21 +116,30 @@ export default function About() {
           {/* Left Column - Profile & Contact */}
           <div className="lg:col-span-4 space-y-8">
             {/* Profile Card */}
-            <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/10 shadow-xl relative" data-aos='fade-right' data-aos-duration='600'>
-              <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
+            <div
+              className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/10 shadow-xl relative"
+              data-aos="fade-right"
+              data-aos-duration="600"
+            >
+              <GlowingEffect
+                spread={40}
+                glow={true}
+                disabled={false}
+                proximity={64}
+                inactiveZone={0.01}
+              />
               <div className="flex flex-col items-center">
                 <div className="relative mb-6">
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 blur-md opacity-60 animate-spin-slow" />
                   <Avatar className="w-70 h-70 border-4 border-white/10 relative">
                     <AvatarImage
-                      src="/profile1.jpg"
+                      src="/profile.jpg"
                       alt="Profile"
                       className="object-cover"
                     />
                   </Avatar>
                 </div>
-                <PointerHighlight
-                  rectangleClassName="bg-slate-700 border-neutral-400">
+                <PointerHighlight rectangleClassName="bg-slate-700 border-neutral-400">
                   <h3 className="text-2xl font-bold relative z-10 text-center mb-1">
                     SOCHEATH EK MAO
                   </h3>
@@ -133,7 +154,8 @@ export default function About() {
                       href={social.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative flex items-center gap-3 p-3 rounded-lg bg-gray-800/50 border border-white/5 overflow-hidden group transition-colors duration-300">
+                      className="relative flex items-center gap-3 p-3 rounded-lg bg-gray-800/50 border border-white/5 overflow-hidden group transition-colors duration-300"
+                    >
                       {React.cloneElement(social.icon as React.ReactElement, {
                         size: 30,
                         className:
@@ -162,8 +184,14 @@ export default function About() {
                   >
                     <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700" />
                     <div className="relative h-5 w-5 overflow-hidden">
-                      <IconDownload size={20} className="absolute top-0 left-0 text-white transition-transform duration-300 group-hover:translate-y-full" />
-                      <IconDownload size={20} className="absolute top-0 left-0 text-white transition-transform duration-300 transform -translate-y-full group-hover:translate-y-0" />
+                      <IconDownload
+                        size={20}
+                        className="absolute top-0 left-0 text-white transition-transform duration-300 group-hover:translate-y-full"
+                      />
+                      <IconDownload
+                        size={20}
+                        className="absolute top-0 left-0 text-white transition-transform duration-300 transform -translate-y-full group-hover:translate-y-0"
+                      />
                     </div>
                     <span className="font-medium tracking-wide text-white">
                       Download CV
@@ -177,8 +205,19 @@ export default function About() {
           {/* Right Column - Main Content */}
           <div className="lg:col-span-8 space-y-8">
             {/* My Journey */}
-            <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/10 shadow-xl relative" data-aos='fade-left' data-aos-duration='600' data-aos-delay='400'>
-              <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
+            <div
+              className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/10 shadow-xl relative"
+              data-aos="fade-left"
+              data-aos-duration="600"
+              data-aos-delay="400"
+            >
+              <GlowingEffect
+                spread={40}
+                glow={true}
+                disabled={false}
+                proximity={64}
+                inactiveZone={0.01}
+              />
               <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
                 <IconWalk size={23} />
                 My Professional Journey
@@ -192,9 +231,18 @@ export default function About() {
             {/* Education & Interest */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Contact Information */}
-              <div data-aos='fade-up' data-aos-duration='600'
-                className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/10 shadow-xl relative">
-                <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
+              <div
+                data-aos="fade-up"
+                data-aos-duration="600"
+                className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/10 shadow-xl relative"
+              >
+                <GlowingEffect
+                  spread={40}
+                  glow={true}
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                />
                 <h3 className="text-2xl font-semibold mb-6 flex items-center gap-3">
                   <IconMessage size={23} />
                   Contact Information
@@ -211,7 +259,10 @@ export default function About() {
                     >
                       <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700" />
                       <div className="p-2 rounded-lg bg-gray-800/50 border border-white/5 transition-colors">
-                        <info.icon size={23} className="text-gray-300 transition-colors" />
+                        <info.icon
+                          size={23}
+                          className="text-gray-300 transition-colors"
+                        />
                       </div>
                       <div>
                         <p className="text-gray-400 text-sm">{info.platform}</p>
@@ -228,7 +279,13 @@ export default function About() {
                 data-aos-duration="600"
                 data-aos-delay="200"
               >
-                <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
+                <GlowingEffect
+                  spread={40}
+                  glow={true}
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                />
                 <h3 className="text-2xl font-semibold mb-6 flex items-center gap-3">
                   <IconSchool size={23} />
                   Education
@@ -237,7 +294,8 @@ export default function About() {
                   {education.map((edu, index) => (
                     <div
                       key={index}
-                      className="flex items-start gap-5 pb-6 last:pb-0">
+                      className="flex items-start gap-5 pb-6 last:pb-0"
+                    >
                       <img
                         src={edu.logo}
                         className="w-14 h-14 rounded-full object-cover border border-white/20 bg-white"
@@ -249,7 +307,9 @@ export default function About() {
                         </h4>
                         <p className="text-gray-400 mb-1">{edu.school}</p>
                         <p className="text-sm text-gray-500">{edu.field}</p>
-                        <p className="text-sm text-stone-50 mt-2">{edu.years}</p>
+                        <p className="text-sm text-stone-50 mt-2">
+                          {edu.years}
+                        </p>
                       </div>
                     </div>
                   ))}
