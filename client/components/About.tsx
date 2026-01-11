@@ -60,7 +60,7 @@ const education = [
 const socials = [
   {
     icon: <Icon name="GitHub Light" size={23} />,
-    handle: "@johndoe",
+    handle: "/johndoe",
     platform: "GitHub",
     link: "https://github.com/johndoe",
   },
@@ -77,10 +77,10 @@ const socials = [
     link: "https://t.me/johndoe",
   },
   {
-    icon: <Icon name="FacebookRound" size={23} />,
-    handle: "@cheatzx",
-    platform: "Facebook",
-    link: "https://facebook.com/cheatzx",
+    icon: <Icon name="BehanceFill" size={23} />,
+    handle: "/so_cheat",
+    platform: "Behance",
+    link: "https://behance.net/so_cheat",
   },
 ];
 
@@ -144,7 +144,10 @@ export default function About() {
                     SOCHEATH EK MAO
                   </h3>
                 </PointerHighlight>
-                <p className="text-gray-400 mb-6">Fullstack Developer</p>
+                <p className="text-gray-400 mb-6">
+                  <span className="text-accent">{"<"}</span>Fullstack Developers{" "}
+                  <span className="text-accent">{"/>"}</span>
+                </p>
 
                 {/* Quick Stats */}
                 <div className="grid grid-cols-2 gap-4 cursor-default w-full mb-6">
@@ -157,11 +160,11 @@ export default function About() {
                       className="relative flex items-center gap-3 p-3 rounded-lg bg-gray-800/50 border border-white/5 overflow-hidden group transition-colors duration-300"
                     >
                       {React.cloneElement(social.icon as React.ReactElement, {
-                        size: 30,
+                        size: 35,
                         className:
                           "group-hover:translate-x-12 transition-all text-gray-300 group-hover:text-cyan-400 duration-500",
                       })}
-                      <div className="group-hover:translate-x-32 transition-all duration-500">
+                      <div className="group-hover:scale-0 transition-all duration-300">
                         <p className="text-white font-medium text-sm">
                           {social.platform}
                         </p>
@@ -218,7 +221,7 @@ export default function About() {
                 proximity={64}
                 inactiveZone={0.01}
               />
-              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
+              <h3 className="text-2xl font-medium mb-6 flex items-center gap-3">
                 <IconWalk size={23} />
                 My Professional Journey
               </h3>
@@ -243,14 +246,13 @@ export default function About() {
                   proximity={64}
                   inactiveZone={0.01}
                 />
-                <h3 className="text-2xl font-semibold mb-6 flex items-center gap-3">
+                <h3 className="text-2xl font-medium mb-6 flex items-center gap-3">
                   <IconMessage size={23} />
                   Contact Information
                 </h3>
                 <div className="space-y-4">
                   {personalInfos.map((info, index) => (
                     <motion.a
-                      whileHover={{ y: -5 }}
                       key={index}
                       href={info.link}
                       target="_blank"
@@ -286,7 +288,7 @@ export default function About() {
                   proximity={64}
                   inactiveZone={0.01}
                 />
-                <h3 className="text-2xl font-semibold mb-6 flex items-center gap-3">
+                <h3 className="text-2xl font-medium mb-6 flex items-center gap-3">
                   <IconSchool size={23} />
                   Education
                 </h3>
@@ -294,7 +296,7 @@ export default function About() {
                   {education.map((edu, index) => (
                     <div
                       key={index}
-                      className="flex items-start gap-5 pb-6 last:pb-0"
+                      className="flex items-start gap-5"
                     >
                       <img
                         src={edu.logo}

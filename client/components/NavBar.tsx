@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   IconBriefcase,
   IconCode,
-  IconHome,
+  IconSmartHome,
   IconMail,
   IconMenu4,
   IconUserSquareRounded,
@@ -57,7 +57,7 @@ export function NavBar() {
   };
 
   const navItems = [
-    { id: "hero", label: "Home", icon: IconHome },
+    { id: "hero", label: "Home", icon: IconSmartHome },
     { id: "about", label: "About", icon: IconUserSquareRounded },
     { id: "skills", label: "Skills", icon: IconCode },
     { id: "experience", label: "Experience", icon: IconBriefcase },

@@ -1,28 +1,36 @@
-import { Timeline } from '@/components/ui/timeline';
-import { IconBriefcase, IconBrandGithub, IconDeviceDesktop, IconMapPin2, IconCategory, IconArrowRight } from '@tabler/icons-react';
-import { Icon } from 'iconza';
+import { Timeline } from "@/components/ui/timeline";
+import {
+  IconBriefcase,
+  IconBrandGithub,
+  IconDeviceDesktop,
+  IconMapPin2,
+  IconCategory,
+  IconArrowRight,
+} from "@tabler/icons-react";
+import { Icon } from "iconza";
+import { Button } from "./ui/button";
 
 const techIcons: Record<string, React.ReactNode> = {
-  React: <Icon name='ReactJS' size={23} />,
-  Python: <Icon name='Python' size={23} />,
-  TypeScript: <Icon name='TypeScript' size={23} />,
-  NextJS: <Icon name='NextJS' size={23} />,
-  Figma: <Icon name='Figma' size={23} />,
-  GitHub: <Icon name='GitHub Light' size={23} />,
-  WordPress: <Icon name='WordPress' size={23} />,
-  JavaScript: <Icon name='JavaScript' size={23} />,
-  HTML: <Icon name='HTML5' size={23} />,
-  CSS: <Icon name='CSS3' size={23} />,
-  Bootstrap: <Icon name='Bootstrap4' size={23} />,
-  Tailwind: <Icon name='TailwindCSS' size={23} />,
-  VSCode: <Icon name='VSCode' size={23} />,
-  Canva: <Icon name='Canva' size={23} />,
-  Laravel: <Icon name='Laravel' size={23} />,
-  PHP: <Icon name='PHP' size={23} />,
-  VueJS: <Icon name='VueJS' size={23} />,
-  MySQL: <Icon name='MySQL' size={23} />,
-  ViteJS: <Icon name='ViteJS' size={23} />,
-  ShadcnUI: <Icon name='Shadcn Light' size={20} />,
+  React: <Icon name="ReactJS" size={23} />,
+  Python: <Icon name="Python" size={23} />,
+  TypeScript: <Icon name="TypeScript" size={23} />,
+  NextJS: <Icon name="NextJS" size={23} />,
+  Figma: <Icon name="Figma" size={23} />,
+  GitHub: <Icon name="GitHub Light" size={23} />,
+  WordPress: <Icon name="WordPress" size={23} />,
+  JavaScript: <Icon name="JavaScript" size={23} />,
+  HTML: <Icon name="HTML5" size={23} />,
+  CSS: <Icon name="CSS3" size={23} />,
+  Bootstrap: <Icon name="Bootstrap5" size={23} />,
+  Tailwind: <Icon name="TailwindCSS" size={23} />,
+  VSCode: <Icon name="VSCode" size={23} />,
+  Canva: <Icon name="Canva" size={23} />,
+  Laravel: <Icon name="Laravel" size={23} />,
+  PHP: <Icon name="PHP" size={23} />,
+  VueJS: <Icon name="VueJS" size={23} />,
+  MySQL: <Icon name="MySQL" size={23} />,
+  ViteJS: <Icon name="ViteJS" size={23} />,
+  ShadcnUI: <Icon name="Shadcn Light" size={20} />,
 };
 
 const ProjectCard = ({ project }: { project: any }) => (
@@ -48,7 +56,9 @@ const ProjectCard = ({ project }: { project: any }) => (
           </div>
         </div>
         <div>
-          <h3 className="text-lg font-bold text-white">{project.companyName}</h3>
+          <h3 className="text-lg font-bold text-white">
+            {project.companyName}
+          </h3>
           <div className="flex items-center gap-2 text-sm text-gray-400">
             <IconMapPin2 className="w-4 h-4" />
             {project.companyLocation}
@@ -94,134 +104,125 @@ const ProjectCard = ({ project }: { project: any }) => (
 
     {/* Action Buttons */}
     <div className="flex flex-col sm:flex-row gap-3">
-      <a
-        href={project.github}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group relative overflow-hidden px-4 py-2 border border-gray-600 text-gray-300 hover:text-white rounded-lg hover:bg-gray-700 transition-all duration-300 text-sm font-medium flex items-center justify-center sm:justify-start gap-2"
-      >
-        <div className="flex items-center gap-2 group-hover:translate-x-18 transition-transform duration-500">
+      <a href={project.github} target="_blank" rel="noopener noreferrer">
+        <Button variant="on-hold">
           <IconBrandGithub className="w-4 h-4" />
           <span>Code</span>
-        </div>
-        {/* Arrow only on sm+ */}
-        <IconArrowRight className="hidden sm:block w-4 h-4 group-hover:translate-x-6 -translate-x-8 group-hover:opacity-100 transition-all duration-500 absolute" />
+        </Button>
       </a>
-      <a
-        href={project.live}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group relative overflow-hidden px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-300 text-sm font-medium flex items-center justify-center sm:justify-start gap-2"
-      >
-        <div className="flex items-center gap-2 group-hover:translate-x-28 transition-transform duration-500">
+      <a href={project.live} target="_blank" rel="noopener noreferrer">
+        <Button variant="done">
           <IconDeviceDesktop className="w-4 h-4" />
           <span>Live Demo</span>
-        </div>
-        {/* Arrow only on sm+ */}
-        <IconArrowRight className="hidden sm:block w-4 h-4 group-hover:translate-x-10 -translate-x-10 group-hover:opacity-100 transition-all duration-500 absolute" />
+        </Button>
       </a>
     </div>
   </div>
 );
 
-
 export default function ExperienceTimeline() {
   const projects = [
     //Company experience
     {
-      title: 'Jewelry Management System',
-      companyName: 'Chhorn Chenda',
-      companyLocation: 'Phnom Penh',
-      projectType: 'Point of Sale System',
-      role: 'Fullstack Developer',
-      responsibility: 'Designed Node.js services, integrated ML pipelines for inventory prediction, built real-time sales dashboard, and deployed scalable architecture to AWS with automated CI/CD pipelines.',
-      duration: 'Mar 2023 - Jan 2024',
-      tech: ['VueJS', 'Laravel', 'Bootstrap', 'MySQL'],
-      category: 'Company',
-      companyLogo: '/logo/ccd.png',
-      github: 'https://github.com',
-      live: 'https://example.com',
+      title: "Jewelry Management System",
+      companyName: "Chhorn Chenda",
+      companyLocation: "Phnom Penh",
+      projectType: "Point of Sale System",
+      role: "Fullstack Developer",
+      responsibility:
+        "Designed Node.js services, integrated ML pipelines for inventory prediction, built real-time sales dashboard, and deployed scalable architecture to AWS with automated CI/CD pipelines.",
+      duration: "Mar 2023 - Jan 2024",
+      tech: ["VueJS", "Laravel", "Bootstrap", "MySQL"],
+      category: "Company",
+      companyLogo: "/logo/ccd.png",
+      github: "https://github.com",
+      live: "https://example.com",
     },
     {
-      title: 'Enterprise Web Application',
-      companyName: 'Durable Techs',
-      companyLocation: 'Remote',
-      projectType: 'Internship Project',
-      role: 'Senior Frontend Developer',
-      responsibility: 'Implemented dynamic UI components, live sync functionality with Socket.io, optimized Redis-based workflows for real-time data processing, and enhanced user experience with responsive design patterns.',
-      duration: 'Jan 2022 - Nov 2022',
-      tech: ['WordPress', 'PHP'],
-      category: 'Company',
-      companyLogo: '/logo/durable.jpg',
-      github: 'https://github.com',
-      live: 'https://example.com',
+      title: "Enterprise Web Application",
+      companyName: "Durable Techs",
+      companyLocation: "Remote",
+      projectType: "Internship Project",
+      role: "Senior Frontend Developer",
+      responsibility:
+        "Implemented dynamic UI components, live sync functionality with Socket.io, optimized Redis-based workflows for real-time data processing, and enhanced user experience with responsive design patterns.",
+      duration: "Jan 2022 - Nov 2022",
+      tech: ["WordPress", "PHP"],
+      category: "Company",
+      companyLogo: "/logo/durable.jpg",
+      github: "https://github.com",
+      live: "https://example.com",
     },
     //Personal Projects
     {
-      title: 'Peak Slaok',
-      companyName: 'Personal Project',
-      companyLocation: 'Open Source',
-      projectType: 'Quote platform',
-      role: 'UX/UI Designer',
-      responsibility: 'Designed user-centric interfaces, implemented responsive layouts with Tailwind CSS, optimized performance for mobile devices, and integrated Shadcn UI components for a modern look.',
-      duration: 'Jul 2025 - Present',
-      tech: ['NextJS', 'Tailwind', 'ViteJS', 'ShadcnUI'],
-      category: 'Personal',
-      companyLogo: 'logo/peakslaok.png',
-      github: 'https://github.com',
-      live: 'https://aboutyoureadmore.online/',
+      title: "Peak Slaok",
+      companyName: "Personal Project",
+      companyLocation: "Open Source",
+      projectType: "Quote platform",
+      role: "UX/UI Designer",
+      responsibility:
+        "Designed user-centric interfaces, implemented responsive layouts with Tailwind CSS, optimized performance for mobile devices, and integrated Shadcn UI components for a modern look.",
+      duration: "Jul 2025 - Present",
+      tech: ["NextJS", "Tailwind", "ViteJS", "ShadcnUI"],
+      category: "Personal",
+      companyLogo: "logo/peakslaok.png",
+      github: "https://github.com",
+      live: "https://aboutyoureadmore.online/",
     },
     //Academy Projects
     {
-      title: 'Portfolio Website',
-      companyName: 'CSTAD Academy',
-      companyLocation: 'Phnom Penh',
-      projectType: 'Academic Project',
-      role: 'Frontend Developer',
-      responsibility: 'Created responsive design with modern CSS techniques, implemented smooth animations and transitions, optimized performance for fast loading times, and ensured cross-browser compatibility.',
-      duration: 'Jan 2021 - Mar 2021',
-      tech: ['HTML', 'CSS', 'JavaScript', 'React', 'Figma'],
-      category: 'Academy',
-      companyLogo: '/pnc.png',
-      github: 'https://github.com',
-      live: 'https://example.com',
+      title: "Portfolio Website",
+      companyName: "CSTAD Academy",
+      companyLocation: "Phnom Penh",
+      projectType: "Academic Project",
+      role: "Frontend Developer",
+      responsibility:
+        "Created responsive design with modern CSS techniques, implemented smooth animations and transitions, optimized performance for fast loading times, and ensured cross-browser compatibility.",
+      duration: "Jan 2021 - Mar 2021",
+      tech: ["HTML", "CSS", "JavaScript", "React", "Figma"],
+      category: "Academy",
+      companyLogo: "/pnc.png",
+      github: "https://github.com",
+      live: "https://example.com",
     },
     {
-      title: 'E-Commerce Platform',
-      companyName: 'CSTAD Academy',
-      companyLocation: 'Phnom Penh',
-      projectType: 'Capstone Project',
-      role: 'Product Engineer',
-      responsibility: 'Integrated Stripe payment processing, configured Tailwind CSS themes for consistent design, implemented comprehensive inventory management system, and built admin dashboard with analytics.',
-      duration: 'Jul 2021 - Jan 2022',
-      tech: ['NextJS', 'Tailwind', 'MySQL'],
-      category: 'Academy',
-      companyLogo: '/pnc.png',
-      github: 'https://github.com',
-      live: 'https://example.com',
+      title: "E-Commerce Platform",
+      companyName: "CSTAD Academy",
+      companyLocation: "Phnom Penh",
+      projectType: "Capstone Project",
+      role: "Product Engineer",
+      responsibility:
+        "Integrated Stripe payment processing, configured Tailwind CSS themes for consistent design, implemented comprehensive inventory management system, and built admin dashboard with analytics.",
+      duration: "Jul 2021 - Jan 2022",
+      tech: ["NextJS", "Tailwind", "MySQL"],
+      category: "Academy",
+      companyLogo: "/pnc.png",
+      github: "https://github.com",
+      live: "https://example.com",
     },
     {
-      title: 'Social Media Dashboard',
-      companyName: 'CSTAD Academy',
-      companyLocation: 'Phnom Penh',
-      projectType: 'Group Project',
-      role: 'Frontend Developer',
-      responsibility: 'Created interactive data visualizations with Chart.js, implemented scheduled post integrations, enhanced dashboard UX with intuitive navigation, and optimized real-time data updates with Redis.',
-      duration: 'Feb 2021 - Apr 2021',
-      tech: ['VueJS', 'JavaScript', 'CSS', 'Figma', 'Canva'],
-      category: 'Academy',
-      companyLogo: '/pnc.png',
-      github: 'https://github.com',
-      live: 'https://example.com',
+      title: "Social Media Dashboard",
+      companyName: "CSTAD Academy",
+      companyLocation: "Phnom Penh",
+      projectType: "Group Project",
+      role: "Frontend Developer",
+      responsibility:
+        "Created interactive data visualizations with Chart.js, implemented scheduled post integrations, enhanced dashboard UX with intuitive navigation, and optimized real-time data updates with Redis.",
+      duration: "Feb 2021 - Apr 2021",
+      tech: ["VueJS", "JavaScript", "CSS", "Figma", "Canva"],
+      category: "Academy",
+      companyLogo: "/pnc.png",
+      github: "https://github.com",
+      live: "https://example.com",
     },
   ];
 
   // Group projects by category and create timeline data
   const createTimelineData = () => {
-    const categoryOrder = ['Company', 'Personal', 'Academy'];
+    const categoryOrder = ["Company", "Personal", "Academy"];
     const groupedByCategory: Record<string, typeof projects> = {};
 
-    projects.forEach(project => {
+    projects.forEach((project) => {
       if (!groupedByCategory[project.category]) {
         groupedByCategory[project.category] = [];
       }
@@ -229,17 +230,21 @@ export default function ExperienceTimeline() {
     });
 
     // Sort projects within each category by duration (most recent first)
-    Object.keys(groupedByCategory).forEach(category => {
+    Object.keys(groupedByCategory).forEach((category) => {
       groupedByCategory[category].sort((a, b) => {
-        const aYear = parseInt(a.duration.split(' - ')[1].split(' ')[1] || '2025');
-        const bYear = parseInt(b.duration.split(' - ')[1].split(' ')[1] || '2025');
+        const aYear = parseInt(
+          a.duration.split(" - ")[1].split(" ")[1] || "2025",
+        );
+        const bYear = parseInt(
+          b.duration.split(" - ")[1].split(" ")[1] || "2025",
+        );
         return bYear - aYear;
       });
     });
 
     return categoryOrder
-      .filter(category => groupedByCategory[category])
-      .map(category => ({
+      .filter((category) => groupedByCategory[category])
+      .map((category) => ({
         title: category,
         content: (
           <div className="space-y-6">
@@ -261,16 +266,21 @@ export default function ExperienceTimeline() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/20 mb-4">
               <IconBriefcase className="w-5 h-5" />
-              <span className="text-sm text-white font-medium tracking-wide">MY EXPERIENCE</span>
+              <span className="text-sm text-white font-medium tracking-wide">
+                MY EXPERIENCE
+              </span>
             </div>
             <h2 className="text-5xl md:text-7xl font-black text-white mb-2 tracking-tight">
               WORK
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-white">EXPERIENCE</span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-white">
+                EXPERIENCE
+              </span>
             </h2>
             <div className="w-24 h-px bg-white mx-auto mb-8"></div>
             <p className="text-lg sm:text-xl md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
-              Explore my professional journey through various projects, from academic work to enterprise solutions.
-              Each experience has shaped my expertise in modern web development and user experience design.
+              Explore my professional journey through various projects, from
+              academic work to enterprise solutions. Each experience has shaped
+              my expertise in modern web development and user experience design.
             </p>
           </div>
           {/* Timeline */}
