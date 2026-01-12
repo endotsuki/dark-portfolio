@@ -19,6 +19,7 @@ import {
 import { createPortal } from "react-dom";
 import { cn } from "@/lib/utils";
 import { IconX } from "@tabler/icons-react";
+import { Button } from "./button";
 
 interface DialogContextType {
   isOpen: boolean;
@@ -418,19 +419,20 @@ function DialogClose({ children, className, variants }: DialogCloseProps) {
   }, [setIsOpen]);
 
   return (
-    <motion.button
+    <Button
+      variant="destructive"
+      size="icon"
       onClick={handleClose}
       type="button"
       aria-label="Close dialog"
       key={`dialog-close-${uniqueId}`}
-      className={cn("absolute right-6 top-6 text-white", className)}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      variants={variants}
+      className={cn(
+        "absolute right-3 top-3 rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0",
+        className,
+      )}
     >
       {children || <IconX size={24} />}
-    </motion.button>
+    </Button>
   );
 }
 
