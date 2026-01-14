@@ -9,6 +9,7 @@ import {
   IconMail,
   IconDeviceMobile,
   IconMessage,
+  IconCheck,
 } from "@tabler/icons-react";
 import { PointerHighlight } from "@/components/ui/pointer-highlight";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
@@ -115,9 +116,9 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left Column - Profile & Contact */}
           <div className="lg:col-span-4 space-y-8">
-            {/* Profile Card */}
+            {/* Profile Card - Twitter Style */}
             <div
-              className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/10 shadow-xl relative"
+              className="bg-gradient-to-br from-gray-900 to-black rounded-2xl border border-white/10 shadow-xl overflow-hidden relative"
               data-aos="fade-right"
               data-aos-duration="600"
             >
@@ -128,79 +129,141 @@ export default function About() {
                 proximity={64}
                 inactiveZone={0.01}
               />
-              <div className="flex flex-col items-center">
-                <div className="relative mb-6">
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 blur-md opacity-60 animate-spin" />
-                  <Avatar className="w-70 h-70 border-4 border-white/10 relative">
+
+              {/* Header Banner */}
+              <div className="h-32 relative overflow-hidden bg-gray-800">
+                <img
+                  src="/design/7_january.webp"
+                  alt="Profile Banner"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 opacity-30 bg-gradient-to-b from-transparent to-black"></div>
+              </div>
+
+              {/* Profile Content */}
+              <div className="relative px-6 pb-6">
+                {/* Avatar - Overlapping */}
+                <div className="flex justify-between items-start -mt-16 mb-4 relative z-10">
+                  <Avatar className="w-28 h-28 border-4 border-gray-900 rounded-full">
                     <AvatarImage
                       src="/test.png"
                       alt="Profile"
                       className="object-cover"
                     />
                   </Avatar>
+                  <div className="flex gap-2">
+                    <button className="p-2 hover:bg-gray-800 rounded-full transition-colors">
+                      <Icon name="Trash" size={20} className="text-gray-300" />
+                    </button>
+                    <button className="p-2 hover:bg-gray-800 rounded-full transition-colors">
+                      <Icon name="Edit" size={20} className="text-gray-300" />
+                    </button>
+                  </div>
                 </div>
-                <PointerHighlight rectangleClassName="bg-slate-700 border-neutral-400">
-                  <h3 className="text-2xl font-bold relative z-10 text-center mb-1">
-                    SOCHEATH EK MAO
-                  </h3>
-                </PointerHighlight>
-                <p className="text-gray-400 mb-6">
-                  <span className="text-accent">{"<"}</span>Fullstack Developers{" "}
-                  <span className="text-accent">{"/>"}</span>
+
+                {/* Name & Handle */}
+                <div className="mb-2">
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-2xl font-bold text-white">
+                      SOCHEATH EK MAO
+                    </h3>
+                    <Icon
+                      name="CheckCircle"
+                      size={20}
+                      className="text-blue-400"
+                    />
+                  </div>
+                  <p className="text-gray-400">@socheathek</p>
+                </div>
+
+                {/* Professional Title */}
+                <p className="text-gray-300 mb-4">
+                  <span className="text-cyan-400">{"<"}</span>Fullstack
+                  Developers <span className="text-cyan-400">{"/>"}</span>
                 </p>
 
-                {/* Quick Stats */}
-                <div className="grid grid-cols-2 gap-4 cursor-default w-full mb-6">
-                  {socials.map((social, index) => (
-                    <motion.a
-                      key={index}
-                      href={social.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="relative flex items-center gap-3 p-3 rounded-lg bg-gray-800/50 border border-white/5 overflow-hidden group transition-colors duration-300"
-                    >
-                      {React.cloneElement(social.icon as React.ReactElement, {
-                        size: 35,
-                        className:
-                          "group-hover:translate-x-12 transition-all text-gray-300 group-hover:text-cyan-400 duration-500",
-                      })}
-                      <div className="group-hover:scale-0 transition-all duration-300">
-                        <p className="text-white font-medium text-sm">
-                          {social.platform}
-                        </p>
-                        <p className="text-gray-400 text-sm">{social.handle}</p>
-                      </div>
-                    </motion.a>
-                  ))}
+                {/* Social Links */}
+                <div className="mt-6 pt-4 border-t border-gray-700 mb-5">
+                  <p className="text-gray-400 text-sm mb-3">
+                    Connect on social:
+                  </p>
+                  <div className="grid grid-cols-4 gap-2">
+                    {socials.map((social, index) => (
+                      <motion.a
+                        key={index}
+                        href={social.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center w-14 h-14 rounded-lg bg-gray-800/50 border border-white/5 hover:border-cyan-400/50 hover:bg-gray-800 transition-all group"
+                        title={social.platform}
+                      >
+                        {React.cloneElement(social.icon as React.ReactElement, {
+                          size: 30,
+                          className:
+                            "text-gray-400 group-hover:text-cyan-400 transition-colors",
+                        })}
+                      </motion.a>
+                    ))}
+                  </div>
                 </div>
 
-                {/* Download Button - Holographic Effect */}
-                <motion.div
-                  whileTap={{ scale: 0.98 }}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                >
-                  <a
-                    href="/"
-                    download
-                    className="relative inline-flex items-center gap-3 px-10 py-3.5 rounded-full bg-gray-800/50 border border-white/10 hover:border-white/30 shadow-lg hover:shadow-xl transition-all group overflow-hidden"
-                  >
-                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700" />
-                    <div className="relative h-5 w-5 overflow-hidden">
-                      <IconDownload
-                        size={20}
-                        className="absolute top-0 left-0 text-white transition-transform duration-300 group-hover:translate-y-full"
+                {/* Divider */}
+                <div className="h-px bg-gray-700 mb-4"></div>
+
+                {/* Name Fields */}
+                <div className="space-y-3 mb-4">
+                  <div>
+                    <label className="text-gray-300 text-sm font-medium block mb-2">
+                      Name *
+                    </label>
+                    <div className="grid grid-cols-2 gap-2">
+                      <input
+                        type="text"
+                        defaultValue="SOCHEATH EK"
+                        className="bg-gray-800/50 border border-gray-700 rounded-lg px-3 py-2 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-cyan-400"
                       />
-                      <IconDownload
-                        size={20}
-                        className="absolute top-0 left-0 text-white transition-transform duration-300 transform -translate-y-full group-hover:translate-y-0"
+                      <input
+                        type="text"
+                        defaultValue="MAO"
+                        className="bg-gray-800/50 border border-gray-700 rounded-lg px-3 py-2 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-cyan-400"
                       />
                     </div>
-                    <span className="font-medium tracking-wide text-white">
-                      Download CV
-                    </span>
+                  </div>
+                </div>
+
+                {/* Email Field */}
+                <div className="mb-4">
+                  <label className="text-gray-300 text-sm font-medium block mb-2">
+                    Email *
+                  </label>
+                  <div className="relative">
+                    <IconMail
+                      size={18}
+                      className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+                    />
+                    <input
+                      type="email"
+                      defaultValue="maosocheathek@gmail.com"
+                      className="w-full bg-gray-800/50 border border-gray-700 rounded-lg pl-10 pr-3 py-2 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-cyan-400"
+                    />
+                  </div>
+                </div>
+
+                {/* Verification Badge */}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center gap-2 text-blue-400 text-sm">
+                    <IconCheck size={16} />
+                    <span>Verified 14 Jan, 2025</span>
+                  </div>
+                  <a
+                    href="/cv.pdf"
+                    download
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-black font-medium text-sm rounded-lg transition-colors"
+                  >
+                    <IconDownload size={16} />
+                    Download CV
                   </a>
-                </motion.div>
+                </div>
               </div>
             </div>
           </div>
