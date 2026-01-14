@@ -133,7 +133,7 @@ export default function About() {
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 blur-md opacity-60 animate-spin" />
                   <Avatar className="w-70 h-70 border-4 border-white/10 relative">
                     <AvatarImage
-                      src="/profile.jpg"
+                      src="/test.png"
                       alt="Profile"
                       className="object-cover"
                     />
@@ -294,10 +294,7 @@ export default function About() {
                 </h3>
                 <div className="space-y-6">
                   {education.map((edu, index) => (
-                    <div
-                      key={index}
-                      className="flex items-start gap-5"
-                    >
+                    <div key={index} className="flex items-start gap-5">
                       <img
                         src={edu.logo}
                         className="w-14 h-14 rounded-full object-cover border border-white/20 bg-white"

@@ -219,7 +219,7 @@ ${data.message}
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-700/50 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-700" />
                   </div>
                   <div className="relative z-10 flex items-start gap-5">
-                    <div className="w-14 h-14 rounded-xl border border-gray-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 group-hover:-translate-x-40">
+                    <div className="w-14 h-14 rounded-2xl border-2 border-primary/50 bg-primary/20 flex items-center justify-center transition-transform duration-500 group-hover:-translate-x-40">
                       <c.icon size={23} className="text-white" />
                     </div>
                     <div className="flex-1 transition-transform duration-500 group-hover:-translate-x-16">
@@ -251,11 +251,6 @@ ${data.message}
                 <div className="absolute -right-px top-8 w-px h-16 bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
                 <div className="relative z-10">
                   <div className="mb-10">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-1.5 h-1.5 rounded-full bg-white/40"></div>
-                      <div className="w-1 h-1 rounded-full bg-white/20"></div>
-                      <div className="w-0.5 h-0.5 rounded-full bg-white/10"></div>
-                    </div>
                     <h2 className="text-4xl font-medium text-white mb-3">
                       Send a Message
                     </h2>

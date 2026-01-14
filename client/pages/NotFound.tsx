@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { IconArrowLeft } from '@tabler/icons-react';
+import { useState, useEffect } from "react";
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
+import { IconArrowLeft } from "@tabler/icons-react";
 
 export default function NotFound() {
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
-  
+
   const terminalText = `$ ls -la /page-not-found
 total 0
 drwxr-xr-x  2 user user   4096 ${new Date().toDateString()}
@@ -36,12 +36,12 @@ Don't worry, we can help you find your way back!`;
         setTimeout(typeText, 10);
       }
     };
-    
+
     typeText();
 
     // Cursor blinking effect
     const cursorInterval = setInterval(() => {
-      setShowCursor(prev => !prev);
+      setShowCursor((prev) => !prev);
     }, 600);
 
     return () => clearInterval(cursorInterval);
@@ -60,7 +60,7 @@ Don't worry, we can help you find your way back!`;
             </div>
             <div className="text-gray-400 text-sm">Terminal - 404 Error</div>
           </div>
-          
+
           {/* Terminal Content */}
           <div className="space-y-2">
             <pre className="whitespace-pre-wrap text-sm leading-relaxed">
@@ -68,25 +68,23 @@ Don't worry, we can help you find your way back!`;
               {showCursor && <span className="bg-green-400">_</span>}
             </pre>
           </div>
-          
+
           {/* Navigation */}
           <div className="mt-8 pt-6 border-t border-gray-700">
-            <div className="text-green-400 mb-4">
-              $ navigate --help
-            </div>
+            <div className="text-green-400 mb-4">$ navigate --help</div>
             <div className="space-y-3">
               <div className="text-gray-300">Available commands:</div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
+                <Button
                   asChild
                   className="bg-green-600 hover:bg-green-700 text-black font-mono"
                 >
-                  <Link to="/">
+                  <Link href="/">
                     <IconArrowLeft className="mr-2 h-4 w-4" />
                     cd /home
                   </Link>
                 </Button>
-                <Button 
+                <Button
                   variant="outline"
                   className="border-green-400 text-green-400 hover:bg-green-400 hover:text-black font-mono"
                   onClick={() => window.history.back()}
@@ -97,7 +95,7 @@ Don't worry, we can help you find your way back!`;
             </div>
           </div>
         </div>
-        
+
         {/* Additional Info */}
         <div className="mt-6 text-center text-gray-500 text-sm">
           <p>If you believe this is an error, please contact support.</p>

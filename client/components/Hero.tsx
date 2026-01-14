@@ -43,30 +43,26 @@ export default function Hero() {
       {/* Content Layer */}
       <div className="relative z-10 text-center max-w-6xl mx-auto">
         <div className="mb-8 space-y-4">
-          <h2 className="text-6xl sm:text-6xl md:text-7xl max-w-5xl font-bold tracking-tight mb-10">
+          <h2 className="text-6xl sm:text-6xl md:text-8xl max-w-5xl font-black tracking-tight mb-10">
             {greetingText}, I'm <span className="text-primary">SOCHEATH</span>
           </h2>
 
-          <div className="text-2xl sm:text-2xl md:text-3xl text-neutral-400 h-16 flex items-center justify-center">
-            <div className="flex flex-col items-center cursor-default">
-              <h2 className="mb-8 mt-9 text-center text-2xl font-light tracking-tight text-gray-300 md:text-4xl">
-                I'm a{" "}
-                <TextType
-                  className="font-medium text-accent"
-                  text={[
-                    "Web Developer",
-                    "UI/UX Designer",
-                    "Frontend Engineer",
-                    "JavaScript Enthusiast",
-                  ]}
-                  typingSpeed={75}
-                  pauseDuration={2000}
-                  showCursor={true}
-                  cursorCharacter="_"
-                />
-              </h2>
-            </div>
-          </div>
+          <h2 className="mb-8 mt-9 text-center text-2xl font-light tracking-tight text-gray-300 md:text-4xl">
+            I'm a{" "}
+            <TextType
+              className="font-medium text-secondary"
+              text={[
+                "Web Developer",
+                "UI/UX Designer",
+                "Frontend Engineer",
+                "JavaScript Enthusiast",
+              ]}
+              typingSpeed={75}
+              pauseDuration={2000}
+              showCursor={true}
+              cursorCharacter="_"
+            />
+          </h2>
         </div>
 
         <p className="mx-auto mb-12 max-w-2xl text-center leading-relaxed text-gray-300 md:text-xl">
@@ -92,7 +88,7 @@ export default function Hero() {
 
         <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
           <Button
-            variant="todo"
+            variant="default"
             size="lg"
             className="rounded-2xl"
             onClick={() => scrollToSection("experience")}

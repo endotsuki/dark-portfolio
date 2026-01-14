@@ -20,7 +20,7 @@ import {
 import { techIcons, projects, designItems } from "@/data/experienceData.tsx";
 
 const ProjectCard = ({ project }: { project: any }) => (
-  <div className="bg-slate-900 rounded-2xl p-6 shadow-lg border border-slate-700 mb-6 hover:shadow-xl transition-all duration-300">
+  <div className="rounded-3xl bg-gradient-to-tr from-primary/15 to-secondary/10 p-6 shadow-lg border border-slate-700 mb-6 hover:shadow-xl transition-all duration-300">
     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
       <div className="flex items-center gap-4">
         <div className="relative group flex flex-col items-center">

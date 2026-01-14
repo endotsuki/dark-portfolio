@@ -114,7 +114,7 @@ export function NavBar() {
                       {activeSection === item.id && (
                         <motion.div
                           layoutId="activeDesktop"
-                          className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg border border-blue-400/30"
+                          className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-lg border border-blue-400/30"
                           transition={{
                             type: "spring",
                             stiffness: 400,
