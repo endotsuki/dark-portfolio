@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { IconWalk, IconMessage, IconSchool } from '@tabler/icons-react';
+import { IconDeviceLaptop, IconMessage, IconSchool } from '@tabler/icons-react';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
 import { personalInfos, journey1, journey2, journey3, education } from '@/data/aboutData';
 
@@ -14,8 +14,8 @@ export default function RightColumn() {
       >
         <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
         <h3 className='mb-6 flex items-center gap-3 text-2xl font-medium'>
-          <IconWalk size={23} />
-          My Professional Journey
+          <IconDeviceLaptop stroke={1.5} size={30} />
+          My Journey
         </h3>
         <div className='max-w-none text-lg leading-relaxed text-gray-200 sm:text-xl md:text-lg'>
           <p className='mb-4 text-gray-300'>{journey1}</p>
@@ -34,7 +34,7 @@ export default function RightColumn() {
         >
           <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
           <h3 className='mb-6 flex items-center gap-3 text-2xl font-medium'>
-            <IconMessage size={23} />
+            <IconMessage stroke={1.5} size={30} />
             Contact Information
           </h3>
           <div className='space-y-4'>
@@ -68,7 +68,7 @@ export default function RightColumn() {
         >
           <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
           <h3 className='mb-6 flex items-center gap-3 text-2xl font-medium'>
-            <IconSchool size={23} />
+            <IconSchool stroke={1.5} size={30} />
             Education
           </h3>
           <div className='space-y-6'>

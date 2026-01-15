@@ -1,90 +1,66 @@
-import { Timeline } from "@/components/ui/timeline";
-import {
-  IconBriefcase,
-  IconBrandGithub,
-  IconDeviceDesktop,
-  IconMapPin2,
-  IconCategory,
-  IconPlus,
-} from "@tabler/icons-react";
-import { Button } from "./ui/button";
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogTitle,
-  DialogImage,
-  DialogClose,
-  DialogContainer,
-} from "./ui/linear-modal";
-import { techIcons, projects, designItems } from "@/data/experienceData.tsx";
+import { Timeline } from '@/components/ui/timeline';
+import { IconBriefcase, IconBrandGithub, IconDeviceLaptop, IconMapPin2, IconCategory, IconPlus } from '@tabler/icons-react';
+import { Button } from './ui/button';
+import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogImage, DialogClose, DialogContainer } from './ui/linear-modal';
+import { techIcons, projects, designItems } from '@/data/experienceData.tsx';
 
 const ProjectCard = ({ project }: { project: any }) => (
-  <div className="rounded-3xl bg-gradient-to-tr from-primary/15 to-secondary/10 p-6 shadow-lg border border-slate-700 mb-6 hover:shadow-xl transition-all duration-300">
-    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-      <div className="flex items-center gap-4">
-        <div className="relative group flex flex-col items-center">
+  <div className='mb-6 rounded-3xl border border-slate-700 bg-gradient-to-tr from-primary/15 to-secondary/10 p-6 shadow-lg transition-all duration-300 hover:shadow-xl'>
+    <div className='mb-4 flex flex-col gap-4 md:flex-row md:items-start md:justify-between'>
+      <div className='flex items-center gap-4'>
+        <div className='group relative flex flex-col items-center'>
           <img
-            className="w-14 h-14 rounded-full border border-slate-500 object-cover"
+            className='h-14 w-14 rounded-full border border-slate-500 object-cover'
             src={project.companyLogo}
             alt={project.companyName}
           />
-          <div className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-40 h-40 opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transition-all duration-300 z-50 pointer-events-none flex items-center justify-center">
+          <div className='pointer-events-none absolute -bottom-2 left-1/2 z-50 flex h-40 w-40 -translate-x-1/2 scale-95 items-center justify-center opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100'>
             <img
               src={project.companyLogo}
               alt={project.companyName}
-              className="w-full h-full rounded-full border border-slate-600 shadow-lg object-cover bg-slate-900"
+              className='h-full w-full rounded-full border border-slate-600 bg-slate-900 object-cover shadow-lg'
             />
           </div>
         </div>
         <div>
-          <h3 className="text-lg font-bold text-white">
-            {project.companyName}
-          </h3>
-          <div className="flex items-center gap-2 text-sm text-gray-400">
-            <IconMapPin2 className="w-4 h-4" />
+          <h3 className='text-lg font-bold text-white'>{project.companyName}</h3>
+          <div className='flex items-center gap-2 text-sm text-gray-400'>
+            <IconMapPin2 stroke={1.5} size={20} />
             {project.companyLocation}
           </div>
         </div>
       </div>
-      <span className="text-xs bg-slate-800 text-gray-300 px-3 py-1 rounded-full">
-        {project.duration}
-      </span>
+      <span className='rounded-full bg-slate-800 px-3 py-1 text-xs text-gray-300'>{project.duration}</span>
     </div>
-    <div className="mb-4">
-      <h2 className="text-xl font-bold text-white mb-1">{project.title}</h2>
-      <div className="flex flex-wrap items-center gap-2 text-sm text-gray-400">
-        <span className="font-semibold text-gray-200">{project.role}</span>
-        <span className="flex items-center gap-1">
-          <IconCategory className="w-4 h-4" />
+    <div className='mb-4'>
+      <h2 className='mb-1 text-xl font-bold text-white'>{project.title}</h2>
+      <div className='flex flex-wrap items-center gap-2 text-sm text-gray-400'>
+        <span className='font-semibold text-gray-200'>{project.role}</span>
+        <span className='flex items-center gap-1'>
+          <IconCategory stroke={1.5} size={20} />
           {project.projectType}
         </span>
       </div>
     </div>
-    <p className="text-gray-300 text-sm mb-4 leading-relaxed">
-      {project.responsibility}
-    </p>
-    <div className="flex flex-wrap gap-2 mb-4">
+    <p className='mb-4 text-sm leading-relaxed text-gray-300'>{project.responsibility}</p>
+    <div className='mb-4 flex flex-wrap gap-2'>
       {project.tech.map((tech: string) => (
-        <div
-          key={tech}
-          className="flex items-center gap-1 bg-slate-800 px-3 py-1 rounded-lg text-xs text-gray-300"
-        >
+        <div key={tech} className='flex items-center gap-1 rounded-lg bg-slate-800 px-3 py-1 text-xs text-gray-300'>
           {techIcons[tech]}
           <span>{tech}</span>
         </div>
       ))}
     </div>
-    <div className="flex flex-col sm:flex-row gap-3">
-      <a href={project.github} target="_blank" rel="noopener noreferrer">
-        <Button variant="on-hold">
-          <IconBrandGithub className="w-4 h-4" />
+    <div className='flex flex-col gap-3 sm:flex-row'>
+      <a href={project.github} target='_blank' rel='noopener noreferrer'>
+        <Button variant='on-hold'>
+          <IconBrandGithub stroke={1.5} size={20} />
           <span>Code</span>
         </Button>
       </a>
-      <a href={project.live} target="_blank" rel="noopener noreferrer">
-        <Button variant="done">
-          <IconDeviceDesktop className="w-4 h-4" />
+      <a href={project.live} target='_blank' rel='noopener noreferrer'>
+        <Button variant='done'>
+          <IconDeviceLaptop stroke={1.5} size={20} />
           <span>Live Demo</span>
         </Button>
       </a>
@@ -93,20 +69,19 @@ const ProjectCard = ({ project }: { project: any }) => (
 );
 
 export default function ExperienceTimeline() {
-  const timelineData = ["Company", "Personal", "Academy"]
+  const timelineData = ['Company', 'Personal', 'Academy']
     .map((cat) => {
       const filtered = projects
         .filter((p) => p.category === cat)
         .sort(
           (a, b) =>
-            parseInt(b.duration.split(" - ")[1].split(" ")[1] || "2025") -
-            parseInt(a.duration.split(" - ")[1].split(" ")[1] || "2025"),
+            parseInt(b.duration.split(' - ')[1].split(' ')[1] || '2025') - parseInt(a.duration.split(' - ')[1].split(' ')[1] || '2025')
         );
       return filtered.length
         ? {
             title: cat,
             content: (
-              <div className="space-y-6">
+              <div className='space-y-6'>
                 {filtered.map((p, i) => (
                   <ProjectCard key={i} project={p} />
                 ))}
@@ -118,77 +93,55 @@ export default function ExperienceTimeline() {
     .filter(Boolean);
 
   return (
-    <section id="experience" className="bg-slate-950 pt-28 pb-20">
-      <div className="max-w-7xl mx-auto px-2">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/20 mb-4">
-            <IconBriefcase className="w-5 h-5" />
-            <span className="text-sm text-white font-medium">
-              MY EXPERIENCE
-            </span>
+    <section id='experience' className='bg-slate-950 pb-20 pt-28'>
+      <div className='mx-auto max-w-7xl px-2'>
+        <div className='mb-16 text-center'>
+          <div className='mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3'>
+            <IconBriefcase className='h-5 w-5' />
+            <span className='text-sm font-medium text-white'>MY EXPERIENCE</span>
           </div>
-          <h2 className="text-5xl md:text-7xl font-black text-white mb-2">
+          <h2 className='mb-2 text-5xl font-black text-white md:text-7xl'>
             WORK
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-white">
-              EXPERIENCE
-            </span>
+            <span className='block bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent'>EXPERIENCE</span>
           </h2>
-          <div className="w-24 h-px bg-white mx-auto mb-8"></div>
-          <p className="text-lg text-gray-200 max-w-2xl mx-auto">
-            Explore my professional journey through various projects, from
-            academic work to enterprise solutions.
+          <div className='mx-auto mb-8 h-px w-24 bg-white'></div>
+          <p className='mx-auto max-w-2xl text-lg text-gray-200'>
+            Explore my professional journey through various projects, from academic work to enterprise solutions.
           </p>
         </div>
 
-        <div className="mb-20">
+        <div className='mb-20'>
           <Timeline data={timelineData} />
         </div>
 
-        <div className="mt-20">
-          <div className="text-center mb-12">
-            <h3 className="text-4xl font-bold text-white mb-2">
-              DESIGN PROJECTS
-            </h3>
-            <p className="text-gray-400">
-              Explore some of my highlighted projects
-            </p>
+        <div className='mt-20'>
+          <div className='mb-12 text-center'>
+            <h3 className='mb-2 text-4xl font-bold text-white'>DESIGN PROJECTS</h3>
+            <p className='text-gray-400'>Explore some of my highlighted projects</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-7xl mx-auto sm:px-0">
+          <div className='mx-auto grid max-w-7xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 sm:px-0 lg:grid-cols-3'>
             {designItems.map((item) => (
-              <Dialog
-                key={item.id}
-                transition={{ type: "spring", bounce: 0.05, duration: 0.5 }}
-              >
-                <DialogTrigger className="flex w-full aspect-square border border-slate-700 bg-slate-800 rounded-xl overflow-hidden hover:shadow-xl transition-shadow relative group">
-                  <DialogImage
-                    src={item.url}
-                    alt={item.title}
-                    className="h-full w-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-100 group-hover:opacity-80 transition-opacity" />
-                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 text-white flex flex-col justify-end h-full">
-                    <DialogTitle className="text-base sm:text-lg font-semibold mb-2 line-clamp-2">
-                      {item.title}
-                    </DialogTitle>
+              <Dialog key={item.id} transition={{ type: 'spring', bounce: 0.05, duration: 0.5 }}>
+                <DialogTrigger className='group relative flex aspect-square w-full overflow-hidden rounded-xl border border-slate-700 bg-slate-800 transition-shadow hover:shadow-xl'>
+                  <DialogImage src={item.url} alt={item.title} className='h-full w-full object-cover' />
+                  <div className='absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-100 transition-opacity group-hover:opacity-80' />
+                  <div className='absolute bottom-0 left-0 right-0 flex h-full flex-col justify-end p-3 text-white sm:p-4'>
+                    <DialogTitle className='mb-2 line-clamp-2 text-base font-semibold sm:text-lg'>{item.title}</DialogTitle>
                   </div>
                   <Button
-                    variant="default"
-                    size="icon"
-                    className="absolute top-3 right-3 sm:bottom-4 sm:right-4 sm:top-auto rounded-xl opacity-0 sm:opacity-100 sm:group-hover:opacity-100 transition-opacity"
+                    variant='default'
+                    size='icon'
+                    className='absolute right-3 top-3 rounded-xl opacity-0 transition-opacity sm:bottom-4 sm:right-4 sm:top-auto sm:opacity-100 sm:group-hover:opacity-100'
                   >
-                    <IconPlus className="w-4 sm:w-5 h-4 sm:h-5 text-white" />
+                    <IconPlus className='h-4 w-4 text-white sm:h-5 sm:w-5' />
                   </Button>
                 </DialogTrigger>
-                <DialogContainer className="flex items-center justify-center p-4">
-                  <DialogContent className="relative bg-slate-900 rounded-2xl w-full max-w-md sm:max-w-2xl lg:max-w-4xl overflow-hidden border border-slate-700">
-                    <div className="flex flex-col">
-                      <div className="relative w-full aspect-square">
-                        <DialogImage
-                          src={item.url}
-                          alt={item.title}
-                          className="w-full h-full object-cover"
-                        />
+                <DialogContainer className='flex items-center justify-center p-4'>
+                  <DialogContent className='relative w-full max-w-md overflow-hidden rounded-2xl border border-slate-700 bg-slate-900 sm:max-w-2xl lg:max-w-4xl'>
+                    <div className='flex flex-col'>
+                      <div className='relative aspect-square w-full'>
+                        <DialogImage src={item.url} alt={item.title} className='h-full w-full object-cover' />
                       </div>
                     </div>
                     <DialogClose />

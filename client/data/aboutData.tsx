@@ -1,9 +1,9 @@
 import { IconDeviceMobile, IconMail, IconMapPin2 } from '@tabler/icons-react';
 import { Icon } from 'iconza';
 
-export const journey1 = `I'm a passionate full-stack developer and designer with over 5 years of experience creating digital experiences that matter. My journey began with curiosity about how things work on the web, and it has evolved into a deep expertise in modern technologies.`;
-export const journey2 = `I specialize in React, Node.js, and cloud technologies, but what sets me apart is my ability to bridge the gap between design and development. I don't just build applications I craft experiences that users love and businesses depend on.`;
-export const journey3 = `When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community through talks and mentoring.`;
+export const journey1 = `I am a web developer with 1 year of experience, mainly focusing on front-end development. I enjoy creating websites and applications that are user-friendly and visually appealing. My journey began at [Your School or Company], and I have grown by working on personal and small company projects.`;
+export const journey2 = `I focus on building interactive and responsive websites using modern front-end technologies. I take pride in turning ideas into functional web applications that provide a smooth experience for users. My projects, both personal and professional, have helped me develop real-world skills.`;
+export const journey3 = `When I am not coding, I enjoy exploring new tools and improving my skills through projects. I also like sharing knowledge with friends and the developer community. My goal is to become a skilled front-end developer who creates useful and engaging web experiences.`;
 
 export const personalInfos = [
   {
@@ -25,6 +25,8 @@ export const personalInfos = [
     link: 'tel:+15551234567',
   },
 ];
+
+export const bio = ['I am a passionate web developer with experience in creating responsive and user-friendly websites and applications.'];
 
 export const education = [
   {
