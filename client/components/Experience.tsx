@@ -34,7 +34,7 @@ const ProjectCard = ({ project }: { project: any }) => (
     </div>
     <div className='mb-4'>
       <h2 className='mb-1 text-xl font-bold text-white'>{project.title}</h2>
-      <div className='flex flex-wrap items-center gap-2 text-sm text-gray-400'>
+      <div className='flex items-center justify-between gap-2 text-sm text-gray-400'>
         <span className='font-semibold text-gray-200'>{project.role}</span>
         <span className='flex items-center gap-1'>
           <IconCategory stroke={1.5} size={20} />
@@ -42,10 +42,10 @@ const ProjectCard = ({ project }: { project: any }) => (
         </span>
       </div>
     </div>
-    <p className='mb-4 text-sm leading-relaxed text-gray-300'>{project.responsibility}</p>
+    <p className='mb-4 leading-relaxed text-gray-300'>{project.responsibility}</p>
     <div className='mb-4 flex flex-wrap gap-2'>
       {project.tech.map((tech: string) => (
-        <div key={tech} className='flex items-center gap-1 rounded-lg bg-slate-800 px-3 py-1 text-xs text-gray-300'>
+        <div key={tech} className='flex items-center gap-1 rounded-md bg-secondary/20 px-3 py-1 text-xs text-gray-300'>
           {techIcons[tech]}
           <span>{tech}</span>
         </div>
@@ -105,9 +105,6 @@ export default function ExperienceTimeline() {
             <span className='block bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent'>EXPERIENCE</span>
           </h2>
           <div className='mx-auto mb-8 h-px w-24 bg-white'></div>
-          <p className='mx-auto max-w-2xl text-lg text-gray-200'>
-            Explore my professional journey through various projects, from academic work to enterprise solutions.
-          </p>
         </div>
 
         <div className='mb-20'>

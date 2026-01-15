@@ -15,9 +15,6 @@ export default function About() {
             WHO I<span className='block bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent'>AM</span>
           </h2>
           <div className='mx-auto mb-8 h-px w-24 bg-white'></div>
-          <p className='mx-auto max-w-2xl text-lg leading-relaxed text-gray-200 sm:text-xl md:text-xl'>
-            My toolkit for building scalable, beautiful experiences.
-          </p>
         </div>
 
         <div className='grid grid-cols-1 gap-8 lg:grid-cols-12'>
