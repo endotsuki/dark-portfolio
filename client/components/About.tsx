@@ -5,85 +5,21 @@ import {
   IconDownload,
   IconSchool,
   IconWalk,
-  IconMapPin2,
   IconMail,
-  IconDeviceMobile,
   IconMessage,
   IconCheck,
 } from "@tabler/icons-react";
-import { PointerHighlight } from "@/components/ui/pointer-highlight";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Icon } from "iconza";
 import React from "react";
-
-const journey1 = `I'm a passionate full-stack developer and designer with over 5 years of experience creating digital experiences that matter. My journey began with curiosity about how things work on the web, and it has evolved into a deep expertise in modern technologies.`;
-const journey2 = `I specialize in React, Node.js, and cloud technologies, but what sets me apart is my ability to bridge the gap between design and development. I don't just build applications I craft experiences that users love and businesses depend on.`;
-const journey3 = `When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community through talks and mentoring.`;
-
-const personalInfos = [
-  {
-    icon: IconMapPin2,
-    handle: "San Francisco, CA",
-    platform: "Location",
-    link: "https://www.google.com/maps?q=San+Francisco,CA",
-  },
-  {
-    icon: IconMail,
-    handle: "maosocheathek@gmail.com",
-    platform: "Email",
-    link: "mailto:maosocheathek@gmail.com",
-  },
-  {
-    icon: IconDeviceMobile,
-    handle: "+1 (555) 123-4567",
-    platform: "Phone",
-    link: "tel:+15551234567",
-  },
-];
-
-const education = [
-  {
-    degree: "Associate Degree",
-    school: "Passerelles Numériques Cambodia (PNC)",
-    logo: "/pnc.png",
-    field: "Web Development",
-    years: "2022 - 2024",
-  },
-  {
-    degree: "Baccalaureate (Bac II)",
-    school: "Kampong Thom High School",
-    logo: "kpt-school.png",
-    field: "General Education",
-    years: "2021 - 2022",
-  },
-];
-
-const socials = [
-  {
-    icon: <Icon name="GitHub Light" size={23} />,
-    handle: "/johndoe",
-    platform: "GitHub",
-    link: "https://github.com/johndoe",
-  },
-  {
-    icon: <Icon name="LinkedIn" size={23} />,
-    handle: "/in/johndoe",
-    platform: "LinkedIn",
-    link: "https://linkedin.com/in/johndoe",
-  },
-  {
-    icon: <Icon name="Telegram" size={23} />,
-    handle: "@johndoe",
-    platform: "Telegram",
-    link: "https://t.me/johndoe",
-  },
-  {
-    icon: <Icon name="BehanceFill" size={23} />,
-    handle: "/so_cheat",
-    platform: "Behance",
-    link: "https://behance.net/so_cheat",
-  },
-];
+import {
+  personalInfos,
+  journey1,
+  journey2,
+  journey3,
+  education,
+  socials,
+} from "@/data/aboutData";
 
 export default function About() {
   return (
@@ -92,7 +28,6 @@ export default function About() {
       className="overflow-hidden bg-slate-950 pt-28 px-2 relative"
     >
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header Section */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/20 mb-4">
             <IconUserSquare size={23} />
@@ -112,7 +47,6 @@ export default function About() {
           </p>
         </div>
 
-        {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left Column - Profile & Contact */}
           <div className="lg:col-span-4 space-y-8">
@@ -182,7 +116,6 @@ export default function About() {
                   Developers <span className="text-cyan-400">{"/>"}</span>
                 </p>
 
-                {/* Social Links */}
                 <div className="mt-6 pt-4 border-t border-gray-700 mb-5">
                   <p className="text-gray-400 text-sm mb-3">
                     Connect on social:
