@@ -14,7 +14,7 @@ export default function RightColumn() {
       >
         <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
         <h3 className='mb-6 flex items-center gap-3 text-2xl font-medium'>
-          <IconDeviceLaptop stroke={1.5} size={30} />
+          <IconDeviceLaptop stroke={1.5} size={30} className='text-primary' />
           My Journey
         </h3>
         <div className='max-w-none text-lg leading-relaxed text-gray-200 sm:text-xl md:text-lg'>
@@ -34,7 +34,7 @@ export default function RightColumn() {
         >
           <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
           <h3 className='mb-6 flex items-center gap-3 text-2xl font-medium'>
-            <IconMessage stroke={1.5} size={30} />
+            <IconMessage stroke={1.5} size={30} className='text-primary' />
             Contact Information
           </h3>
           <div className='space-y-4'>
@@ -68,7 +68,7 @@ export default function RightColumn() {
         >
           <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
           <h3 className='mb-6 flex items-center gap-3 text-2xl font-medium'>
-            <IconSchool stroke={1.5} size={30} />
+            <IconSchool stroke={1.5} size={30} className='text-primary' />
             Education
           </h3>
           <div className='space-y-6'>
@@ -80,7 +80,7 @@ export default function RightColumn() {
                   <h4 className='text-lg leading-relaxed text-gray-200 sm:text-xl md:text-xl'>{edu.degree}</h4>
                   <p className='mb-1 text-gray-400'>{edu.school}</p>
                   <p className='text-sm text-gray-500'>{edu.field}</p>
-                  <p className='mt-2 text-sm text-stone-50'>{edu.years}</p>
+                  <p className='mt-2 text-sm text-secondary'>{edu.years}</p>
                 </div>
               </div>
             ))}

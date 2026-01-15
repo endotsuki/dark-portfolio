@@ -5,12 +5,12 @@ import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogImage, DialogC
 import { techIcons, projects, designItems } from '@/data/experienceData.tsx';
 
 const ProjectCard = ({ project }: { project: any }) => (
-  <div className='mb-6 rounded-3xl border border-slate-700 bg-gradient-to-tr from-primary/15 to-secondary/10 p-6 shadow-lg transition-all duration-300 hover:shadow-xl'>
+  <div className='mb-6 rounded-3xl border border-slate-700 bg-gradient-to-tr from-primary/10 to-secondary/5 p-6 shadow-lg transition-all duration-300 hover:shadow-xl'>
     <div className='mb-4 flex flex-col gap-4 md:flex-row md:items-start md:justify-between'>
       <div className='flex items-center gap-4'>
         <div className='group relative flex flex-col items-center'>
           <img
-            className='h-14 w-14 rounded-full border border-slate-500 object-cover'
+            className='h-14 w-14 rounded-full border-2 border-secondary/30 object-cover'
             src={project.companyLogo}
             alt={project.companyName}
           />
@@ -35,7 +35,7 @@ const ProjectCard = ({ project }: { project: any }) => (
     <div className='mb-4'>
       <h2 className='mb-1 text-xl font-bold text-white'>{project.title}</h2>
       <div className='flex items-center justify-between gap-2 text-sm text-gray-400'>
-        <span className='font-semibold text-gray-200'>{project.role}</span>
+        <span className='font-semibold text-secondary'>{project.role}</span>
         <span className='flex items-center gap-1'>
           <IconCategory stroke={1.5} size={20} />
           {project.projectType}
