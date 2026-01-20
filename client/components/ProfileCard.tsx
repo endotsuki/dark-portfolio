@@ -81,7 +81,7 @@ export default function ProfileCard() {
           <div className='relative'>
             <IconMail size={18} className='absolute left-3 top-1/2 -translate-y-1/2 text-gray-400' />
             <a href='mailto:maosocheathek@gmail.com' className='block'>
-              <div className='flex h-11 w-full items-center rounded-lg border border-gray-700 bg-gray-800/50 pl-10 pr-3 text-sm text-gray-300'>
+              <div className='flex h-11 w-full items-center rounded-lg border border-gray-700 bg-gray-800/50 pl-10 pr-3 text-sm text-gray-300 transition-all hover:bg-gray-800/70 hover:underline'>
                 maosocheathek@gmail.com
               </div>
             </a>
