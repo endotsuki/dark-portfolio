@@ -1,6 +1,7 @@
-import { IconUserSquare } from '@tabler/icons-react';
 import ProfileCard from './ProfileCard';
 import RightColumn from './RightColumn';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { UserCircleIcon } from '@hugeicons/core-free-icons';
 
 export default function About() {
   return (
@@ -8,7 +9,7 @@ export default function About() {
       <div className='relative z-10 mx-auto max-w-7xl'>
         <div className='mb-12 text-center'>
           <div className='mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3'>
-            <IconUserSquare size={23} />
+            <HugeiconsIcon size={23} icon={UserCircleIcon} />
             <span className='text-sm font-medium tracking-wide text-white'>SKILLS</span>
           </div>
           <h2 className='mb-2 text-5xl font-black tracking-tight text-white md:text-7xl'>

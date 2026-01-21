@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
-import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
-import { IconArrowLeft } from "@tabler/icons-react";
+import { useState, useEffect } from 'react';
+import { Link } from 'wouter';
+import { Button } from '@/components/ui/button';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ArrowLeft02Icon } from '@hugeicons/core-free-icons';
 
 export default function NotFound() {
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
 
   const terminalText = `$ ls -la /page-not-found
@@ -48,45 +49,42 @@ Don't worry, we can help you find your way back!`;
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-green-400 font-mono flex items-center justify-center p-4">
-      <div className="max-w-4xl w-full">
-        <div className="bg-gray-900 rounded-lg border border-gray-700 p-6 shadow-2xl">
+    <div className='flex min-h-screen items-center justify-center bg-black p-4 font-mono text-green-400'>
+      <div className='w-full max-w-4xl'>
+        <div className='rounded-lg border border-gray-700 bg-gray-900 p-6 shadow-2xl'>
           {/* Terminal Header */}
-          <div className="flex items-center justify-between mb-4 pb-3 border-b border-gray-700">
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-              <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+          <div className='mb-4 flex items-center justify-between border-b border-gray-700 pb-3'>
+            <div className='flex items-center space-x-2'>
+              <div className='h-3 w-3 rounded-full bg-red-500'></div>
+              <div className='h-3 w-3 rounded-full bg-yellow-500'></div>
+              <div className='h-3 w-3 rounded-full bg-green-500'></div>
             </div>
-            <div className="text-gray-400 text-sm">Terminal - 404 Error</div>
+            <div className='text-sm text-gray-400'>Terminal - 404 Error</div>
           </div>
 
           {/* Terminal Content */}
-          <div className="space-y-2">
-            <pre className="whitespace-pre-wrap text-sm leading-relaxed">
+          <div className='space-y-2'>
+            <pre className='whitespace-pre-wrap text-sm leading-relaxed'>
               {text}
-              {showCursor && <span className="bg-green-400">_</span>}
+              {showCursor && <span className='bg-green-400'>_</span>}
             </pre>
           </div>
 
           {/* Navigation */}
-          <div className="mt-8 pt-6 border-t border-gray-700">
-            <div className="text-green-400 mb-4">$ navigate --help</div>
-            <div className="space-y-3">
-              <div className="text-gray-300">Available commands:</div>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  asChild
-                  className="bg-green-600 hover:bg-green-700 text-black font-mono"
-                >
-                  <Link href="/">
-                    <IconArrowLeft className="mr-2 h-4 w-4" />
+          <div className='mt-8 border-t border-gray-700 pt-6'>
+            <div className='mb-4 text-green-400'>$ navigate --help</div>
+            <div className='space-y-3'>
+              <div className='text-gray-300'>Available commands:</div>
+              <div className='flex flex-col gap-4 sm:flex-row'>
+                <Button asChild className='bg-green-600 font-mono text-black hover:bg-green-700'>
+                  <Link href='/'>
+                    <HugeiconsIcon icon={ArrowLeft02Icon} size={23} />
                     cd /home
                   </Link>
                 </Button>
                 <Button
-                  variant="outline"
-                  className="border-green-400 text-green-400 hover:bg-green-400 hover:text-black font-mono"
+                  variant='outline'
+                  className='border-green-400 font-mono text-green-400 hover:bg-green-400 hover:text-black'
                   onClick={() => window.history.back()}
                 >
                   cd ../
@@ -97,7 +95,7 @@ Don't worry, we can help you find your way back!`;
         </div>
 
         {/* Additional Info */}
-        <div className="mt-6 text-center text-gray-500 text-sm">
+        <div className='mt-6 text-center text-sm text-gray-500'>
           <p>If you believe this is an error, please contact support.</p>
         </div>
       </div>

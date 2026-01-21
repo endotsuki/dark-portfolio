@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { Icon } from 'iconza';
 import { skills, groups } from '@/data/skillData';
-import { IconTerminal } from '@tabler/icons-react';
+import { ComputerTerminal01Icon } from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
 
 const SkillCard = ({ skill, index }) => (
   <motion.div
@@ -48,7 +49,7 @@ export default function Skills() {
       <div className='mx-auto max-w-7xl'>
         <div className='mb-12 text-center'>
           <div className='mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3'>
-            <IconTerminal size={23} />
+            <HugeiconsIcon icon={ComputerTerminal01Icon} size={23} />
             <span className='text-sm font-medium tracking-wide text-white'>SKILLS</span>
           </div>
           <h2 className='mb-2 text-5xl font-black tracking-tight text-white md:text-7xl'>

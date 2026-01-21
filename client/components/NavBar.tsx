@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { IconBriefcase, IconCode, IconSmartHome, IconMail, IconMenu4, IconUserSquareRounded, IconX } from '@tabler/icons-react';
+import { Briefcase01Icon, Cancel01Icon, CodeSimpleIcon, Home03Icon, Mail01Icon, Menu01Icon, User02Icon } from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
 
 export function NavBar() {
   const [activeSection, setActiveSection] = useState('hero');
@@ -45,11 +46,11 @@ export function NavBar() {
   };
 
   const navItems = [
-    { id: 'hero', label: 'Home', icon: IconSmartHome },
-    { id: 'about', label: 'About', icon: IconUserSquareRounded },
-    { id: 'skills', label: 'Skills', icon: IconCode },
-    { id: 'experience', label: 'Experience', icon: IconBriefcase },
-    { id: 'contact', label: 'Contact', icon: IconMail },
+    { id: 'hero', label: 'Home', icon: Home03Icon },
+    { id: 'about', label: 'About', icon: User02Icon },
+    { id: 'skills', label: 'Skills', icon: CodeSimpleIcon },
+    { id: 'experience', label: 'Experience', icon: Briefcase01Icon },
+    { id: 'contact', label: 'Contact', icon: Mail01Icon },
   ];
 
   const containerClass = `transition-all duration-500 ${
@@ -89,7 +90,7 @@ export function NavBar() {
                       }`}
                       whileHover={{ scale: 1.05 }}
                     >
-                      <item.icon size={20} />
+                      <HugeiconsIcon icon={item.icon} size={20} />
                       {item.label}
                       {activeSection === item.id && (
                         <motion.div
@@ -129,11 +130,11 @@ export function NavBar() {
                   <AnimatePresence mode='wait'>
                     {isMobileMenuOpen ? (
                       <motion.div key='close' initial={{ rotate: -90 }} animate={{ rotate: 0 }} transition={{ duration: 0.2 }}>
-                        <IconX size={23} />
+                        <HugeiconsIcon icon={Cancel01Icon} size={23} />
                       </motion.div>
                     ) : (
                       <motion.div key='menu' initial={{ rotate: 90 }} animate={{ rotate: 0 }} transition={{ duration: 0.2 }}>
-                        <IconMenu4 size={23} />
+                        <HugeiconsIcon icon={Menu01Icon} size={23} />
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -162,7 +163,7 @@ export function NavBar() {
                           whileHover={{ scale: 1.02 }}
                         >
                           <span className='mr-3 flex h-10 w-10 items-center justify-center rounded-lg bg-white/5'>
-                            <item.icon size={20} />
+                            <HugeiconsIcon icon={item.icon} size={20} />
                           </span>
                           {item.label}
                         </motion.button>

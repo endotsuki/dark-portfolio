@@ -4,17 +4,18 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import {
-  IconBrandTelegram,
-  IconBrowserShare,
-  IconCircleCheck,
-  IconCircleX,
-  IconPhone,
-  IconInfoCircle,
-  IconLoader3,
-  IconMail,
-  IconMap2,
-  IconSend2,
-} from '@tabler/icons-react';
+  Cancel01Icon,
+  CheckmarkCircle02Icon,
+  InformationCircleIcon,
+  LinkSquare02Icon,
+  Loading03Icon,
+  Location05Icon,
+  Mail02Icon,
+  Navigation03Icon,
+  SmartPhone01Icon,
+  TelegramIcon,
+} from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
 
 const Field = ({ label, name, type = 'text', ...props }: any) => (
   <div className='space-y-3'>
@@ -36,28 +37,28 @@ export default function Contact() {
   // Contact data
   const contactInfo = [
     {
-      icon: IconPhone,
+      icon: SmartPhone01Icon,
       label: 'Phone',
       value: '+855 86 397 836',
       href: 'tel:+85586397836',
       description: 'Call me directly',
     },
     {
-      icon: IconBrandTelegram,
+      icon: TelegramIcon,
       label: 'Telegram',
       value: '@cheatzx',
       href: 'https://t.me/cheatzx',
       description: 'Quick chat on Telegram',
     },
     {
-      icon: IconMail,
+      icon: Mail02Icon,
       label: 'Email',
       value: 'alex@example.com',
       href: 'mailto:alex@example.com',
       description: 'Professional inquiries',
     },
     {
-      icon: IconMap2,
+      icon: Location05Icon,
       label: 'Location',
       value: 'Sangkat Toeuk Thla, Khan Sen Sok, Phnom Penh, Cambodia.',
       href: '#',
@@ -104,17 +105,17 @@ ${data.message}
     const options = {
       success: {
         title: 'Success!',
-        icon: <IconCircleCheck size={30} className='text-green-500' />,
+        icon: <HugeiconsIcon size={30} icon={CheckmarkCircle02Icon} className='text-green-500' />,
         text: 'Your message was sent.',
       },
       error: {
         title: 'Error!',
-        icon: <IconCircleX size={30} className='text-red-500' />,
+        icon: <HugeiconsIcon size={30} icon={Cancel01Icon} className='text-red-500' />,
         text: 'Something went wrong. Please try again or contact me directly via Telegram.',
       },
       connection: {
         title: 'Connection Error!',
-        icon: <IconInfoCircle size={30} className='text-yellow-500' />,
+        icon: <HugeiconsIcon size={30} icon={InformationCircleIcon} className='text-yellow-500' />,
         text: 'Unable to connect to server. Please check your internet connection and try again.',
       },
     };
@@ -154,7 +155,7 @@ ${data.message}
           {/* Header */}
           <div className='mb-16 text-center'>
             <div className='mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3'>
-              <IconMail className='h-5 w-5' />
+              <HugeiconsIcon size={20} icon={Mail02Icon} />
               <span className='text-sm font-medium tracking-wide text-white'>CONTACT</span>
             </div>
             <h2 className='mb-2 text-5xl font-black tracking-tight text-white md:text-7xl'>
@@ -196,13 +197,14 @@ ${data.message}
                   </div>
                   <div className='relative z-10 flex items-start gap-5'>
                     <div className='flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-primary/50 bg-primary/20 transition-transform duration-500 group-hover:-translate-x-40'>
-                      <c.icon size={23} className='text-white' />
+                      <HugeiconsIcon size={23} icon={c.icon} className='text-white' />
                     </div>
                     <div className='flex-1 transition-transform duration-500 group-hover:-translate-x-16'>
                       <div className='mb-1 flex items-center justify-between'>
                         <h3 className='text-lg font-semibold text-white'>{c.label}</h3>
-                        <IconBrowserShare
+                        <HugeiconsIcon
                           size={20}
+                          icon={LinkSquare02Icon}
                           className='translate-x-20 text-gray-400 transition-all group-hover:translate-x-16 group-hover:text-gray-300'
                         />
                       </div>
@@ -270,12 +272,12 @@ ${data.message}
                       <div className='relative z-10 flex items-center justify-center'>
                         {isSubmitting ? (
                           <>
-                            <IconLoader3 size={23} className='mr-3 h-6 w-6 animate-spin' />
+                            <HugeiconsIcon size={23} icon={Loading03Icon} className='mr-3 animate-spin' />
                             <span>Sending Message...</span>
                           </>
                         ) : (
                           <>
-                            <IconSend2 size={23} className='mr-3 transition-transform duration-500 group-hover:-translate-x-96' />
+                            <HugeiconsIcon icon={Navigation03Icon} size={23} className='mr-3 transition-transform duration-500 group-hover:-translate-x-96' />
                             <span className='transition-all duration-500 group-hover:translate-x-96'>Send Message</span>
                           </>
                         )}

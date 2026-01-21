@@ -1,8 +1,9 @@
 import { Timeline } from '@/components/ui/timeline';
-import { IconBriefcase, IconBrandGithub, IconDeviceLaptop, IconMapPin2, IconCategory, IconPlus } from '@tabler/icons-react';
 import { Button } from './ui/button';
 import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogImage, DialogClose, DialogContainer } from './ui/linear-modal';
 import { techIcons, projects, designItems } from '@/data/experienceData.tsx';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Add01Icon, Briefcase01Icon, GeometricShapes01Icon, GithubIcon, LaptopVideoIcon, Location05Icon } from '@hugeicons/core-free-icons';
 
 const ProjectCard = ({ project }: { project: any }) => (
   <div className='mb-6 rounded-3xl border border-slate-700 bg-gradient-to-tr from-primary/10 to-secondary/5 p-6 shadow-lg transition-all duration-300 hover:shadow-xl'>
@@ -25,7 +26,7 @@ const ProjectCard = ({ project }: { project: any }) => (
         <div>
           <h3 className='text-lg font-bold text-white'>{project.companyName}</h3>
           <div className='flex items-center gap-2 text-sm text-gray-400'>
-            <IconMapPin2 stroke={1.5} size={20} />
+            <HugeiconsIcon icon={Location05Icon} size={20} />
             {project.companyLocation}
           </div>
         </div>
@@ -37,7 +38,7 @@ const ProjectCard = ({ project }: { project: any }) => (
       <div className='flex items-center justify-between gap-2 text-sm text-gray-400'>
         <span className='font-semibold text-secondary'>{project.role}</span>
         <span className='flex items-center gap-1'>
-          <IconCategory stroke={1.5} size={20} />
+          <HugeiconsIcon icon={GeometricShapes01Icon} size={20} />
           {project.projectType}
         </span>
       </div>
@@ -54,13 +55,13 @@ const ProjectCard = ({ project }: { project: any }) => (
     <div className='flex flex-col gap-3 sm:flex-row'>
       <a href={project.github} target='_blank' rel='noopener noreferrer'>
         <Button variant='on-hold'>
-          <IconBrandGithub stroke={1.5} size={20} />
+          <HugeiconsIcon icon={GithubIcon} size={20} />
           <span>Code</span>
         </Button>
       </a>
       <a href={project.live} target='_blank' rel='noopener noreferrer'>
         <Button variant='done'>
-          <IconDeviceLaptop stroke={1.5} size={20} />
+          <HugeiconsIcon icon={LaptopVideoIcon} size={20} />
           <span>Live Demo</span>
         </Button>
       </a>
@@ -97,7 +98,7 @@ export default function ExperienceTimeline() {
       <div className='mx-auto max-w-7xl px-2'>
         <div className='mb-16 text-center'>
           <div className='mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3'>
-            <IconBriefcase className='h-5 w-5' />
+            <HugeiconsIcon icon={Briefcase01Icon} size={20} />
             <span className='text-sm font-medium text-white'>MY EXPERIENCE</span>
           </div>
           <h2 className='mb-2 text-5xl font-black text-white md:text-7xl'>
@@ -131,7 +132,7 @@ export default function ExperienceTimeline() {
                     size='icon'
                     className='absolute right-3 top-3 rounded-xl opacity-0 transition-opacity sm:bottom-4 sm:right-4 sm:top-auto sm:opacity-100 sm:group-hover:opacity-100'
                   >
-                    <IconPlus className='h-4 w-4 text-white sm:h-5 sm:w-5' />
+                    <HugeiconsIcon icon={Add01Icon} className='h-4 w-4 text-white sm:h-5 sm:w-5' />
                   </Button>
                 </DialogTrigger>
                 <DialogContainer className='flex items-center justify-center p-4'>

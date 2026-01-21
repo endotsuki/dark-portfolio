@@ -1,25 +1,12 @@
-"use client";
+'use client';
 
-import React, {
-  useCallback,
-  useContext,
-  useEffect,
-  useId,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
-import {
-  motion,
-  AnimatePresence,
-  MotionConfig,
-  Transition,
-  Variant,
-} from "motion/react";
-import { createPortal } from "react-dom";
-import { cn } from "@/lib/utils";
-import { IconX } from "@tabler/icons-react";
-import { Button } from "./button";
+import React, { useCallback, useContext, useEffect, useId, useMemo, useRef, useState } from 'react';
+import { motion, AnimatePresence, MotionConfig, Transition, Variant } from 'motion/react';
+import { createPortal } from 'react-dom';
+import { cn } from '@/lib/utils';
+import { Button } from './button';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Cancel01Icon } from '@hugeicons/core-free-icons';
 
 interface DialogContextType {
   isOpen: boolean;
@@ -33,7 +20,7 @@ const DialogContext = React.createContext<DialogContextType | null>(null);
 function useDialog() {
   const context = useContext(DialogContext);
   if (!context) {
-    throw new Error("useDialog must be used within a DialogProvider");
+    throw new Error('useDialog must be used within a DialogProvider');
   }
   return context;
 }
@@ -48,10 +35,7 @@ function DialogProvider({ children, transition }: DialogProviderProps) {
   const uniqueId = useId();
   const triggerRef = useRef<HTMLDivElement>(null);
 
-  const contextValue = useMemo(
-    () => ({ isOpen, setIsOpen, uniqueId, triggerRef }),
-    [isOpen, uniqueId],
-  );
+  const contextValue = useMemo(() => ({ isOpen, setIsOpen, uniqueId, triggerRef }), [isOpen, uniqueId]);
 
   return (
     <DialogContext.Provider
@@ -83,12 +67,7 @@ type DialogTriggerProps = {
   triggerRef?: React.RefObject<HTMLDivElement>;
 };
 
-function DialogTrigger({
-  children,
-  className,
-  style,
-  triggerRef,
-}: DialogTriggerProps) {
+function DialogTrigger({ children, className, style, triggerRef }: DialogTriggerProps) {
   const { setIsOpen, isOpen, uniqueId } = useDialog();
 
   const handleClick = useCallback(() => {
@@ -97,24 +76,24 @@ function DialogTrigger({
 
   const handleKeyDown = useCallback(
     (event: React.KeyboardEvent) => {
-      if (event.key === "Enter" || event.key === " ") {
+      if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
         setIsOpen(!isOpen);
       }
     },
-    [isOpen, setIsOpen],
+    [isOpen, setIsOpen]
   );
 
   return (
     <motion.div
       ref={triggerRef}
       layoutId={`dialog-${uniqueId}`}
-      className={cn("relative cursor-pointer", className)}
+      className={cn('relative cursor-pointer', className)}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       style={style}
-      role="button"
-      aria-haspopup="dialog"
+      role='button'
+      aria-haspopup='dialog'
       aria-expanded={isOpen}
       aria-controls={`dialog-content-${uniqueId}`}
     >
@@ -132,17 +111,15 @@ type DialogContent = {
 function DialogContent({ children, className, style }: DialogContent) {
   const { setIsOpen, isOpen, uniqueId, triggerRef } = useDialog();
   const containerRef = useRef<HTMLDivElement>(null);
-  const [firstFocusableElement, setFirstFocusableElement] =
-    useState<HTMLElement | null>(null);
-  const [lastFocusableElement, setLastFocusableElement] =
-    useState<HTMLElement | null>(null);
+  const [firstFocusableElement, setFirstFocusableElement] = useState<HTMLElement | null>(null);
+  const [lastFocusableElement, setLastFocusableElement] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
+      if (event.key === 'Escape') {
         setIsOpen(false);
       }
-      if (event.key === "Tab") {
+      if (event.key === 'Tab') {
         if (!firstFocusableElement || !lastFocusableElement) return;
 
         if (event.shiftKey) {
@@ -159,25 +136,23 @@ function DialogContent({ children, className, style }: DialogContent) {
       }
     };
 
-    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener('keydown', handleKeyDown);
     };
   }, [setIsOpen, firstFocusableElement, lastFocusableElement]);
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
 
       const focusableElements = containerRef.current?.querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
       );
       if (focusableElements && focusableElements.length > 0) {
         setFirstFocusableElement(focusableElements[0] as HTMLElement);
-        setLastFocusableElement(
-          focusableElements[focusableElements.length - 1] as HTMLElement,
-        );
+        setLastFocusableElement(focusableElements[focusableElements.length - 1] as HTMLElement);
         // Delay focus slightly to allow animation to start
         requestAnimationFrame(() => {
           (focusableElements[0] as HTMLElement).focus();
@@ -188,7 +163,7 @@ function DialogContent({ children, className, style }: DialogContent) {
         containerRef.current.scrollTop = 0;
       }
     } else {
-      document.body.style.overflow = "";
+      document.body.style.overflow = '';
       triggerRef.current?.focus();
     }
   }, [isOpen, triggerRef]);
@@ -198,20 +173,20 @@ function DialogContent({ children, className, style }: DialogContent) {
       <motion.div
         ref={containerRef}
         layoutId={`dialog-${uniqueId}`}
-        className={cn("overflow-hidden", className)}
+        className={cn('overflow-hidden', className)}
         style={{
           ...style,
-          willChange: "transform, opacity", // GPU acceleration
+          willChange: 'transform, opacity', // GPU acceleration
         }}
-        role="dialog"
-        aria-modal="true"
+        role='dialog'
+        aria-modal='true'
         aria-labelledby={`dialog-title-${uniqueId}`}
         aria-describedby={`dialog-description-${uniqueId}`}
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.95, opacity: 0 }}
         transition={{
-          type: "spring",
+          type: 'spring',
           damping: 25,
           stiffness: 300,
           mass: 0.8,
@@ -229,33 +204,29 @@ type DialogContainerProps = {
   style?: React.CSSProperties;
 };
 
-function DialogContainer({
-  children,
-  className,
-  overlayClassName,
-}: DialogContainerProps) {
+function DialogContainer({ children, className, overlayClassName }: DialogContainerProps) {
   const { isOpen, setIsOpen, uniqueId } = useDialog();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const drawerWrapper = document.querySelectorAll("[drawer-wrapper]");
+    const drawerWrapper = document.querySelectorAll('[drawer-wrapper]');
 
     if (isOpen) {
-      document.body.classList.add("overflow-hidden");
-      drawerWrapper.forEach((wrapper) => wrapper?.classList.add("open"));
+      document.body.classList.add('overflow-hidden');
+      drawerWrapper.forEach((wrapper) => wrapper?.classList.add('open'));
     } else {
-      document.body.classList.remove("overflow-hidden");
-      drawerWrapper.forEach((wrapper) => wrapper?.classList.remove("open"));
+      document.body.classList.remove('overflow-hidden');
+      drawerWrapper.forEach((wrapper) => wrapper?.classList.remove('open'));
     }
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
+      if (event.key === 'Escape') {
         setIsOpen(false);
       }
     };
 
-    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener('keydown', handleKeyDown);
     return () => {
-      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener('keydown', handleKeyDown);
     };
   }, [isOpen]);
 
@@ -269,15 +240,15 @@ function DialogContainer({
   if (!mounted) return null;
 
   return createPortal(
-    <AnimatePresence initial={false} mode="wait">
+    <AnimatePresence initial={false} mode='wait'>
       {isOpen && (
         <>
           <motion.div
             key={`backdrop-${uniqueId}`}
             data-lenis-prevent
             className={cn(
-              "fixed inset-0 h-full z-50 w-full backdrop-blur-md bg-[radial-gradient(125%_125%_at_50%_10%,#050505_40%,#243aff_100%)]/10",
-              overlayClassName,
+              'bg-[radial-gradient(125%_125%_at_50%_10%,#050505_40%,#243aff_100%)]/10 fixed inset-0 z-50 h-full w-full backdrop-blur-md',
+              overlayClassName
             )}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -289,15 +260,15 @@ function DialogContainer({
             onClick={() => setIsOpen(false)}
           ></motion.div>
           <motion.div
-            className={cn(`fixed inset-0 z-50 w-fit mx-auto`, className)}
-            style={{ willChange: "transform" }} // GPU acceleration for transforms
+            className={cn(`fixed inset-0 z-50 mx-auto w-fit`, className)}
+            style={{ willChange: 'transform' }} // GPU acceleration for transforms
           >
             {children}
           </motion.div>
         </>
       )}
     </AnimatePresence>,
-    document.body,
+    document.body
   );
 }
 type DialogTitleProps = {
@@ -310,12 +281,7 @@ function DialogTitle({ children, className, style }: DialogTitleProps) {
   const { uniqueId } = useDialog();
 
   return (
-    <motion.h1
-      layoutId={`dialog-title-container-${uniqueId}`}
-      className={className}
-      style={style}
-      layout
-    >
+    <motion.h1 layoutId={`dialog-title-container-${uniqueId}`} className={className} style={style} layout>
       {children}
     </motion.h1>
   );
@@ -331,11 +297,7 @@ function DialogSubtitle({ children, className, style }: DialogSubtitleProps) {
   const { uniqueId } = useDialog();
 
   return (
-    <motion.div
-      layoutId={`dialog-subtitle-container-${uniqueId}`}
-      className={className}
-      style={style}
-    >
+    <motion.div layoutId={`dialog-subtitle-container-${uniqueId}`} className={className} style={style}>
       {children}
     </motion.div>
   );
@@ -352,27 +314,18 @@ type DialogDescriptionProps = {
   };
 };
 
-function DialogDescription({
-  children,
-  className,
-  variants,
-  disableLayoutAnimation,
-}: DialogDescriptionProps) {
+function DialogDescription({ children, className, variants, disableLayoutAnimation }: DialogDescriptionProps) {
   const { uniqueId } = useDialog();
 
   return (
     <motion.div
       key={`dialog-description-${uniqueId}`}
-      layoutId={
-        disableLayoutAnimation
-          ? undefined
-          : `dialog-description-content-${uniqueId}`
-      }
+      layoutId={disableLayoutAnimation ? undefined : `dialog-description-content-${uniqueId}`}
       variants={variants}
       className={className}
-      initial="initial"
-      animate="animate"
-      exit="exit"
+      initial='initial'
+      animate='animate'
+      exit='exit'
       id={`dialog-description-${uniqueId}`}
     >
       {children}
@@ -390,15 +343,7 @@ type DialogImageProps = {
 function DialogImage({ src, alt, className, style }: DialogImageProps) {
   const { uniqueId } = useDialog();
 
-  return (
-    <motion.img
-      src={src}
-      alt={alt}
-      className={cn(className)}
-      layoutId={`dialog-img-${uniqueId}`}
-      style={style}
-    />
-  );
+  return <motion.img src={src} alt={alt} className={cn(className)} layoutId={`dialog-img-${uniqueId}`} style={style} />;
 }
 
 type DialogCloseProps = {
@@ -420,30 +365,17 @@ function DialogClose({ children, className, variants }: DialogCloseProps) {
 
   return (
     <Button
-      variant="destructive"
-      size="icon"
+      variant='destructive'
+      size='icon'
       onClick={handleClose}
-      type="button"
-      aria-label="Close dialog"
+      type='button'
+      aria-label='Close dialog'
       key={`dialog-close-${uniqueId}`}
-      className={cn(
-        "absolute right-3 top-3 rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0",
-        className,
-      )}
+      className={cn('absolute right-3 top-3 rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0', className)}
     >
-      {children || <IconX size={24} />}
+      {children || <HugeiconsIcon icon={Cancel01Icon} size={24} />}
     </Button>
   );
 }
 
-export {
-  Dialog,
-  DialogTrigger,
-  DialogContainer,
-  DialogContent,
-  DialogClose,
-  DialogTitle,
-  DialogSubtitle,
-  DialogDescription,
-  DialogImage,
-};
+export { Dialog, DialogTrigger, DialogContainer, DialogContent, DialogClose, DialogTitle, DialogSubtitle, DialogDescription, DialogImage };

@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
-import { IconMail, IconRosetteDiscountCheckFilled } from '@tabler/icons-react';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
 import React from 'react';
 import { bio, socials } from '@/data/aboutData';
 import { Separator } from './ui/separator';
 import { Button } from './ui/button';
+import { CheckmarkBadge02Icon, Mail01Icon } from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
 
 export default function ProfileCard() {
   return (
@@ -28,7 +29,7 @@ export default function ProfileCard() {
         <div className='mb-2'>
           <div className='flex items-center gap-1'>
             <h3 className='text-xl font-semibold text-white'>Socheath Ek Mao</h3>
-            <IconRosetteDiscountCheckFilled size={20} className='fill-blue-400' />
+            <HugeiconsIcon icon={CheckmarkBadge02Icon} size={23} className='fill-blue-400 text-background' />
           </div>
           <p className='mb-2 text-sm font-medium text-gray-400'>Web Developer</p>
           <p className='leading-relaxed text-gray-300'>{bio}</p>
@@ -79,7 +80,7 @@ export default function ProfileCard() {
         <div className='mb-6 space-y-2'>
           <label className='block text-sm font-medium text-gray-300'>Email</label>
           <div className='relative'>
-            <IconMail size={18} className='absolute left-3 top-1/2 -translate-y-1/2 text-gray-400' />
+            <HugeiconsIcon icon={Mail01Icon} size={18} className='absolute left-3 top-1/2 -translate-y-1/2 text-gray-400' />
             <a href='mailto:maosocheathek@gmail.com' className='block'>
               <div className='flex h-11 w-full items-center rounded-lg border border-gray-700 bg-gray-800/50 pl-10 pr-3 text-sm text-gray-300 transition-all hover:bg-gray-800/70 hover:underline'>
                 maosocheathek@gmail.com

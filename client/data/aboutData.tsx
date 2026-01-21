@@ -1,4 +1,4 @@
-import { IconDeviceMobile, IconMail, IconMapPin2 } from '@tabler/icons-react';
+import { Location05Icon, Mail02Icon, SmartPhone01Icon } from '@hugeicons/core-free-icons';
 import { Icon } from 'iconza';
 
 export const journey1 = `I am a web developer with 1 year of experience, mainly focusing on front-end development. I enjoy creating websites and applications that are user-friendly and visually appealing. My journey began at [Your School or Company], and I have grown by working on personal and small company projects.`;
@@ -7,19 +7,19 @@ export const journey3 = `When I am not coding, I enjoy exploring new tools and i
 
 export const personalInfos = [
   {
-    icon: IconMapPin2,
+    icon: Location05Icon,
     handle: 'San Francisco, CA',
     platform: 'Location',
     link: 'https://www.google.com/maps?q=San+Francisco,CA',
   },
   {
-    icon: IconMail,
+    icon: Mail02Icon,
     handle: 'maosocheathek@gmail.com',
     platform: 'Email',
     link: 'mailto:maosocheathek@gmail.com',
   },
   {
-    icon: IconDeviceMobile,
+    icon: SmartPhone01Icon,
     handle: '+1 (555) 123-4567',
     platform: 'Phone',
     link: 'tel:+15551234567',

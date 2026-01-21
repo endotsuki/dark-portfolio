@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
-import { IconDeviceLaptop, IconMessage, IconSchool } from '@tabler/icons-react';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
 import { personalInfos, journey1, journey2, journey3, education } from '@/data/aboutData';
+import { LaptopProgrammingIcon, Mail01Icon, Mortarboard02Icon } from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
 
 export default function RightColumn() {
   return (
@@ -14,7 +15,7 @@ export default function RightColumn() {
       >
         <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
         <h3 className='mb-6 flex items-center gap-3 text-2xl font-medium'>
-          <IconDeviceLaptop stroke={1.5} size={30} className='text-primary' />
+          <HugeiconsIcon icon={LaptopProgrammingIcon} size={30} className='text-primary' />
           My Journey
         </h3>
         <div className='max-w-none text-lg leading-relaxed text-gray-200 sm:text-xl md:text-lg'>
@@ -34,7 +35,7 @@ export default function RightColumn() {
         >
           <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
           <h3 className='mb-6 flex items-center gap-3 text-2xl font-medium'>
-            <IconMessage stroke={1.5} size={30} className='text-primary' />
+            <HugeiconsIcon icon={Mail01Icon} size={30} className='text-primary' />
             Contact Information
           </h3>
           <div className='space-y-4'>
@@ -48,7 +49,7 @@ export default function RightColumn() {
               >
                 <span className='absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 transition-all duration-700 group-hover:translate-x-full group-hover:opacity-100' />
                 <div className='rounded-lg border border-white/5 bg-gray-800/50 p-2 transition-colors'>
-                  <info.icon size={23} className='text-gray-300 transition-colors' />
+                  <HugeiconsIcon icon={info.icon} size={23} className='text-gray-300 transition-colors' />
                 </div>
                 <div>
                   <p className='text-sm text-gray-400'>{info.platform}</p>
@@ -68,7 +69,7 @@ export default function RightColumn() {
         >
           <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
           <h3 className='mb-6 flex items-center gap-3 text-2xl font-medium'>
-            <IconSchool stroke={1.5} size={30} className='text-primary' />
+            <HugeiconsIcon icon={Mortarboard02Icon} size={30} className='text-primary' />
             Education
           </h3>
           <div className='space-y-6'>
