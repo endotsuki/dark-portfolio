@@ -56,7 +56,7 @@ export default function Hero() {
               typingSpeed={75}
               pauseDuration={2000}
               showCursor={true}
-              cursorCharacter='_'
+              cursorCharacter='|'
             />
           </h2>
         </div>

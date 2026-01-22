@@ -169,18 +169,6 @@ ${data.message}
             {/* Contact Info */}
             <div className='space-y-6 lg:col-span-5'>
               <h2 className='mb-8 text-3xl font-medium text-white'>Connect With Me</h2>
-              <div className='mt-10 rounded-2xl border border-gray-800 bg-gradient-to-br from-gray-950 to-gray-900 p-6'>
-                <div className='flex items-center gap-4'>
-                  <span className='relative flex size-3'>
-                    <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-95'></span>
-                    <span className='relative inline-flex size-3 rounded-full bg-green-500'></span>
-                  </span>
-                  <div>
-                    <p className='text-lg font-semibold text-white'>Quick Response</p>
-                    <p className='text-sm text-gray-400'>I will get back to you as soon as possible. Usually within 24 hours.</p>
-                  </div>
-                </div>
-              </div>
               {contactInfo.map((c, i) => (
                 <a
                   key={c.label}
@@ -196,7 +184,7 @@ ${data.message}
                     <div className='absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-gray-700/50 to-transparent opacity-0 transition-all duration-700 group-hover:translate-x-full group-hover:opacity-100' />
                   </div>
                   <div className='relative z-10 flex items-start gap-5'>
-                    <div className='flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-primary/50 bg-primary/20 transition-transform duration-500 group-hover:-translate-x-40'>
+                    <div className='flex items-center shadow-inner shadow-primary/50 justify-center rounded-2xl border-2 border-primary/50 bg-primary/20 p-4 transition-transform duration-500 group-hover:-translate-x-40'>
                       <HugeiconsIcon size={23} icon={c.icon} className='text-white' />
                     </div>
                     <div className='flex-1 transition-transform duration-500 group-hover:-translate-x-16'>
@@ -271,15 +259,19 @@ ${data.message}
                     <Button variant='on-hold' type='submit' disabled={isSubmitting}>
                       <div className='relative z-10 flex items-center justify-center'>
                         {isSubmitting ? (
-                          <>
+                          <div className='flex items-center'>
                             <HugeiconsIcon size={23} icon={Loading03Icon} className='mr-3 animate-spin' />
                             <span>Sending Message...</span>
-                          </>
+                          </div>
                         ) : (
-                          <>
-                            <HugeiconsIcon icon={Navigation03Icon} size={23} className='mr-3 transition-transform duration-500 group-hover:-translate-x-96' />
-                            <span className='transition-all duration-500 group-hover:translate-x-96'>Send Message</span>
-                          </>
+                          <div className='flex items-center'>
+                            <span className='mr-3 transition-all duration-500 group-hover:translate-x-96'>Send Message</span>
+                            <HugeiconsIcon
+                              icon={Navigation03Icon}
+                              size={23}
+                              className='transition-transform duration-500 group-hover:-translate-x-96'
+                            />
+                          </div>
                         )}
                       </div>
                     </Button>

@@ -175,11 +175,6 @@ export const designItems = [
   },
   {
     id: 9,
-    url: '/design/pchum_ben.webp',
-    title: 'Pchum Ben',
-  },
-  {
-    id: 10,
     url: '/design/royal_ballet.webp',
     title: 'Royal Ballet',
   },
