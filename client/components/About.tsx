@@ -1,24 +1,17 @@
 import ProfileCard from './ProfileCard';
 import RightColumn from './RightColumn';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { UserCircleIcon } from '@hugeicons/core-free-icons';
 
 export default function About() {
   return (
-    <section id='about' className='relative overflow-hidden bg-slate-950 px-2 pt-28'>
+    <section id='about' className='relative overflow-hidden bg-black px-6 py-32 sm:px-8 md:px-12 lg:px-16'>
+      <div className='absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]' />
       <div className='relative z-10 mx-auto max-w-7xl'>
-        <div className='mb-12 text-center'>
-          <div className='mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3'>
-            <HugeiconsIcon size={23} icon={UserCircleIcon} />
-            <span className='text-sm font-medium tracking-wide text-white'>SKILLS</span>
-          </div>
-          <h2 className='mb-2 text-5xl font-black tracking-tight text-white md:text-7xl'>
-            WHO I<span className='block bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent'>AM</span>
-          </h2>
-          <div className='mx-auto mb-8 h-px w-24 bg-white'></div>
+        <div className='mb-20'>
+          <h2 className='text-6xl font-bold tracking-tight text-white sm:text-7xl md:text-8xl'>Who I Am</h2>
+          <div className='mt-6 h-px w-20 bg-white/30' />
         </div>
 
-        <div className='grid grid-cols-1 gap-8 lg:grid-cols-12'>
+        <div className='grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12'>
           <div className='lg:col-span-4'>
             <ProfileCard />
           </div>

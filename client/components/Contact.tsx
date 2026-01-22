@@ -16,10 +16,12 @@ import {
   TelegramIcon,
 } from '@hugeicons/core-free-icons';
 import { HugeiconsIcon } from '@hugeicons/react';
+import { ShootingStars } from '@/components/ui/shooting-stars';
+import { StarsBackground } from '@/components/ui/stars-background';
 
 const Field = ({ label, name, type = 'text', ...props }: any) => (
-  <div className='space-y-3'>
-    <label className='block text-sm font-semibold uppercase tracking-wide text-white'>{label}</label>
+  <div className='space-y-2'>
+    <label className='block text-xs uppercase tracking-widest text-gray-500'>{label}</label>
     <Input name={name} type={type} {...props} />
   </div>
 );
@@ -34,7 +36,6 @@ export default function Contact() {
   });
   const { toast } = useToast();
 
-  // Contact data
   const contactInfo = [
     {
       icon: SmartPhone01Icon,
@@ -48,7 +49,7 @@ export default function Contact() {
       label: 'Telegram',
       value: '@cheatzx',
       href: 'https://t.me/cheatzx',
-      description: 'Quick chat on Telegram',
+      description: 'Quick chat',
     },
     {
       icon: Mail02Icon,
@@ -60,7 +61,7 @@ export default function Contact() {
     {
       icon: Location05Icon,
       label: 'Location',
-      value: 'Sangkat Toeuk Thla, Khan Sen Sok, Phnom Penh, Cambodia.',
+      value: 'Phnom Penh, Cambodia',
       href: '#',
       description: 'Available for meetings',
     },
@@ -149,135 +150,108 @@ ${data.message}
   };
 
   return (
-    <section id='contact' className='relative overflow-hidden bg-slate-950 px-2 pt-16'>
-      <div className='relative z-10 py-20'>
-        <div className='mx-auto max-w-7xl'>
-          {/* Header */}
-          <div className='mb-16 text-center'>
-            <div className='mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3'>
-              <HugeiconsIcon size={20} icon={Mail02Icon} />
-              <span className='text-sm font-medium tracking-wide text-white'>CONTACT</span>
-            </div>
-            <h2 className='mb-2 text-5xl font-black tracking-tight text-white md:text-7xl'>
-              GET IN
-              <span className='block bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent'>TOUCH</span>
-            </h2>
-            <div className='mx-auto mb-8 h-px w-24 bg-white'></div>
-          </div>
-          {/* Grid */}
-          <div className='grid gap-12 lg:grid-cols-12'>
-            {/* Contact Info */}
-            <div className='space-y-6 lg:col-span-5'>
-              <h2 className='mb-8 text-3xl font-medium text-white'>Connect With Me</h2>
-              {contactInfo.map((c, i) => (
-                <a
-                  key={c.label}
-                  href={c.href}
-                  data-aos='fade-right'
-                  data-aos-delay={i * 300}
-                  data-aos-duration='500'
-                  className='group relative block overflow-hidden rounded-2xl border border-gray-800 bg-gradient-to-br from-gray-950 to-gray-900 p-6 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-gray-700 hover:shadow-2xl hover:shadow-white/5'
-                  style={{ animationDelay: `${i * 100}ms` }}
-                >
-                  {/* Dark holographic sweep effect */}
-                  <div className='absolute inset-0 overflow-hidden rounded-2xl'>
-                    <div className='absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-gray-700/50 to-transparent opacity-0 transition-all duration-700 group-hover:translate-x-full group-hover:opacity-100' />
-                  </div>
-                  <div className='relative z-10 flex items-start gap-5'>
-                    <div className='flex items-center shadow-inner shadow-primary/50 justify-center rounded-2xl border-2 border-primary/50 bg-primary/20 p-4 transition-transform duration-500 group-hover:-translate-x-40'>
-                      <HugeiconsIcon size={23} icon={c.icon} className='text-white' />
-                    </div>
-                    <div className='flex-1 transition-transform duration-500 group-hover:-translate-x-16'>
-                      <div className='mb-1 flex items-center justify-between'>
-                        <h3 className='text-lg font-semibold text-white'>{c.label}</h3>
-                        <HugeiconsIcon
-                          size={20}
-                          icon={LinkSquare02Icon}
-                          className='translate-x-20 text-gray-400 transition-all group-hover:translate-x-16 group-hover:text-gray-300'
-                        />
-                      </div>
-                      <p className='mb-1 font-medium text-white'>{c.value}</p>
-                      <p className='text-sm text-gray-400'>{c.description}</p>
-                    </div>
-                  </div>
-                </a>
-              ))}
-            </div>
-            {/* Form */}
-            <div className='lg:col-span-7' data-aos='fade-left' data-aos-duration='600'>
-              <div className='relative rounded-3xl border border-gray-800 bg-gradient-to-br from-gray-950 to-gray-900 px-4 py-8 backdrop-blur-sm lg:p-12'>
-                <div className='absolute inset-0 rounded-3xl bg-gradient-to-br from-white/[0.02] to-transparent'></div>
-                <div className='absolute -top-px left-8 h-px w-16 bg-gradient-to-r from-transparent via-white/20 to-transparent'></div>
-                <div className='absolute -right-px top-8 h-16 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent'></div>
-                <div className='relative z-10'>
-                  <div className='mb-10'>
-                    <h2 className='mb-3 text-4xl font-medium text-white'>Send a Message</h2>
-                    <p className='text-gray-300'>Connected to Telegram for instant notifications</p>
-                  </div>
-                  <form onSubmit={handleSubmit} className='space-y-6'>
-                    <div className='grid gap-6 md:grid-cols-2'>
-                      <Field
-                        label='Full Name'
-                        name='name'
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        className='h-14 rounded-xl border-white/20 bg-black/50 text-lg text-white transition-all placeholder:text-gray-500 focus:border-white focus:ring-white/20'
-                        placeholder='Enter your name'
-                      />
-                      <Field
-                        label='Telegram'
-                        name='telegram'
-                        value={formData.telegram}
-                        onChange={handleInputChange}
-                        required
-                        className='h-14 rounded-xl border-white/20 bg-black/50 text-lg text-white transition-all placeholder:text-gray-500 focus:border-white focus:ring-white/20'
-                        placeholder='@yourusername'
-                      />
-                    </div>
-                    <Field
-                      label='Subject'
-                      name='subject'
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      required
-                      className='h-14 rounded-xl border-white/20 bg-black/50 text-lg text-white transition-all placeholder:text-gray-500 focus:border-white focus:ring-white/20'
-                      placeholder='What would you like to discuss?'
-                    />
-                    <div className='space-y-3'>
-                      <label className='block text-sm font-semibold uppercase tracking-wide text-white'>Message</label>
-                      <Textarea
-                        name='message'
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        required
-                        rows={6}
-                        className='resize-none rounded-xl border-white/20 bg-black/50 text-base text-white transition-all placeholder:text-gray-500 focus:border-white focus:ring-white/20'
-                        placeholder='Tell me about your project, ideas, or just say hello...'
-                      />
-                    </div>
-                    <Button variant='on-hold' type='submit' disabled={isSubmitting}>
-                      <div className='relative z-10 flex items-center justify-center'>
-                        {isSubmitting ? (
-                          <div className='flex items-center'>
-                            <HugeiconsIcon size={23} icon={Loading03Icon} className='mr-3 animate-spin' />
-                            <span>Sending Message...</span>
-                          </div>
-                        ) : (
-                          <div className='flex items-center'>
-                            <span className='mr-3 transition-all duration-500 group-hover:translate-x-96'>Send Message</span>
-                            <HugeiconsIcon
-                              icon={Navigation03Icon}
-                              size={23}
-                              className='transition-transform duration-500 group-hover:-translate-x-96'
-                            />
-                          </div>
-                        )}
-                      </div>
-                    </Button>
-                  </form>
+    <section id='contact' className='relative overflow-hidden bg-black px-6 py-32 sm:px-8 md:px-12 lg:px-16'>
+      <div className='absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]' />
+      <div className='relative z-10 mx-auto max-w-7xl'>
+        <div className='mb-20'>
+          <h2 className='text-6xl font-bold tracking-tight text-white sm:text-7xl md:text-8xl'>Contact</h2>
+          <div className='mt-6 h-px w-20 bg-white/30' />
+        </div>
+        <div className='grid gap-12 lg:grid-cols-12'>
+          <div className='space-y-4 lg:col-span-5'>
+            <h3 className='mb-8 text-2xl font-bold text-white'>Connect With Me</h3>
+            {contactInfo.map((c, i) => (
+              <a
+                key={c.label}
+                href={c.href}
+                className='group flex items-center gap-4 border border-white/10 bg-black/50 p-4 backdrop-blur-sm transition-all hover:border-white/30 hover:bg-white/5'
+              >
+                <div className='border border-white/10 bg-white/5 p-3 transition-colors group-hover:border-white/20 group-hover:bg-white/10'>
+                  <HugeiconsIcon size={20} icon={c.icon} className='text-white' />
                 </div>
+                <div className='flex-1'>
+                  <div className='mb-1 flex items-center justify-between'>
+                    <h4 className='text-sm font-medium text-gray-400'>{c.label}</h4>
+                    <HugeiconsIcon
+                      size={16}
+                      icon={LinkSquare02Icon}
+                      className='text-gray-500 transition-colors group-hover:text-gray-300'
+                    />
+                  </div>
+                  <p className='mb-1 text-base font-medium text-white'>{c.value}</p>
+                  <p className='text-xs text-gray-500'>{c.description}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <div className='lg:col-span-7'>
+            <div className='border border-white/10 bg-black/50 p-8 backdrop-blur-sm lg:p-12'>
+              <div className='mb-10'>
+                <h3 className='mb-3 text-3xl font-bold text-white'>Send a Message</h3>
+                <p className='text-gray-400'>Connected to Telegram for instant notifications</p>
               </div>
+              <form onSubmit={handleSubmit} className='space-y-6'>
+                <div className='grid gap-6 md:grid-cols-2'>
+                  <Field
+                    label='Full Name'
+                    name='name'
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className='h-12 border-white/10 bg-white/5 text-white placeholder:text-gray-500 focus:border-white/30'
+                    placeholder='Enter your name'
+                  />
+                  <Field
+                    label='Telegram'
+                    name='telegram'
+                    value={formData.telegram}
+                    onChange={handleInputChange}
+                    required
+                    className='h-12 border-white/10 bg-white/5 text-white placeholder:text-gray-500 focus:border-white/30'
+                    placeholder='@yourusername'
+                  />
+                </div>
+                <Field
+                  label='Subject'
+                  name='subject'
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  required
+                  className='h-12 border-white/10 bg-white/5 text-white placeholder:text-gray-500 focus:border-white/30'
+                  placeholder='What would you like to discuss?'
+                />
+                <div className='space-y-2'>
+                  <label className='block text-xs uppercase tracking-widest text-gray-500'>Message</label>
+                  <Textarea
+                    name='message'
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    rows={6}
+                    className='resize-none border-white/10 bg-white/5 text-white placeholder:text-gray-500 focus:border-white/30'
+                    placeholder='Tell me about your project, ideas, or just say hello...'
+                  />
+                </div>
+
+                <Button
+                  type='submit'
+                  disabled={isSubmitting}
+                  className='group h-12 w-full rounded-none border border-white bg-transparent px-8 text-white transition-all hover:border-white hover:bg-white/20'
+                >
+                  {isSubmitting ? (
+                    <div className='flex items-center'>
+                      <HugeiconsIcon size={20} icon={Loading03Icon} className='mr-2 animate-spin' />
+                      <span>Sending...</span>
+                    </div>
+                  ) : (
+                    <div className='flex items-center'>
+                      <span className='mr-2'>Send Message</span>
+                      <HugeiconsIcon icon={Navigation03Icon} size={20} />
+                    </div>
+                  )}
+                </Button>
+              </form>
             </div>
           </div>
         </div>
