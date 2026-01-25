@@ -10,7 +10,7 @@ const ProjectCard = ({ project }: { project: any }) => (
     <div className='mb-4 flex flex-col gap-4 md:flex-row md:items-start md:justify-between'>
       <div className='flex items-center gap-4'>
         <div className='group relative flex flex-col items-center'>
-          <img className='h-14 w-14 border-2 border-white/20 object-cover' src={project.companyLogo} alt={project.companyName} />
+          <img className='h-14 w-14 object-cover' src={project.companyLogo} alt={project.companyName} />
           <div className='pointer-events-none absolute -bottom-2 left-1/2 z-50 flex h-40 w-40 -translate-x-1/2 scale-95 items-center justify-center opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100'>
             <img
               src={project.companyLogo}

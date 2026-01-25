@@ -16,12 +16,10 @@ import {
   TelegramIcon,
 } from '@hugeicons/core-free-icons';
 import { HugeiconsIcon } from '@hugeicons/react';
-import { ShootingStars } from '@/components/ui/shooting-stars';
-import { StarsBackground } from '@/components/ui/stars-background';
 
 const Field = ({ label, name, type = 'text', ...props }: any) => (
   <div className='space-y-2'>
-    <label className='block text-xs uppercase tracking-widest text-gray-500'>{label}</label>
+    <label className='text-ms block font-medium uppercase tracking-widest text-gray-500'>{label}</label>
     <Input name={name} type={type} {...props} />
   </div>
 );
@@ -167,19 +165,19 @@ ${data.message}
                 className='group flex items-center gap-4 border border-white/10 bg-black/50 p-4 backdrop-blur-sm transition-all hover:border-white/30 hover:bg-white/5'
               >
                 <div className='border border-white/10 bg-white/5 p-3 transition-colors group-hover:border-white/20 group-hover:bg-white/10'>
-                  <HugeiconsIcon size={20} icon={c.icon} className='text-white' />
+                  <HugeiconsIcon size={23} icon={c.icon} className='text-white' />
                 </div>
                 <div className='flex-1'>
                   <div className='mb-1 flex items-center justify-between'>
                     <h4 className='text-sm font-medium text-gray-400'>{c.label}</h4>
                     <HugeiconsIcon
-                      size={16}
+                      size={20}
                       icon={LinkSquare02Icon}
                       className='text-gray-500 transition-colors group-hover:text-gray-300'
                     />
                   </div>
                   <p className='mb-1 text-base font-medium text-white'>{c.value}</p>
-                  <p className='text-xs text-gray-500'>{c.description}</p>
+                  <p className='text-sm font-medium text-gray-500'>{c.description}</p>
                 </div>
               </a>
             ))}
@@ -199,7 +197,7 @@ ${data.message}
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className='h-12 border-white/10 bg-white/5 text-white placeholder:text-gray-500 focus:border-white/30'
+                    className='h-12 rounded-none border-white/10 bg-white/5 text-white placeholder:text-gray-500 focus:border-white/30'
                     placeholder='Enter your name'
                   />
                   <Field
@@ -208,7 +206,7 @@ ${data.message}
                     value={formData.telegram}
                     onChange={handleInputChange}
                     required
-                    className='h-12 border-white/10 bg-white/5 text-white placeholder:text-gray-500 focus:border-white/30'
+                    className='h-12 rounded-none border-white/10 bg-white/5 text-white placeholder:text-gray-500 focus:border-white/30'
                     placeholder='@yourusername'
                   />
                 </div>
@@ -218,18 +216,18 @@ ${data.message}
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className='h-12 border-white/10 bg-white/5 text-white placeholder:text-gray-500 focus:border-white/30'
+                  className='h-12 rounded-none border-white/10 bg-white/5 text-white placeholder:text-gray-500 focus:border-white/30'
                   placeholder='What would you like to discuss?'
                 />
                 <div className='space-y-2'>
-                  <label className='block text-xs uppercase tracking-widest text-gray-500'>Message</label>
+                  <label className='text-ms block font-medium uppercase tracking-widest text-gray-500'>Message</label>
                   <Textarea
                     name='message'
                     value={formData.message}
                     onChange={handleInputChange}
                     required
                     rows={6}
-                    className='resize-none border-white/10 bg-white/5 text-white placeholder:text-gray-500 focus:border-white/30'
+                    className='resize-none rounded-none border-white/10 bg-white/5 text-white placeholder:text-gray-500 focus:border-white/30'
                     placeholder='Tell me about your project, ideas, or just say hello...'
                   />
                 </div>

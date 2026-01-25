@@ -12,7 +12,7 @@ const SkillCard = ({ skill, index }) => (
   >
     <div className='relative h-full border border-white/10 bg-black/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/5'>
       <div className='mb-4 flex items-start justify-between'>
-        <div className='border border-white/10 bg-white/5 p-3 transition-all duration-300 group-hover:border-white/20 group-hover:bg-white/10'>
+        <div className='flex aspect-square w-14 items-center justify-center border border-white/10 bg-white/5 transition-all duration-300 group-hover:border-white/20 group-hover:bg-white/10'>
           <Icon name={skill.icon} size={28} className='text-white' />
         </div>
 

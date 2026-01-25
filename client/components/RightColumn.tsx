@@ -35,10 +35,10 @@ export default function RightColumn() {
                 whileHover={{ x: 4 }}
               >
                 <div className='border border-white/10 bg-black/50 p-2'>
-                  <HugeiconsIcon icon={info.icon} size={20} className='text-gray-400 group-hover:text-white' />
+                  <HugeiconsIcon icon={info.icon} size={23} className='text-gray-400 group-hover:text-white' />
                 </div>
                 <div>
-                  <p className='text-xs text-gray-500'>{info.platform}</p>
+                  <p className='text-sm font-medium text-gray-500'>{info.platform}</p>
                   <p className='text-sm font-medium text-white'>{info.handle}</p>
                 </div>
               </motion.a>
