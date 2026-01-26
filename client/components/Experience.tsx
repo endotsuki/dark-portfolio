@@ -127,7 +127,7 @@ export default function ExperienceTimeline() {
                   </div>
                   <Button
                     size='icon'
-                    className='absolute right-3 top-3 rounded-none border-white bg-transparent opacity-0 transition-opacity sm:bottom-4 sm:right-4 sm:top-auto sm:opacity-100 sm:group-hover:opacity-100'
+                    className='absolute right-3 top-3 scale-0 rounded-none border-white/30 bg-transparent opacity-0 transition-all duration-300 ease-in-out group-hover:scale-100 sm:bottom-4 sm:right-4 sm:top-auto sm:opacity-100 sm:group-hover:opacity-100'
                   >
                     <HugeiconsIcon size={23} icon={Add01Icon} className='text-white sm:h-5 sm:w-5' />
                   </Button>

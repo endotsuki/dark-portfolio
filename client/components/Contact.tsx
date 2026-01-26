@@ -7,6 +7,7 @@ import {
   Cancel01Icon,
   CheckmarkCircle02Icon,
   InformationCircleIcon,
+  Linkedin01Icon,
   LinkSquare02Icon,
   Loading03Icon,
   Location05Icon,
@@ -54,6 +55,13 @@ export default function Contact() {
       label: 'Email',
       value: 'alex@example.com',
       href: 'mailto:alex@example.com',
+      description: 'Professional inquiries',
+    },
+    {
+      icon: Linkedin01Icon,
+      label: 'LinkedIn',
+      value: 'Mao Socheathek',
+      href: '#',
       description: 'Professional inquiries',
     },
     {
@@ -157,16 +165,17 @@ ${data.message}
         </div>
         <div className='grid gap-12 lg:grid-cols-12'>
           <div className='space-y-4 lg:col-span-5'>
-            <h3 className='mb-8 text-2xl font-bold text-white'>Connect With Me</h3>
+            {/* <h3 className='mb-8 text-2xl font-bold text-white'>Connect With Me</h3> */}
             {contactInfo.map((c, i) => (
               <a
                 key={c.label}
                 href={c.href}
-                className='group flex items-center gap-4 border border-white/10 bg-black/50 p-4 backdrop-blur-sm transition-all hover:border-white/30 hover:bg-white/5'
+                className='group flex items-center gap-4 border border-white/10 bg-black/50 p-5 backdrop-blur-sm transition-all hover:border-white/30 hover:bg-white/5'
               >
-                <div className='border border-white/10 bg-white/5 p-3 transition-colors group-hover:border-white/20 group-hover:bg-white/10'>
-                  <HugeiconsIcon size={23} icon={c.icon} className='text-white' />
+                <div className='group border border-white/10 bg-white/5 p-3 transition-transform duration-300 group-hover:rotate-45 group-hover:border-white/20 group-hover:bg-white/10'>
+                  <HugeiconsIcon size={23} icon={c.icon} className='text-white transition-transform duration-300 group-hover:-rotate-45' />
                 </div>
+
                 <div className='flex-1'>
                   <div className='mb-1 flex items-center justify-between'>
                     <h4 className='text-sm font-medium text-gray-400'>{c.label}</h4>
