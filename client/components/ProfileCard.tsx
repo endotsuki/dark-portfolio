@@ -19,9 +19,9 @@ export default function ProfileCard() {
         </Avatar>
 
         <div className='mb-6 space-y-2'>
-          <div className='flex items-center gap-2'>
-            <h3 className='text-2xl font-bold text-white'>Socheath Ek Mao</h3>
-            <HugeiconsIcon icon={CheckmarkBadge02Icon} size={20} className='fill-blue-400 text-black' />
+          <div className='flex items-center gap-1'>
+            <h3 className='text-2xl font-bold text-white'>Socheath Ek MAO</h3>
+            <HugeiconsIcon icon={CheckmarkBadge02Icon} size={23} className='fill-blue-400 text-black' />
           </div>
           <p className='text-sm font-medium text-gray-500'>Web Developer</p>
         </div>
