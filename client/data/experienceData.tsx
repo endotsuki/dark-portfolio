@@ -25,6 +25,7 @@ export const techIcons: Record<string, React.ReactNode> = {
 };
 
 export const projects = [
+  // Company
   {
     title: 'Jewelry Management System',
     companyName: 'Chhorn Chenda',
@@ -55,6 +56,7 @@ export const projects = [
     github: 'https://github.com',
     live: 'https://example.com',
   },
+  // Personal
   {
     title: 'Peak Slaok',
     companyName: 'Personal Project',
@@ -85,6 +87,7 @@ export const projects = [
     github: 'https://github.com',
     live: 'https://ccdjewelry.vercel.app/',
   },
+  // Academy
   {
     title: 'Portfolio Website',
     companyName: 'CSTAD Academy',

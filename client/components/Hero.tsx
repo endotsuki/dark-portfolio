@@ -27,12 +27,12 @@ export default function Hero() {
     },
     {
       title: 'Location',
-      info: 'Phnom Penh, Cambodia'
+      info: 'Phnom Penh, Cambodia',
     },
     {
       title: 'Status',
-      info: 'Not available for projects'
-    }
+      info: 'Not available for projects',
+    },
   ];
   const [time, setTime] = useState(() =>
     new Date().toLocaleTimeString('en-US', {

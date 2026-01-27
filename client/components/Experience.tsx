@@ -6,7 +6,8 @@ import { HugeiconsIcon } from '@hugeicons/react';
 import { Add01Icon, GeometricShapes01Icon, GithubIcon, LaptopVideoIcon, Location05Icon } from '@hugeicons/core-free-icons';
 
 const ProjectCard = ({ project }: { project: any }) => (
-  <div className='mb-6 border border-white/10 bg-black/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/5'>
+  <div className='mb-6 overflow-hidden border border-white/10 bg-black/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/5'>
+    <div className='fixed right-0 top-0 -z-50 h-60 w-60 -translate-y-10 translate-x-10 rounded-full bg-primary/20 blur-3xl' />
     <div className='mb-4 flex flex-col gap-4 md:flex-row md:items-start md:justify-between'>
       <div className='flex items-center gap-4'>
         <div className='group relative flex flex-col items-center'>
