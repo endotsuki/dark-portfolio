@@ -83,6 +83,39 @@
 }
 
 @layer components {
+  .hero-glow {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .hero-glow::before {
+    content: '';
+    position: absolute;
+    inset: -20%;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(1200px circle at 50% 20%, hsl(var(--primary) / 0.42), transparent 55%),
+      radial-gradient(900px circle at 80% 65%, hsl(var(--accent) / 0.18), transparent 60%),
+      radial-gradient(700px circle at 20% 75%, hsl(var(--secondary) / 0.14), transparent 60%);
+    filter: blur(60px);
+    opacity: 0.95;
+    transform: translateZ(0);
+  }
+
+  .hero-glow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      radial-gradient(900px circle at 50% 0%, hsl(var(--primary) / 0.18), transparent 55%),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85));
+    mix-blend-mode: screen;
+    opacity: 0.7;
+  }
+
   .glow-effect {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
