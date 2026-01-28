@@ -3,6 +3,7 @@ import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { ArrowLeft02Icon } from '@hugeicons/core-free-icons';
+import Seo from '@/components/Seo';
 
 export default function NotFound() {
   const [text, setText] = useState('');
@@ -50,6 +51,7 @@ Don't worry, we can help you find your way back!`;
 
   return (
     <div className='flex min-h-screen items-center justify-center bg-black p-4 font-mono text-green-400'>
+      <Seo title='404 - Page not found' description='The page you are looking for does not exist.' noIndex />
       <div className='w-full max-w-4xl'>
         <div className='rounded-lg border border-gray-700 bg-gray-900 p-6 shadow-2xl'>
           {/* Terminal Header */}
